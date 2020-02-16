@@ -1,1 +1,4 @@
-# Learning
+# myLearning
++ C
++ algorithm
++ python
