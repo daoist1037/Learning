@@ -1128,3 +1128,4 @@ pyautogui.keyUp('ctrl')
 ```python
 pyautogui.hotkey('ctrl', 'c')
 ```
+gfh
