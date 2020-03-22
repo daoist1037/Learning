@@ -1128,4 +1128,3 @@ pyautogui.keyUp('ctrl')
 ```python
 pyautogui.hotkey('ctrl', 'c')
 ```
-sdjkhfsd
