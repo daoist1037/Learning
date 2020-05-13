@@ -52,6 +52,7 @@ set wildmenu		"命令模式下，底部操作指令按下 Tab 键自动补全。
 
 "-------------------------vim 三种模式下光标样式
 set gcr=n-v-c:ver25-Cursor/lCursor,ve:ver35-Cursor,o:hor50-Cursor,i-ci:ver25-Cursor/lCursor,r:hor50-Cursor/lCursor
+"-------------------------python3路径
 let g:python3_host_prog="/usr/bin/python3"
 "-----------------------------插件管理
 call plug#begin('/home/dd/.local/vim/plugged')
@@ -210,23 +211,23 @@ endfunc
 autocmd BufNewFile * normal G "新建文件后，自动定位到文件末尾"
 "--------------------------浮动窗口
 function! OpenFloatingWin()
-	let height = &lines - 3
-	let width = float2nr(&columns - (&columns * 2 / 10))
-	let col = float2nr((&columns - width) / 2)
-	" 设置浮动窗口打开的位置，大小等。
-	" 这里的大小配置可能不是那么的 flexible 有继续改进的空间
-	let opts = {
-			\ 'relative': 'editor',
-			\ 'row': height * 0.3,
-			\ 'col': col + 30,
-			\ 'width': width * 2 / 3,
-			\ 'height': height / 2
-			\ }
-	let buf = nvim_create_buf(v:false, v:true)
-	let win = nvim_open_win(buf, v:true, opts)
-	" 设置浮动窗口高亮
-	"call setwinvar(win, '&winhl', 'Normal:Pmenu')
-	setlocal 
+		let height = &lines - 3
+		let width = float2nr(&columns - (&columns * 2 / 10))
+		let col = float2nr((&columns - width) / 2)
+		" 设置浮动窗口打开的位置，大小等。
+		" 这里的大小配置可能不是那么的 flexible 有继续改进的空间
+		let opts = {
+				\ 'relative': 'editor',
+				\ 'row': height * 0.3,
+				\ 'col': col + 30,
+				\ 'width': width * 2 / 3,
+				\ 'height': height / 2
+				\ }
+		let buf = nvim_create_buf(v:false, v:true)
+		let win = nvim_open_win(buf, v:true, opts)
+		" 设置浮动窗口高亮
+		call setwinvar(win, '&winhl', 'Normal:Pmenu')
+		setlocal 
 				\ buftype=nofile
 				\ nobuflisted
 				\ bufhidden=hide
