@@ -1,11 +1,13 @@
 runtime! debian.vim
 if has("syntax")
-  syntax on
+    syntax on
 endif
 if filereadable("/etc/vim/vimrc.local")
-  source /etc/vim/vimrc.local
+    source /etc/vim/vimrc.local
 endif
+"--------------------------------------------------------------
 "--------------------------基本配置
+"--------------------------------------------------------------
 set number	"显示行号
 set relativenumber	"显示相对行号·
 set cursorline	"高亮当前行
@@ -54,16 +56,23 @@ set backupdir=~/.local/.vim/.backup//	"设置备份文件、交换文件、操�
 set autochdir		"自动切换工作目录。这主要用在一个 Vim 会话之中打开多个文件的情况，默认的工作目录是打开的第一个文件的目录。该配置可以将工作目录自动切换到，正在编辑的文件的目录。
 set autoread		"打开文件监视。如果在编辑过程中文件发生外部改变（比如被别的编辑器编辑了），就会发出提示。
 set wildmenu		"命令模式下，底部操作指令按下 Tab 键自动补全。第一次按下 Tab，会显示所有匹配的操作指令的清单；第二次按下 Tab，会依次选择各个指令。
-
-"-------------------------vim 三种模式下光标样式
+"--------------------------------------------------------------
+"--------------------------vim 三种模式下光标样式
+"--------------------------------------------------------------
 set gcr=n-v-c:ver25-Cursor/lCursor,ve:ver35-Cursor,o:hor50-Cursor,i-ci:ver25-Cursor/lCursor,r:hor50-Cursor/lCursor
-"-----------------------------重新打开一个文件时跳到上一次编辑的地方
+"--------------------------------------------------------------
+"--------------------------重新打开一个文件时跳到上一次编辑的地方
+"--------------------------------------------------------------
 if has("autocmd")
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
+"--------------------------------------------------------------
 "-------------------------python3路径
+"--------------------------------------------------------------
 let g:python3_host_prog="/usr/bin/python3"
-"-----------------------------插件管理
+"--------------------------------------------------------------
+"--------------------------插件管理
+"--------------------------------------------------------------
 call plug#begin('/home/dd/.local/vim/plugged')
 "文件管理
 "Plug 'preservim/nerdtree'
@@ -111,7 +120,9 @@ Plug 'dkarter/bullets.vim',{'for':['markdown','vim-plug']}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 call plug#end()
-"------------------Leaderf 设置
+"--------------------------------------------------------------
+"--------------------------Leaderf 设置
+"--------------------------------------------------------------
 " don't show the help in normal mode
 let g:Lf_HideHelp = 1
 let g:Lf_UseCache = 0
@@ -140,7 +151,9 @@ noremap <leader>fd :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand
 noremap <leader>fo :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
 noremap <leader>fn :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
 noremap <leader>fp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
-"----------------onedark设置
+"--------------------------------------------------------------
+"--------------------------onedark设置
+"--------------------------------------------------------------
 set termguicolors
 let g:onedark_termcolors=256
 let g:onedark_hide_endofbuffer=1
@@ -155,9 +168,9 @@ hi Comment guifg=#5C6370 ctermfg=59 cterm=italic
 let g:lightline = {
     \ 'colorscheme': 'one',
     \ 'active': {
-    \   'left': [ [ 'mode', 'paste' ],
+    \ 'left': [ [ 'mode', 'paste' ],
     \             [ 'gitbranch', 'readonly', 'filename', 'modified', 'helloworld' ] ],
-    \   'right': [ [ 'lineinfo' ],
+    \ 'right': [ [ 'lineinfo' ],
     \              [ 'percent' ],
     \              [ 'fileformat', 'fileencoding', 'filetype' ] ]
     \ },
@@ -175,7 +188,9 @@ function! LightlineFilename()
     "return filename . modified
     return filename 
 endfunction
-"------------------------F5 一键编译运行
+"--------------------------------------------------------------
+"--------------------------F5 一键编译运行
+"--------------------------------------------------------------
 func! CompileRunGcc()
     exec"w!"
     if &filetype =='c'
@@ -198,90 +213,97 @@ func! CompileRunGcc()
         exec "MarkdownPreview"
     endif
 endfunc
-"------------------------markdown-preview设置
+"--------------------------------------------------------------
+"--------------------------markdown-preview设置
+"--------------------------------------------------------------
 let g:mkdp_path_to_chrome = "/mnt/c/Program\ Files\ (x86)/Google/Chrome/Application"
+"--------------------------------------------------------------
 "--------------------------自动写入文件头
+"--------------------------------------------------------------
 autocmd BufNewFile *.cpp,*.[ch],*.sh,*.py,*.html,*.php,*java exec ":call SetTitle()"
 func SetTitle()
-        if &filetype=='python'
-                call setline(1, "#!/usr/bin/python3")
-                call append(line("."), "#-*- encoding: UTF-8 -*-")
-        endif
-        if &filetype=='cpp'
-                call setline(1, "/*************************************************************************")
-                call append(line("."), "      > File Name: ".expand("%"))
-                call append(line(".")+1, "      > Author: daoist")
-                call append(line(".")+2, "      > Mail: @qq.com")
-                call append(line(".")+3, "      > Created Time: ".strftime("%c"))
-                call append(line(".")+4, "      > Last changed: TIMESTAMP")
-                call append(line(".")+5, " ************************************************************************/")
-                call append(line(".")+6, "#include<iostream>")
-                call append(line(".")+7, "using namespace std;")
-                call append(line(".")+8, "")
-        endif
-        if &filetype=='c'
-                call setline(1, "/*************************************************************************")
-                call append(line("."), "      > File Name: ".expand("%"))
-                call append(line(".")+1, "      > Author: daoist")
-                call append(line(".")+2, "      > Mail: @qq.com")
-                call append(line(".")+3, "      > Created Time: ".strftime("%c"))
-                call append(line(".")+4, "      > Last changed: TIMESTAMP")
-                call append(line(".")+5, " ************************************************************************/")
-                call append(line(".")+6, "#include<stdio.h>")
-                call append(line(".")+7, "")
-        endif
+    if &filetype=='python'
+        call setline(1, "#!/usr/bin/python3")
+        call append(line("."), "#-*- encoding: UTF-8 -*-")
+    endif
+    if &filetype=='cpp'
+        call setline(1, "/*************************************************************************")
+        call append(line("."), "      > File Name: ".expand("%"))
+        call append(line(".")+1, "      > Author: daoist")
+        call append(line(".")+2, "      > Mail: @qq.com")
+        call append(line(".")+3, "      > Created Time: ".strftime("%c"))
+        call append(line(".")+4, "      > Last changed: TIMESTAMP")
+        call append(line(".")+5, " ************************************************************************/")
+        call append(line(".")+6, "#include<iostream>")
+        call append(line(".")+7, "using namespace std;")
+        call append(line(".")+8, "")
+    endif
+    if &filetype=='c'
+        call setline(1, "/*************************************************************************")
+        call append(line("."), "      > File Name: ".expand("%"))
+        call append(line(".")+1, "      > Author: daoist")
+        call append(line(".")+2, "      > Mail: @qq.com")
+        call append(line(".")+3, "      > Created Time: ".strftime("%c"))
+        call append(line(".")+4, "      > Last changed: TIMESTAMP")
+        call append(line(".")+5, " ************************************************************************/")
+        call append(line(".")+6, "#include<stdio.h>")
+        call append(line(".")+7, "")
+    endif
 endfunc
 autocmd BufNewFile * normal G "新建文件后，自动定位到文件末尾"
+"--------------------------------------------------------------
 "--------------------------浮动窗口
+"--------------------------------------------------------------
 function! OpenFloatingWin()
-        let height = &lines - 3
-        let width = float2nr(&columns - (&columns * 2 / 10))
-        let col = float2nr((&columns - width) / 2)
-        " 设置浮动窗口打开的位置，大小等。
-        " 这里的大小配置可能不是那么的 flexible 有继续改进的空间
-        let opts = {
-                \ 'relative': 'editor',
-                \ 'row': height * 0.3,
-                \ 'col': col + 30,
-                \ 'width': width * 2 / 3,
-                \ 'height': height / 2
-                \ }
-        let buf = nvim_create_buf(v:false, v:true)
-        let win = nvim_open_win(buf, v:true, opts)
-        " 设置浮动窗口高亮
-        call setwinvar(win, '&winhl', 'Normal:Pmenu')
-        setlocal 
-                \ buftype=nofile
-                \ nobuflisted
-                \ bufhidden=hide
-                \ nonumber
-                \ norelativenumber
-                \ signcolumn=no
+    let height = &lines - 3
+    let width = float2nr(&columns - (&columns * 2 / 10))
+    let col = float2nr((&columns - width) / 2)
+    " 设置浮动窗口打开的位置，大小等。
+    let opts = {
+        \ 'relative': 'editor',
+        \ 'row': height * 0.3,
+        \ 'col': col + 30,
+        \ 'width': width * 2 / 3,
+        \ 'height': height / 2
+        \ }
+    let buf = nvim_create_buf(v:false, v:true)
+    let win = nvim_open_win(buf, v:true, opts)
+    " 设置浮动窗口高亮
+    call setwinvar(win, '&winhl', 'Normal:Pmenu')
+    setlocal 
+        \ buftype=nofile
+        \ nobuflisted
+        \ bufhidden=hide
+        \ nonumber
+        \ norelativenumber
+        \ signcolumn=no
 endfunction
 function! OpenFloatWin2()
-        let buf = nvim_create_buf(v:false, v:true)
-        call nvim_buf_set_lines(buf, 0, -1, v:true, ["test", "text"])
-                
-                let height = &lines - 3
-                let width = float2nr(&columns - (&columns * 2 / 10))
-                let col = float2nr((&columns - width) / 2)
-        
-                let opts = {
-                        \ 'relative': 'editor',
-                        \ 'row': height * 0.3,
-                        \ 'col': col + 30,
-                        \ 'width': width * 2 / 3,
-                        \ 'height': height / 2,
-                        \ 'anchor': 'NW'
-                        \ }
-        "hi def NvimFloatingWindow guibg=NONE ctermbg=NONE 
-        let win = nvim_open_win(buf, v:true, opts)
-        " optional: change highlight, otherwise Pmenu is used
-        call nvim_win_set_option(win, 'winhl','Normal:Pmenu' )
-        exec"term"
-        exec"startinsert"
+    let buf = nvim_create_buf(v:false, v:true)
+    call nvim_buf_set_lines(buf, 0, -1, v:true, ["test", "text"])
+            
+    let height = &lines - 3
+    let width = float2nr(&columns - (&columns * 2 / 10))
+    let col = float2nr((&columns - width) / 2)
+    
+    let opts = {
+        \ 'relative': 'editor',
+        \ 'row': height * 0.3,
+        \ 'col': col + 30,
+        \ 'width': width * 2 / 3,
+        \ 'height': height / 2,
+        \ 'anchor': 'NW'
+        \ }
+    "hi def NvimFloatingWindow guibg=NONE ctermbg=NONE 
+    let win = nvim_open_win(buf, v:true, opts)
+    " optional: change highlight, otherwise Pmenu is used
+    call nvim_win_set_option(win, 'winhl','Normal:Pmenu' )
+    exec"term"
+    exec"startinsert"
 endfunction
-"----------------------cocnvim配置
+"--------------------------------------------------------------
+"--------------------------cocnvim配置
+"--------------------------------------------------------------
 " TextEdit might fail if hidden is not set.
 set hidden
 
@@ -307,14 +329,14 @@ set signcolumn=yes
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+    \ pumvisible() ? "\<C-n>" :
+    \ <SID>check_back_space() ? "\<TAB>" :
+    \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
 " Use <c-space> to trigger completion.
@@ -324,9 +346,9 @@ inoremap <silent><expr> <c-space> coc#refresh()
 " position. Coc only does snippet and additional edit on confirm.
 " <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
 if exists('*complete_info')
-  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+    inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 else
-  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+    inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
 
 " Use `[g` and `]g` to navigate diagnostics
@@ -343,11 +365,11 @@ nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
+    if (index(['vim','help'], &filetype) >= 0)
+        execute 'h '.expand('<cword>')
+    else
+        call CocAction('doHover')
+    endif
 endfunction
 
 " Highlight the symbol and its references when holding the cursor.
@@ -361,11 +383,11 @@ xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
 augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder.
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+    autocmd!
+    " Setup formatexpr specified filetype(s).
+    autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+    " Update signature help on jump placeholder.
+    autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
 " Applying codeAction to the selected region.
@@ -425,7 +447,9 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
-"---------------------------MarkdownPreview
+"--------------------------------------------------------------
+"--------------------------MarkdownPreview
+"--------------------------------------------------------------
 let g:mkdp_auto_start = 0
 let g:mkdp_auto_close = 1
 let g:mkdp_refresh_slow = 0
@@ -435,14 +459,14 @@ let g:mkdp_open_ip = ''
 let g:mkdp_echo_preview_url = 0
 let g:mkdp_browserfunc = ''
 let g:mkdp_preview_options = {
-            \ 'mkit': {},
-            \ 'katex': {},
-            \ 'uml': {},
-            \ 'maid': {},
-            \ 'disable_sync_scroll': 0,
-            \ 'sync_scroll_type': 'middle',
-            \ 'hide_yaml_meta': 1
-            \ }
+    \ 'mkit': {},
+    \ 'katex': {},
+    \ 'uml': {},
+    \ 'maid': {},
+    \ 'disable_sync_scroll': 0,
+    \ 'sync_scroll_type': 'middle',
+    \ 'hide_yaml_meta': 1
+    \ }
 let g:mkdp_markdown_css = ''
 let g:mkdp_highlight_css = ''
 let g:mkdp_port = ''
@@ -466,19 +490,21 @@ autocmd Filetype markdown inoremap <buffer> ,4 ####<Space><Enter><++><Esc>kA
 autocmd Filetype markdown inoremap <buffer> ,l --------<Enter>
 
 function! s:isAtStartOfLine(mapping)
-  let text_before_cursor = getline('.')[0 : col('.')-1]
-  let mapping_pattern = '\V' . escape(a:mapping, '\')
-  let comment_pattern = '\V' . escape(substitute(&l:commentstring, '%s.*$', '', ''), '\')
-  return (text_before_cursor =~? '^' . ('\v(' . comment_pattern . '\v)?') . '\s*\v' . mapping_pattern . '\v$')
+    let text_before_cursor = getline('.')[0 : col('.')-1]
+    let mapping_pattern = '\V' . escape(a:mapping, '\')
+    let comment_pattern = '\V' . escape(substitute(&l:commentstring, '%s.*$', '', ''), '\')
+    return (text_before_cursor =~? '^' . ('\v(' . comment_pattern . '\v)?') . '\s*\v' . mapping_pattern . '\v$')
 endfunction
 
 inoreabbrev <expr> <bar><bar>
-          \ <SID>isAtStartOfLine('\|\|') ?
-          \ '<c-o>:TableModeEnable<cr><bar><space><bar><left><left>' : '<bar><bar>'
+    \ <SID>isAtStartOfLine('\|\|') ?
+    \ '<c-o>:TableModeEnable<cr><bar><space><bar><left><left>' : '<bar><bar>'
 inoreabbrev <expr> __
-          \ <SID>isAtStartOfLine('__') ?
-          \ '<c-o>:silent! TableModeDisable<cr>' : '__'
-"----------------------快捷键映射
+    \ <SID>isAtStartOfLine('__') ?
+    \ '<c-o>:silent! TableModeDisable<cr>' : '__'
+"--------------------------------------------------------------
+"--------------------------快捷键映射
+"--------------------------------------------------------------
 map <F5> :call CompileRunGcc()<CR>
 nnoremap fw :w!<CR>
 nnoremap fq :q!<CR>
