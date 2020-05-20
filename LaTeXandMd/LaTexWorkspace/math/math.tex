@@ -1,0 +1,179 @@
+
+  \documentclass{article}
+  \usepackage{ctex}
+  \usepackage{amsmath }
+  \begin{document}
+  	
+  	Here's some math:
+\eta_w=\frac{\eta_a}{\eta_1^2*\eta_2^2*\eta_3}=\frac{0.83287}{0.99^2*0.99^2**0.96}=0.9031610663
+总效率\eta_a=0.83287\\
+工作机效率\eta_w\\
+工作机功率\mathrm{P}_w=4.2\mathrm{kW}\\
+电动机功率P'=\frac{\mathrm{P}_w}{\eta_a}=5.042797748\mathrm{kW}\\
+工作机轴转速\mathrm{n}_w=59.447983\mathrm {r/min}\\
+
+
+| 中心高H | 外形尺寸L×HD | 安装尺寸A×B | 地脚螺栓孔直径K | 轴伸尺寸D×E | 键部位尺寸F×G |
+| :-----: | :----------: | :---------: | :-------------: | :---------: | :-----------: |
+|   132   |   515*315    |   216*178   |       12        |    38*80    |     10*33     |
++ 确定传动装置的总传动比和分配传动比
++ 总传动比
+
+i_a=\frac{n_m}{n_w}=\frac{960}{59.447983}=16.14857 
+
++ 分配传动比
+
+取箱外传动比 i_k=5.0464 
+
+减速器传动比为 i_1=\frac{i_a}{i_v}=\frac{16.14857}{5.0464}=3.2000178345\approx 3.2 
+
++ 传动装置运动及动力参数计算
+
++ 计算各轴转速
+
+高速轴：n_1=n_m=960=960\mathrm{r/min}\\
+低速轴：n_2=\frac{n_1}{i_1}=\frac{960}{3.2000178345}=300\mathrm{r/min}\\
+工作轴转速：n_3=\frac{n_2}{i_k}=59.4483\mathrm{r/min}
+
+
++ 计算各轴输入功率
+
+高速轴：P_1=P_d \eta_1=5.04279775\times 0.99=4.9923697728\approx 4.99KW \\
+低速轴：P_2=P_1 \eta_2\eta_3=4.99\times 0.99\times 0.96=4.742496\approx 4.74KW \\
+工作轴：P_3=P_2 \eta_2\eta_1\eta_w=4.74\times 0.99\times 0.99\times 0.90=4.1811066\approx 4.2KW\\
+
+
++ 计算各轴输入转矩
+
+高速轴：T_1=9550P_1/n_1=(9550\times 4.99\times/960) N\cdot m=49.640 N\cdot m\\
+低速轴：T_2=9550P_2/_2=(9550\times 4.74/300) N\cdot m=150.89 N\cdot m\\
+工作机轴：T_3=9550P_3/n_3=(9550\times 4.2/59.4483) N\cdot m= 674.704 N\cdot m\\
+
+
+
+# 传动零件
+## 减速器内部传动零件设计——齿轮传动设计
+### 选定齿轮类型、精度等级、材料及齿数
+1. 根据传动方案，选用斜齿圆柱齿轮传动，压力角取为β=20°
+2. 参考表3-5选用8级精度
+3. 选用软齿面齿轮。材料选择小齿轮45钢（调质处理），硬度为230~255HBS，大齿轮45钢（正火处理），硬度为190~217HBS
+4. 选小齿轮齿数 z_1=26 ，则大齿轮齿数 z_2=z_1\times u= 26*3.2=83 
+## 按齿面接触疲劳强度设计
+1. 由式（3-16）试算小齿轮分度圆直径，即
+
+\mathrm{d}_{1t}\geq \sqrt[3]{
+	\frac{2K_{Ht}T}{\Phi_d}
+	\frac{u+1}{u}
+	(\frac{Z_HZ_EZ_{\varepsilon}Z_{\beta}}{[\sigma_H]})^2
+}
+
++ 确定公式中的各参数值
++  计算小齿轮传递的扭矩
+
+T=49640N\cdot mm
+
++ 选取齿宽系数 \Phi_d =0.9
++ 由图3-11查得区域系数 Z_H =2.45
++ 由表3-2查得材料的弹性影响系数 Z_E=189.8 \sqrt{\mathrm{MPa}} 
++ 取 Z_\varepsilon =0.8
++ 计算 Z_\beta=\sqrt{\cos\beta} =0.969  
+由图3-16查得小齿轮和大齿轮的接触疲劳极限分别为
+
+\sigma_{\mathrm{Hlim1}}=580\mathrm{MPa},\sigma_{\mathrm{Hlim2}}=550\mathrm{MPa}
+
+计算应力循环次数
+
+N_1=60nat=60\times 1\times 960\times 16\times 300\times 10=2.765\times 10^9\\
+N_2=\frac{N_1}{u}=\frac{2.765\times 10^9}{3.2}=8.641\times 10^8
+
+插曲寿命系数  
+&emsp;由图3-18得 Z_{N1}=Z_{N_2}=1   
+由表3-4得安全系数 S=1.2 ，则
+
+[\sigma_{H1}]=\frac{\sigma_{Hlim1}Z_{N1}}{S_H}=\frac{580\times 1}{1.2}=483.33\mathrm{MPa}\\
+[\sigma_{H2}]=\frac{\sigma_{Hlim2}Z_{N2}}{S_H}=\frac{550\times 1}{1.2}=458.33\mathrm{MPa}\\
+
+取 [\sigma_{H1}] 和 [\sigma_{H2}] 中较小者作为该齿轮副的接触疲劳许用应力，即
+
+[\sigma_{H}]=458.33\mathrm{MPa}
+
+由图3-17查得小齿轮和大齿轮的齿根弯曲疲劳极限分别为
+
+\sigma_{Flim1}=220\mathrm{MPa}\qquad
+\sigma_{Flim2}=210\mathrm{MPa}\\
+
+由图3-19查取弯曲疲劳系数
+
+Y_{N1}=Y_{N2}=1\\
+
+取弯曲疲劳安全系数 S=1.5 ，由式（10-14）得
+
+[\sigma_{F1}]=\frac{\sigma_{Flim1}Y_{ST}Y_{N1}}{S}=\frac{220\times 2\times1}{1.5}=293.33\mathrm{MPa}\\
+[\sigma_{F2}]=\frac{\sigma_{Flim2}Y_{ST}Y_{N2}}{S}=\frac{210\times 2\times1}{1.5}=280\mathrm{MPa}\\
+
++ 计算实际载荷系数 K_H   
++ 由表3-1查得使用系数 K_A=1 
++ 取动载系数 K_V=1.05 
++ 取齿间载荷分配系数 K_{\alpha}=1.2 
++ 取齿向载荷分布系数 K_{\beta}=1.15 
+
+由此，得到实际载荷系数
+
+K_H=K_AK_VK_{\alpha}K_{\beta}=1\times 1.05\times 1.2\times 1.1=1.449
+
++ 试算小齿轮分度圆直径
+
+\begin{aligned}
+	\mathrm{d}_1&\geq\sqrt[3]{
+		\frac{zK_HT}{\Phi_d}
+		\frac{u+1}{u}
+		(
+		\left.
+		\frac{Z_HZ_EZ_{\varepsilon}Z_{\beta}}
+		{[\sigma]_H}
+		)\right.^2
+	}\\
+	&=\sqrt[3]
+	{
+		\frac{2\times 1.449\times49640}{0.9}
+		\frac{3.2+1}{3.2}
+		\left.
+		(
+		\frac{2.45\times189.8\times0.8\times0.969 }{458.33}
+		)
+		\right.^2
+	}= 50.628mm\\
+	m
+	&=\frac{\mathrm{d}_1\times \cos\beta}{Z_1}=\frac{50.628\times\cos20^\circ}{26}=1.830mm\\
+\end{aligned}
+
+按表3-7，取标准模数m=2mm，则
+
+a=\frac{(Z_1+Z_2)\times m}{2\times \cos\beta}=\frac{(26+83)\times 2}{2\times\cos 20^\circ}=115.99mm，圆整为115mm
+
+修改螺旋角：
+
+\beta=\arccos\frac{m\times(Z_1+Z_2)}{2a}=\arccos\frac{2\times(26+83)}{2\times 115}=18^\circ35'23''\\
+\mathrm{d}_1=\frac{mZ_1}{\cos\beta}=\frac{2\times26}{\cos18^\circ35'23''}=54.862mm\\
+\mathrm{d}_2=\frac{mZ_2}{\cos\beta}=\frac{2\times83}{\cos18^\circ35'23''}=175.138mm\\
+v=\frac{\pi d_1n}{60\times1000}=\frac{\pi\times54.862\times960}{60\times1000}=2.749m/s\\
+b=\Phi_dd_1=0.9\times54.862=49.3758mm
+
+取 b_2=52mm,b_1=b_2+(5\backsim 10)=(52+5)mm=57mm 
+## 校核齿根弯曲疲劳强度
+计算当量齿数
+
+Z_{v1}=\frac{Z_1}{\cos^3\beta}=\frac{26}{\cos^318^\circ35'23''}=28.94\\
+Z_{v1}=\frac{Z_1}{\cos^3\beta}=\frac{83}{\cos^318^\circ35'23''}=92.39\\
+20^\circ
+
+Y_{Fa}  Y_{Sa}   
+Y_{Fa1}=2.6,Y_{Fa2}=2.2
+
+Y_{Sa1}=1.62,Y_{Sa2}=1.81
+  	
+  \end{document}
+
+
+
+

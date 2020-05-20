@@ -1,0 +1,47 @@
+\documentclass[letterpaper]{article}
+
+% \usepackage[T1]{fontenc}
+% fontenc 宏包是用来配合传统的LATEX 字体的，
+% fontspec 宏包调用ttf 或otf 格式字体，就不要再使用fontenc 宏包。
+\begin{document}
+	{\small The small and\textbf{bold} Romans ruled}
+	\par 
+	{\Large all of great big{\itshape Italy}.}
+	
+	
+	% 字号
+	He likes {\LARGE large and{\small small} letters}.
+	
+	% 如果不是在导言区全局修改，而想要局部地改变某个段落的行距，需要用\selectfont 命令使\linespread 命令的改动立即生效：
+	{\linespread{2.0}\selectfont The baseline skip is set to be twice the normal baseline skip.Pay attention to the \verb|\par| command at the end. \par}
+	In comparison, after the curly brace has been closed,everything is back to normal.\par 
+
+	% 以下长度分别为段落的左缩进、右缩进和首行缩进：它们和设置行距的命令一样，在分段时生效。
+	% \setlength{\leftskip}{20pt}  不知道怎么用
+	% \textsc{\setlength{\rightskip}{20pt}}   不知道怎么用
+	% \setlength{\parindent}{1em}
+	\noindent sdjhfjskgffffff
+
+	% 水平间距
+	% \hspace 命令生成的水平间距如果位于一行的开头或末尾，则有可能因为断行而被“吞掉”。可使用\hspace* 命令代替\hspace 命令得到不会因断行而消失的水平间距。
+	This\hspace{1.5cm}is a space of 1.5 cm.
+
+	% 命令\stretch{⟨n⟩} 生成一个特殊弹性长度，参数⟨n⟩ 为权重。它的基础长度为0pt，但可以无限延伸，直到占满可用的空间。如果同一行内出现多个\stretch{⟨n⟩}，这一行的所有可用空间将按每个\stretch 命令给定的权重⟨n⟩ 进行分配。
+	% 命令\fill 相当于\stretch{1}5
+	x\hspace{\stretch{1}}
+	x\hspace{\stretch{3}}
+	x\hspace{\fill}x
+
+	% \vspace 的间距在一页的顶端或底端可能被“吞掉”，类似\hspace 在一行的开头和末尾那样。对应地，\vspace* 命令产生不会因断页而消失的垂直间距。\vspace 也可用\stretch 设置无限延伸的垂直长度。
+	% \vspace 也可以在段落内使用
+	Use command \verb|\vspace| to add \vspace{12pt} some spaces between lines in a paragraph.
+	% \bigskip, \medskip, \smallskip 来增加预定义长度的垂直间距
+	\parbox[t]{3em}{TeX\par TeX}	%parbox垂直盒子
+	\parbox[t]{3em}{TeX\par\smallskip TeX}
+	\parbox[t]{3em}{TeX\par\medskip TeX}
+	\parbox[t]{3em}{TeX\par\bigskip TeX}
+
+	\twocolumn
+	sadddddd\newpage sddddddddddd
+	\thispagestyle{empty}
+\end{document}

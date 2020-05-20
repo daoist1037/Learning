@@ -1,0 +1,81 @@
+\documentclass{article}
+\usepackage{ulem}
+\title{标题}
+\author{Mary\thanks{E-mail:*****@***.com}\and Ted\thanks{Corresponding author}\and Louis}
+
+
+\begin{document}
+    \maketitle
+    % 摘要
+    
+    \begin{abstract}
+		这是一篇关于勾股定理的小短文
+		grap
+		实时编译结果查看
+		撒娇的哈师大
+	\end{abstract}
+	\LaTeX
+    \textbackslash      %输出斜杠
+    \par
+    It’s difficult to find \ldots .
+    \par 
+    It’s dif{}f{}icult to f{}ind \ldots .   %避免连字？貌似无效
+
+    \par 
+    % 连字号- 用来组成复合词；短破折号– 将数字连接表示范围；长破折号— 作为破折号使用
+    daughter-in-law, X-rated\\
+    pages 13--67\\
+    yes---or no?
+
+    \par 
+    % 省略号 下面等效
+    \ldots  \dots
+
+    \par 
+    % 波浪号
+    a\~{}z \qquad a$\sim$z
+
+    \par 
+    % 特殊西文符号与重音
+    % 这里用 \‘  \’会出错，不知道原因
+    H\^otel, na\"\i ve, \'el\'{e}ve,\\
+    sm\o rrebr\o d, !Se\ norita!,\\
+    Sch\"onbrunner Schlo\ss{}
+    Stra\ss e
+
+    \par 
+    % 下划线
+    An \underline{underlined} text.
+    An example of \underline{somelong and underlined words.}
+    % 查看两者区别 前者不同的单词可能生成高低各异的下划线，并且无法换行；后者能够轻松生成自动换行的下划线
+    An example of \uline{somelong and underlined words.}
+
+    \par 
+    % ulem包重定义了emph为下划线，不导包时为  强调，即正常字体中用斜体强调，斜体中正常字体来强调
+    Some \emph{emphasized words,including \emph{double-emphasized}words}, are shown here.
+
+    \par 
+    haaa aaaa aaaaasddd ddddddddddddd dddaaaaaaaa aaaaaaaaaaa  dsaasda s 
+    Fig.~2a \\  %  ~  生成不会断行的空格
+    \newline    %常用于文本段落，而双斜杠多用于数学公式
+    Donale~E. Knuth
+
+    % \newpage \clearpage 都可用于分页；前者在双栏中对一栏起作用，且两者在浮动体的操作上也不同
+    \newpage
+    as 
+    \linebreak[3]
+    % 用数字⟨n⟩ 代表适合/不适合的程度，取值范围为0-4，不带可选参数时，缺省为4
+    % 1 必须不换行  4 必须换行  2 3 可能换行，强调级别不同
+    % \nolinebreak[n]反之
+    % \pagebreak[n] 分页  
+    % \nopagebreak[n]
+    bs
+    \clearpage
+    as
+
+    \par
+    % 如果一些单词没能自动断词，我们可以在单词内手动使用\- 命令指定断词的位置：
+    % 如果没遇到换行的情况，就不起作用；
+    I think this is: su\-per\-cal\-i\-frag\-i\-lis\-tic\-ex\-pi\-al\-i\-do\-cious.
+    % \include{0402.pdf}
+\end{document}

@@ -1,0 +1,4 @@
+在Build目录下执行命令:
+cmake -G "MinGW Makefiles" ..
+在Build目录下执行命令:
+make

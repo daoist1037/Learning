@@ -1,0 +1,20 @@
+\documentclass[11pt,a4paper]{article}   %指定文档类型
+\setlength{\textwidth}{14.5cm} % 设置正文的宽度
+\setlength{\textheight}{20.5cm} % 设置正文的高度
+\usepackage{amssymb} % 调用宏包，提供更多数学符号
+\usepackage{CJK}	%提供中文支持 已经不被推荐
+\usepackage{amsmath}	%提供更多数学公式环境
+\begin{document}    %正文开始
+    Hi,this is my first \LaTeX\ life.\\
+    \linebreak[4]   %建议分页[n] n=0 1 2 3 4 建议力度依次增大
+    This is \textbf bold face style.\\  %\textbf 只对后面第一个字符起作用
+    This is \textbf{bold face} style.\\ %用分组扩展\textbf 的作用
+    This is \bfseries bold face style.\\    %\bfseries 对后面所有字符有效
+    This is {\bfseries bold face} style.\\    %用分组限制\bfseries的作用
+    \newpage	%强制分页
+    \pagebreak[2]   %同\linebreak[n]类似，但用于建议分页
+    % \enlargethispage*{10mm}
+    The Euler equation is given by\\[3mm]	%增加当前行与下一行的距离
+    $$e^{ix} \triangleq \cos(x) + i\sin(x)$$
+    \\*     %换行，但是禁止在分页时换行
+\end{document}  %正文结束

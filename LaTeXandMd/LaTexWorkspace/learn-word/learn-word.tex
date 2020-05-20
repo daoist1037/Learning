@@ -1,0 +1,621 @@
+% -*- coding: utf-8 -*-
+% !TEX program = xelatex
+
+\documentclass[12pt,notheorems,xcolor={rgb}]{beamer}
+
+\PassOptionsToPackage{BoldFont}{xeCJK} % ctex 2.4.4 取消了伪粗体
+%\usepackage{xeCJK}
+%\xeCJKsetemboldenfactor{5}
+\usepackage[UTF8,noindent]{ctex}
+\setCJKsansfont{SimHei}
+\setCJKmonofont{SimHei}
+\renewcommand\CJKfamilydefault{\CJKsfdefault}
+
+\usetheme{dirichlet}
+
+\setbeamersize{text margin left=4mm,text margin right=4mm}
+
+\AtBeginSubsection{}
+
+\usepackage{arev}
+
+\renewcommand{\baselinestretch}{1.1} % ctex 2.4.1 开始为 1，之前为 1.3
+
+%% LaTeX 中 默认 \parskip=0pt plus 1pt，而 Beamer 中默认 \parskip=0pt
+
+%% \parskip 用 plus 1fil 没有效果，用 plus 1fill 则节标题错位
+\setlength{\parskip}{5pt plus 1pt minus 1pt}       % 段间距为 5pt + 1pt - 1pt
+%\setlength{\baselineskip}{19pt plus 1pt minus 1pt} % 行间距为 5pt + 1pt - 1pt
+\setlength{\lineskiplimit}{4pt}                    % 行间距小于 4pt 时重新设置
+\setlength{\lineskip}{4pt}                         % 行间距太小时自动改为 4pt
+
+\AtBeginDocument{
+  \setlength{\baselineskip}{19pt plus 1pt minus 1pt} % 似乎不能放在导言区中
+  \setlength{\abovedisplayskip}{4pt minus 2pt}
+  \setlength{\belowdisplayskip}{4pt minus 2pt}
+  \setlength{\abovedisplayshortskip}{2pt}
+  \setlength{\belowdisplayshortskip}{2pt}
+}
+
+\newfontfamily{\adventor}{TeX Gyre Adventor}
+\setbeamerfont{title}{size=\Huge,series=\bfseries,family=\adventor\youyuan}
+
+\setbeamerfont{section title}{size=\LARGE}
+
+\usepackage{multicol}
+
+\usepackage{listings}
+
+\makeatletter
+\AtBeginDocument{%
+  \def\lst@visiblespace{%
+    {\color{text1!70!back1}\lst@ttfamily{\char32}\textvisiblespace}%
+  }%
+}
+\makeatother
+
+\lstset{
+  basicstyle=\ttfamily\color{accent2},
+  literate=*{\&}{{\color{accent1}\&}}{1}{@}{{\color{accent1}@}}{1},
+  showspaces=true,
+  escapechar=\%,
+  %escapechar=`,
+  %frame=single,
+  %backgroundcolor=\color{lightgray},
+  %xleftmargin=8pt,
+  %framexleftmargin=8pt
+}
+
+\let\lst=\lstinline
+
+\newcommand{\rightkey}{\textcolor{text1!70!back1}{$\rightarrow$}}
+
+%\lstMakeShortInline` % FIXME
+
+\usepackage{tcolorbox}
+
+\tcbset{
+  standard jigsaw,
+  opacityback = 0,
+  colframe = text1!70!back1,
+  coltext  = accent3,
+  boxrule  = 0.2mm,
+  left     = 2mm,
+  right    = 2mm,
+  top      = 2mm,
+  bottom   = 2mm,
+  middle   = 2mm
+}
+
+% 左右并排例子框
+\newtcolorbox{exampleh}[1][0.5]{
+  sidebyside = true,
+  lefthand ratio = #1,
+}
+
+% 上下排列例子框
+\newtcolorbox{examplev}{
+  sidebyside = false
+}
+
+\usepackage{tabularx}
+\usepackage{tabu}
+
+\newenvironment{multieqns}{
+  \setlength{\arraycolsep}{0.14em}
+  \begin{array}{*{12}{rc}}
+}{
+  \end{array}
+}
+
+% http://tex.stackexchange.com/q/66949/8956
+\DeclareTextCommandDefault{\nobreakspace}{\leavevmode\nobreak\ }
+
+\newenvironment{framex}{\begin{frame}[fragile=singleslide,environment=framex]}{\end{frame}}
+
+% 默认是 \raggedright，改为两边对齐
+\usepackage{ragged2e}
+\justifying
+\let\oldraggedright\raggedright
+\let\raggedright\justifying
+
+\def\lead#1{\textcolor{accent1}{#1}}
+\def\bold#1{\textcolor{accent2}{#1}}
+\def\warn#1{\textcolor{accent3}{#1}}
+
+\def\code#1{\textcolor{accent2}{#1}}
+\def\demo#1{\textcolor{accent3}{#1}}
+
+\newcommand\zz[1]{\text{\bold{\string#1}}}
+
+\newcommand{\mcmd}[1]{\bold{\string#1}&\warn{$#1$}}
+
+\newcommand{\out}[1]{{$\color{accent3}#1$}}
+
+\begin{document}
+
+\title{用 Word 排版数学文档}
+\author{\href{https://lvjr.bitbucket.io}{吕荐瑞}}
+\institute{暨南大学数学系}
+
+\begin{frame}[plain]
+\titlepage
+\end{frame}
+
+\section{开始使用}
+
+\subsection{新版公式}
+
+\begin{frame}
+\frametitle{新版公式}
+从 Microsoft Word 2007 开始，微软提供了新的数学公式功能．相对于 MathType 插件写出的公式，它有如下优点：
+\begin{itemize}
+  \item 技术先进，排版出的数学公式更美观
+  \item 兼容良好，在不同的电脑上表现一致
+  \item 使用方便，无需安装插件就可以使用
+  \item 输入快捷，可以纯粹用键盘输入公式
+\end{itemize}
+\end{frame}
+
+\subsection{插入公式}
+
+\begin{framex}
+\frametitle{插入公式}
+在新版 Word 中，要插入一个数学公式，有如下两种方法：
+\begin{enumerate}
+  \item 使用键盘快捷键“Alt+=”
+  \item 在插入菜单中点击“公式”项
+\end{enumerate}
+\end{framex}
+
+\subsection{两种公式}
+
+\begin{framex}
+\frametitle{两种公式}
+在新版 Word 中，公式有\bold{内嵌公式}和\bold{显示公式}两种，两种公式有一些区别：
+\begin{itemize}
+  \item 显示公式单独一行居中显示，而内嵌公式与文本放在同一行
+  \item 显示公式中的分式一般比内嵌公式的大
+\end{itemize}
+而一个公式属于哪种类型，由该行是否有其它内容自动决定：
+\begin{itemize}
+  \item 你在某些文字后面直接按“Alt+=”将得到内嵌公式
+  \item 而新起一行后再按 “Alt+=”则得到自动居中的显示公式
+\end{itemize}
+点击公式右下角的三角形按钮，可以改变公式的类型．
+\end{framex}
+
+\section{单行公式}
+
+\subsection{上标下标}
+
+\begin{framex}
+\frametitle{上标下标}
+在 Word 的数学公式中，上标和下标分别用 \lst!^! 和  \lst!_! 表示．比如
+\begin{exampleh}
+\lst!x_n ! \tcblower $x_n$
+\end{exampleh}
+\begin{exampleh}
+\lst!x^2 ! \tcblower $x^2$
+\end{exampleh}
+在上面两个例子中，左边表示输入的方式，右边表示得到的结果．
+\par
+注意输入最后的 \lst! ! 表示空格符．
+空格符标示了某部分输入的结束，从而 Word 将会自动构建此部分公式．
+\end{framex}
+
+\begin{framex}
+\frametitle{上标下标}
+在输入时，并不需要在公式的每一部分后面都加上空格符．比如
+\begin{examplev}
+\lst!(x_1+x_2)^2=x_1^2+2x_1 x_2+x_2^2 !
+\tcblower
+$(x_1+x_2)^2=x_1^2+2x_1x_2+x_2^2$
+\end{examplev}
+在这个例子可以看到，括号和运算符也会自动标示某部分公式的结束，因此不需要加上 \lst! ! 空格符．
+\end{framex}
+
+\begin{framex}
+\frametitle{上标下标}
+如果上下标中包含多个符号，一般要将它们放在一对圆括号中．
+\begin{exampleh}
+\lst!a^(p-1) ! \tcblower $a^{p-1}$
+\end{exampleh}
+\begin{exampleh}
+\lst!a^p-1! \tcblower $a^p-1$
+\end{exampleh}
+如上所述，运算符会导致 Word 构建之前的上标，因此结果不同．
+\end{framex}
+
+\subsection{数学分式}
+
+\begin{framex}
+\frametitle{数学分式}
+在 Word 中输入分式很自然，比如
+\begin{exampleh}
+\lst!(a+b)/c ! \tcblower $\frac{a+b}{c}$
+\end{exampleh}
+若需要斜线形式的分式，可以输入 \lst!\/!．比如
+\begin{exampleh}
+\lst!(a+b)\/c ! \tcblower $(a+b)/c$
+\end{exampleh}
+\end{framex}
+
+\subsection{排版根号}
+
+\begin{framex}
+\frametitle{排版根号}
+要得到二次根号，可以用 \lst!\sqrt! 命令．下面两种输入的结果相同
+\begin{exampleh}
+\lst!\sqrt 5 ! \tcblower $\sqrt{5}$
+\end{exampleh}
+\begin{exampleh}
+\lst!\sqrt(5) ! \tcblower $\sqrt{5}$
+\end{exampleh}
+但用第二种方法还可以得到一般的根号．比如
+\begin{exampleh}
+\lst!\sqrt(n&x) ! \tcblower $\sqrt[n]{x}$
+\end{exampleh}
+三次根号和四次根号也可以分别用 \lst!\cbrt! 和 \lst!\qdrt! 命令．
+\end{framex}
+
+\subsection{分隔括号}
+
+\begin{framex}
+\frametitle{分隔括号}
+圆括号 \lst!()!，方括号 \lst![]! 和花括号 \lst!{}! 称为\bold{分隔符}．
+它们的大小将根据其中内容的大小自动调整．比如
+\begin{exampleh}
+\lst!(1+1/n)^n ! \tcblower $\left(1+\frac1n\right)^n$
+\end{exampleh}
+注意不要忘记在后面输入空格符．左右括号可以不必一样，比如
+\begin{exampleh}
+\lst!(1/3 ,1/2] ! \tcblower $\left(\frac13,\frac12\right]$
+\end{exampleh}
+\end{framex}
+
+\subsection{特殊字符}
+
+\begin{framex}
+\frametitle{特殊字符}
+在数学公式中，很少会用到 \_ 和 \^{} 字符．
+确实需要时，可以分别输入  \lst!\_! 和 \lst!\^! 得到．
+其他特殊字符输入方式类似．比如
+\begin{exampleh}
+\lst!\^ \_ \( \)! \tcblower \^{} \_ ( )
+\end{exampleh}
+此时得到的括号将不被当作分隔符，从而不会自动调整大小。
+\end{framex}
+
+\section{多行公式}
+
+\subsection{数学阵列}
+
+\begin{framex}
+\frametitle{数学阵列}
+利用 \lst!\matrix! 命令可以得到数学阵列．比如
+\begin{exampleh}
+\lst!\matrix(1&2@5&10) !
+\tcblower
+$\begin{array}{cc}
+1 & 2 \\
+5 & 10
+\end{array}$
+\end{exampleh}
+其中 \lst!&! 表示下一列，而 \lst!@! 表示下一行，每列都居中对齐．\par
+再加上括号就可以得到矩阵．比如（注意后面的两个空格符）
+\begin{exampleh}
+\lst!(\matrix(1&2@5&10) ) !
+\tcblower
+$\left(\begin{array}{cc}
+1 & 2 \\
+5 & 10
+\end{array}\right)$
+\end{exampleh}
+\end{framex}
+
+\begin{framex}
+\frametitle{数学矩阵}
+在 Word 2013 中用 \lst!\pmatrix! 命令也可以得到矩阵．比如
+\begin{exampleh}[0.7]
+\lst!\pmatrix(1&2&3@4&5&6@7&8&9) !
+\tcblower
+$\left(\begin{array}{ccc}
+1 & 2 & 3 \\
+4 & 5 & 6 \\
+7 & 8 & 9
+\end{array}\right)$
+\end{exampleh}
+其中 \lst!&! 表示下一列，而 \lst!@! 表示下一行，每列都居中对齐．
+\end{framex}
+
+\subsection{多行公式}
+
+\begin{framex}
+\frametitle{多行公式}
+利用 \lst!eqarray! 命令，很容易写出多行的对齐公式．比如
+\begin{examplev}
+\lst!\eqarray((x+y)^2&(x+y)(x+y)@&x^2+2xy+y^2) !
+\tcblower
+\begin{align*}
+(x+y)^2 &= (x+y)(x+y) \\
+        &= x^2 + 2xy + y^2
+\end{align*}
+\end{examplev}
+其中  \lst!&! 指明各行对齐的位置．各行之间用 \lst!@! 隔开．
+\end{framex}
+
+\begin{framex}
+\frametitle{多行公式}
+利用 \lst!eqarray! 写出的多行公式，可以包含多个对齐位置．比如
+\begin{examplev}
+\lst!\eqarray(a&=1,\ensp&b&=-2,@c&=-3,\ensp&d&=4) !
+\tcblower
+\begin{alignat*}{4}
+a&=1,  & \quad b&=-2, \\
+c&=-3, & \quad d&=4.
+\end{alignat*}
+\end{examplev}
+如果使用若干个  \lst!&! 将公式隔开为多块，各行的奇数块均\warn{右}对齐，偶数块均\warn{左}对齐．
+其中 \lst!\ensp! 命令用于插入额外空白，见第 \pageref{space} 页。%FIXME
+\end{framex}
+
+\subsection{括号匹配}
+
+\begin{framex}
+\frametitle{括号匹配}
+利用 \lst!eqarray! 命令也可以得到对齐的方程组．比如
+\begin{examplev}
+\lst!{\eqarray(3x&+&y&=&7@x&+&5y&=&11) \close  !
+\tcblower
+$$\left\{\begin{multieqns}
+3x &+& y &=& 7 \\ x &+& 5y &=& 11
+%10&x+&3&y=2 \\ 3&x+&13&y=4
+\end{multieqns}\right.$$
+\end{examplev}
+由于左右配对的分隔符才会自动调整大小，在只有单边括号时候，
+可以用 \lst!\open! 或者 \lst!\close! 命令分别添加左右空白分隔符．
+\end{framex}
+
+\subsection{分段函数}
+
+\begin{framex}
+\frametitle{分段函数}
+利用 \lst!eqarray! 命令也可以得到分段函数．比如
+\begin{examplev}
+\lst!{\eqarray(&x&," "x>=0;@-&x&," "x<0.) \close  !
+\tcblower
+$$\left\{\begin{aligned}
+ &x, &  x \ge 0; \\
+-&x, &  x < 0.
+\end{aligned}\right.$$
+\end{examplev}
+这里用英文双引号将空格符包含以来，以免它们被  Word 忽略．
+\end{framex}
+
+\begin{framex}
+\frametitle{分段函数}
+在 Word 2013 中用 \lst!\cases! 命令也可以得到分段函数．比如
+\begin{examplev}
+\lst!|x|=\cases(&x&," if "x>=0;@-&x&," if "x<0.) !
+\tcblower
+$$|x|=\left\{\begin{array}{l@{}l}
+\phantom{-}x, & \text{\ if\ } x \ge 0; \\
+          -x, & \text{\ if\ } x < 0.
+\end{array}\right.$$
+\end{examplev}
+公式中的文字也用英文双引号包含起来，以免被认为是数学符号．
+\end{framex}
+
+\section{函数算符}
+
+\subsection{数学函数}
+
+\begin{framex}
+\frametitle{数学函数}
+Word 可以识别常见的数学函数，比如 \lst!exp!，\lst!ln!，\lst!sin!，\lst!arctan!，
+\lst!max!，\lst!det!，\lst!deg!，\lst!gcd!，\lst!dim!，\lst!sup! 等，并用直立字体显示它们．
+\begin{exampleh}[0.58]
+\lst!sin 2x!\rightkey\lst!=k sin x!\rightkey\lst!cos x!\rightkey
+\tcblower
+$\sin 2x = k\sin x\cos x$
+\end{exampleh}
+\begin{enumerate}
+  \item 要让 Word 识别出数学函数，函数名必须和前面的字母隔开（前面为数字或运算符时不用隔开）
+  \item 在函数名后面按空格符 \lst! ! 将得到一个虚线方框表示该函数的参数，之后输入的字符都会放入其中．
+  \item 在输入完函数的参数后，要按右方向键 \rightkey{} 离开参数方框．
+\end{enumerate}
+\end{framex}
+
+\begin{framex}
+\frametitle{数学函数}
+如果把函数参数放在括号里面，此时无需按方向键，输入更简单．
+\begin{exampleh}[0.55]
+\lst!sin^2 (x) cos^2 (x) =1!
+\tcblower
+$\sin^2(x) + \cos^2(x) =1$
+\end{exampleh}
+但注意右括号后要加上空格，以让配对括号自动调整大小．
+\end{framex}
+
+\begin{framex}
+\frametitle{数学函数}
+也有方法可以避免按方向键，而且函数参数最外面无需加上括号．
+\begin{exampleh}[0.6]
+\lst!sin\begin \pi/2 \end  =1!
+\tcblower
+$\sin\frac{\pi}{2}=1$
+\end{exampleh}
+这个例子使用 \lst!\begin! 和 \lst!\end! 命令将函数参数正确地分隔出来．
+在它们后面按空格键后 \lst!\begin! 和 \lst!\end! 变成空心的方括号符号．
+之后再按空格键以结束函数参数．因此 \lst!\end! 后面要两个空格符．
+\end{framex}
+
+\subsection{极限运算}
+
+\begin{framex}
+\frametitle{极限运算}
+极限运算是一种带参数的运算，输入方法和数学函数类似．比如
+\begin{exampleh}[0.65]
+\lst!lim_(x->0) sin x!\rightkey\lst!/x !\rightkey\lst!=1!
+\tcblower
+$\lim\limits_{x\to0}\dfrac{\sin x}{x}=1$
+\end{exampleh}
+在输入上面第一个空格后同样出现一个虚线方框，用于包含极限运算的函数．
+因此在写完 $\frac{\sin x}{x}$ 后也要按右方向键 \rightkey{} 结束该函数．
+\end{framex}
+
+\begin{framex}
+\frametitle{极限运算}
+在显示公式中，极限的下标出现在底部；而在内嵌公式中，极限的下标出现在右下角．
+比如 \demo{$\lim_{x\to0}\frac{\sin x}{x}=1$}．这种形式不太好看．
+\par
+要保证 $x\to0$ 总是出现在底部，可以用底标命令 \lst!\below!．比如
+\begin{examplev}
+\lst!"lim"\below(x->0)  \begin sin x!\rightkey\lst!/x \end  =1!
+\tcblower
+$\lim\limits_{x\to0}\tfrac{\sin x}{x}=1$
+\end{examplev}
+上面用双引号包含 \lst!lim!，以让 Word 把它当作普通文本的底标．
+如果极限函数不是分式，\lst!\begin! 和 \lst!\end! 也可以省略．
+\end{framex}
+
+\subsection{求和连乘}
+
+\begin{framex}
+\frametitle{求和连乘}
+求和运算和连乘运算分别用 \lst!\sum! 和 \lst!\prod! 命令来表示．
+它们的输入方式和极限运算类似，只是它们可以有上标．比如
+\begin{examplev}
+\lst!\sum_(n=1)^(\infty) 1/n^2  !\rightkey\lst!=\pi^2 /6 !
+\tcblower
+$$\sum\limits_{n=1}^{\infty} \dfrac{1}{n^2}  =\dfrac{\pi^2}{6}$$
+\end{examplev}
+\begin{exampleh}[0.69]
+\lst!\prod_(p<=x) (1-1/p )^(-1) !\rightkey
+\tcblower
+$$\prod\limits_{p\le x}\left(1-\frac1p\right)^{-1}$$
+\end{exampleh}
+\end{framex}
+
+\begin{framex}
+\frametitle{求和连乘}
+在内嵌公式中，求和与连乘的上下标总出现在右边．比如 \demo{$\sum_{n=1}^k\frac{1}{n}$}．
+\par
+要保证上下标始终出现在顶部和底部，可以用顶标命令 \lst!\above! 和底标命令 \lst!\below!．比如
+\begin{examplev}
+\lst!"\sum"\below(n=0) \above(k)  \begin 1/n \end  !
+\tcblower
+$\sum\limits_{n=1}^k\tfrac{1}{n}$
+\end{examplev}
+这里用双引号包含 \lst!\sum!，以让 Word 把它当作普通文本的顶标和底标．
+如果求和式不是分式，\lst!\begin! 和 \lst!\end! 也可以省略．
+\end{framex}
+
+\section{命令速查}
+
+\subsection{自动更正}
+
+\begin{framex}
+\frametitle{自动更正}
+某些数学符号可以通过输入两三个字符，自动合并得到．比如\par
+\catcode`\~=12
+\begin{tabularx}{\textwidth}{|*{3}{XX|}}
+  \hline
+  \lst!...! & \out{\ldots} &
+  \lst!+-!  & \out{\pm} &
+  \lst!-+!  & \out{\mp} \\
+  \lst!~=!  & \out{\cong} &
+  \lst!<<!  & \out{\ll} &
+  \lst!>>!  & \out{\gg} \\
+  \lst!->!  & \out{\rightarrow} &
+  \lst!<=!  & \out{\leq} &
+  \lst!>=!  & \out{\geq} \\
+  \hline
+\end{tabularx}
+\end{framex}
+
+\subsection{空白调整}
+
+\begin{framex}
+\frametitle{空白调整}\label{space}
+数学公式中输入的多余空格符很多时候将会被忽略．
+若要在公式中添加额外的空白，可以用下面这些命令：\par
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{\textwidth}{XXX}
+  \hline
+  \zz{\ensp}     & $9/18$ em & \demo{$|\!\mkern9mu|$} \\
+  \hline
+  \zz{\vthicksp} & $6/18$ em & \demo{$|\!\,\,|$} \\
+  \hline
+  \zz{\thicksp}  & $5/18$ em & \demo{$|\!\;|$} \\
+  \hline
+  \zz{\medsp}    & $4/18$ em & \demo{$|\!\:|$} \\
+  \hline
+  \zz{\thinsp}   & $3/18$ em & \demo{$|\!\,|$} \\
+  \hline
+  \zz{\hairsp}   & $1/18$ em & \demo{$|\!\mkern1mu|$} \\
+  \hline
+\end{tabularx}\par
+其中  1em 等于字母 M 的宽度，各命令所得宽度如最右栏所示．
+\end{framex}
+
+\subsection{希腊字母}
+
+\begin{frame}
+\frametitle{希腊字母}
+%小写希腊字母：\par
+\unskip
+$\begin{tabu}{|*{3}{X>{\color{accent3}}l|}X[1.3]>{\color{accent3}}l|}
+\hline
+\zz{\alpha}  & \alpha  & \zz{\mu}      & \mu      & \zz{\epsilon} & \epsilon & \zz{\varepsilon} & \varepsilon \\
+\zz{\beta}   & \beta   & \zz{\nu}      & \nu      & \zz{\theta}   & \theta   & \zz{\vartheta}   & \vartheta \\
+\zz{\gamma}  & \gamma  & \zz{\xi}      & \xi      & \zz{\kappa}   & \kappa   &                  & \\
+\zz{\delta}  & \delta  & \zz{\tau}     & \tau     & \zz{\pi}      & \pi      & \zz{\varpi}      & \varpi \\
+\zz{\zeta}   & \zeta   & \zz{\upsilon} & \upsilon & \zz{\rho}     & \rho     & \zz{\varrho}     & \varrho \\
+\zz{\eta}    & \eta    & \zz{\chi}     & \chi     & \zz{\sigma}   & \sigma   & \zz{\varsigma}   & \varsigma \\
+\zz{\iota}   & \iota   & \zz{\psi}     & \psi     & \zz{\phi}     & \phi     & \zz{\varphi}     & \varphi \\
+\zz{\lambda} & \lambda & \zz{\omega}   & \omega   &               &          &                  & \\
+\hline
+\end{tabu}$
+\vfill
+%\par 大写希腊字母 ：\par
+$\begin{tabu}{|*{4}{X>{\color{accent3}}l|}}
+\hline
+\zz{\Gamma} & \Gamma & \zz{\Lambda} & \Lambda & \zz{\Sigma}   & \Sigma   & \zz{\Psi}   & \Psi \\
+\zz{\Delta} & \Delta & \zz{\Xi}     & \Xi     & \zz{\Upsilon} & \Upsilon & \zz{\Omega} & \Omega \\
+\zz{\Theta} & \Theta & \zz{\Pi}     & \Pi     & \zz{\Phi}     & \Phi     &             & \\
+\hline
+\end{tabu}$
+\end{frame}
+
+\subsection{数学符号}
+
+\begin{frame}
+\frametitle{数学符号}
+\renewcommand{\arraystretch}{1.2}%
+\begin{tabu}{|*{3}{Xl|}}
+  \hline
+  \mcmd{\ge}     &  \mcmd{\cdot}    & \mcmd{\pm}         \\
+  \mcmd{\le}     &  \mcmd{\cdots}   & \mcmd{\times}      \\
+  \mcmd{\neq}    &  \mcmd{\mid}     & \mcmd{\div}        \\
+  \mcmd{\sim}    &  \mcmd{\partial} & \mcmd{\leftarrow}  \\
+  \mcmd{\approx} &  \mcmd{\infty}   & \mcmd{\rightarrow} \\
+  \mcmd{\cong}   &  \mcmd{\int}     & \mcmd{\Leftarrow}  \\
+  \mcmd{\equiv}  &  \mcmd{\iint}    & \mcmd{\Rightarrow} \\
+  \hline
+\end{tabu}
+\end{frame}
+
+\subsection{参考资料}
+
+\begin{frame}
+\frametitle{参考资料}
+\begin{description}[一二三四]
+  \item[网页说明] \href{http://www.unicode.org/notes/tn28/}{http://www.unicode.org/notes/tn28/}．
+  \item[详细文档] \href{http://www.unicode.org/notes/tn28/UTN28-PlainTextMath-v3.pdf}
+                      {http://www.unicode.org/notes/tn28/\newline UTN28-PlainTextMath-v3.pdf}．
+\end{description}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,62 @@
+The pwd is D:\study\Py
+The subfolders is D:\study\Py\.ipynb_checkpoints
+The subfolders is D:\study\Py\.vscode
+The subfolders is D:\study\Py\autoPython
+The subfolders is D:\study\Py\ceshi
+The firlName is D:\study\Py\capitalsquiz1.txt
+The firlName is D:\study\Py\capitalsquiz2.txt
+The firlName is D:\study\Py\capitalsquiz3.txt
+The firlName is D:\study\Py\capitalsquiz_answer1.txt
+The firlName is D:\study\Py\capitalsquiz_answer2.txt
+The firlName is D:\study\Py\capitalsquiz_answer3.txt
+The firlName is D:\study\Py\ceshi.ipynb
+The firlName is D:\study\Py\dir.txt
+The firlName is D:\study\Py\hello.py
+The firlName is D:\study\Py\mycats.py
+The firlName is D:\study\Py\mydata.bak
+The firlName is D:\study\Py\mydata.dat
+The firlName is D:\study\Py\mydata.dir
+
+The pwd is D:\study\Py\.ipynb_checkpoints
+
+The pwd is D:\study\Py\.vscode
+The firlName is D:\study\Py\.vscode\launch.json
+The firlName is D:\study\Py\.vscode\Py.code-workspace
+The firlName is D:\study\Py\.vscode\settings.json
+
+The pwd is D:\study\Py\autoPython
+The subfolders is D:\study\Py\autoPython\1
+The subfolders is D:\study\Py\autoPython\2
+
+The pwd is D:\study\Py\autoPython\1
+The firlName is D:\study\Py\autoPython\1\10.py
+The firlName is D:\study\Py\autoPython\1\Ccopy.py
+The firlName is D:\study\Py\autoPython\1\dict1.py
+The firlName is D:\study\Py\autoPython\1\helloFunc.py
+The firlName is D:\study\Py\autoPython\1\import.py
+The firlName is D:\study\Py\autoPython\1\liebiao.py
+The firlName is D:\study\Py\autoPython\1\list.py
+The firlName is D:\study\Py\autoPython\1\pa.bat
+The firlName is D:\study\Py\autoPython\1\pw.bat
+The firlName is D:\study\Py\autoPython\1\pw.py
+The firlName is D:\study\Py\autoPython\1\while.py
+The firlName is D:\study\Py\autoPython\1\可变和不可变数据类型.py
+The firlName is D:\study\Py\autoPython\1\字典.py
+
+The pwd is D:\study\Py\autoPython\2
+The firlName is D:\study\Py\autoPython\2\9.py
+The firlName is D:\study\Py\autoPython\2\mcb.bak
+The firlName is D:\study\Py\autoPython\2\mcb.dat
+The firlName is D:\study\Py\autoPython\2\mcb.dir
+The firlName is D:\study\Py\autoPython\2\mcb.py
+The firlName is D:\study\Py\autoPython\2\os2.py
+The firlName is D:\study\Py\autoPython\2\os3.py
+The firlName is D:\study\Py\autoPython\2\pp.py
+The firlName is D:\study\Py\autoPython\2\pp3.py
+The firlName is D:\study\Py\autoPython\2\randowQuizGenerator.py
+The firlName is D:\study\Py\autoPython\2\REGEX.py
+The firlName is D:\study\Py\autoPython\2\shelf2.py
+
+The pwd is D:\study\Py\ceshi
+The firlName is D:\study\Py\ceshi\a.txt
+

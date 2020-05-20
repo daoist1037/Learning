@@ -1,0 +1,129 @@
+body {
+    background-color:white;
+    margin-left: 20%;
+    margin-right: 20%;
+    border: 10px  grey;
+    border-style: dashed;
+    padding: 100px 100px 100px 100px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: large;
+    line-height: 1.6em;
+    background-image: url(SuSkAlJbO.png),url(-Hrn5Up5.png);
+    background-position:  left, right;
+    background-size:15% !important;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+}
+p {
+    color: maroon;
+    /* background-color:red; */
+    padding: 2% 5% 2% 5%;
+    
+}
+em {
+    color: blue;
+    font-family: monospace;
+    font-size: 150%;
+    text-decoration: line-through;
+}
+h1,h2 {
+    font-family: sans-serif;
+    color:grey;
+    font-size: 2em;
+    font-style: italic;
+}
+h1 {
+    /* border-bottom: 2px solid gray; */
+    text-decoration:underline;
+}
+p.greentea {
+    background-color: green;
+    font-style: oblique;
+    border: dashed white;
+}
+p:first-line {
+    font-style: italic;
+}
+blockquote {
+    font-style: oblique;
+}
+a {
+    text-decoration: none;
+}
+
+table {
+    caption-side: bottom;
+    /* border-spacing: 10px 3px; */
+    border-collapse: collapse;
+}
+caption {
+    font-style: italic;
+}
+td th {
+    padding: 20%;
+}
+/* div#TOC {
+    border: 1px solid red;
+    padding: 2% 5% 2% 5%;
+    line-height: initial;
+    float: left;
+} */
+.cd {
+    color: blue;
+    text-decoration: underline;
+}
+a:link {
+    color: aqua;
+}
+#lll:visited{
+    color: coral;
+}
+#lll:hover {
+    color: dodgerblue;
+}
+
+#imgF {
+    float: left;
+    
+}
+#imgG {
+    position: absolute;
+    top: 300px;
+    left: 400px;
+    width: 280px;
+    z-index: 3;
+}
+
+div#TOC {
+    background-image: url(./-Hrn5Up5.png);
+    background-size: 20%;
+    background-repeat: no-repeat;
+    background-color: green;
+    background-position: right;
+    position: fixed;
+    left: 10%;
+    z-index: 4;
+}
+
+
+
+.eazy{
+    font-size: 18px;
+}
+
+.eazy::before{
+    content:'1';
+    display: inline-block;
+    width: 10px;
+    height:10px;
+    background: #ffab00;
+    border-radius:50%;
+}
+
+.eazy::after{
+    content:'2';
+    display: inline-block;
+    width: 10px;
+    height:10px;
+    background: #3385ff;
+}

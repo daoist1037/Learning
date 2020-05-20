@@ -1,0 +1,115 @@
+%导言区
+%一般只有10 11 12pt
+\documentclass[12pt]{ctexbook}%article,book,report,letter,document
+\setlength{\textwidth}{11.5cm} % 设置正文的宽度
+\setlength{\textheight}{20.5cm} % 设置正文的高度
+\usepackage{ctex}
+
+\usepackage{graphicx}%pictures
+\graphicspath{.}
+\usepackage{amsmath}
+\newcommand{\degree}{^\circ}
+\title{\heiti 我的第一个LaTeX文档}
+\author{\kaishu 李国庆}
+\date{\today}
+%正文区
+\begin{document}
+	\maketitle %letter 不能有这个命令
+	\tableofcontents
+	\chapter{绪论}
+	\section{研究目的}
+	\section{研究现状}
+	%篇章结构 
+	\section{引言}%小节
+	这是正文合法的
+	\chapter{实验}
+	\section{实验方法}
+	\section{实验结果}
+	\subsection{数据}%子小节
+	\subsection{图表}
+	\subsubsection{实验条件}
+	\subsection{结果分析}
+	\includegraphics[scale=0.17]{a}%缩放因子
+	
+	\begin{tabular}{|l ||c|c| c| p{1cm}|} %l left  c centre  r right 
+		\hline
+		name & chinese & math & english & text\\
+		\hline \hline
+		张三 & 87 & 100 & 93 & excellent\\
+		\hline
+	\end{tabular}\\
+	插图\ref{fig} %交叉引用就可以显示插图的编号
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[scale=0.17]{a}%缩放因子
+		\caption{2233}\label{fig}
+	\end{figure}
+	\begin{table}
+		\begin{tabular}{|l ||c|c| c| p{1cm}|} %l left  c centre  r right 
+			\hline
+			name & chinese & math & english & text\\
+			\hline \hline
+			张三 & 87 & 100 & 93 & excellent\\
+			\hline
+		\end{tabular}
+	\end{table}
+	a\quad b\\
+	a\qquad b\\
+	a\,b a\thinspace b\\%约1/6个em
+	a\enspace b\\%0.5个空格
+	a~b\\%硬空格 中文符号
+	a\kern -1em b\\这三个都是指定宽度
+	a\hskip 1em b\\
+	a\hspace{35pt} b\\
+	a\hphantom{xyz}b %宽度为三个占位字符的宽度
+    a\hfill b%弹性长度的宽度
+    \S \P \dag \ddag \copyright \pounds 
+    \TeX{} \LaTeX{} \LaTeXe{}\\
+    ` ' `` ''
+    	
+	Hello world!\\ \\
+	%字体样式设置
+	\textrm{Roman Family}\\
+	Roman family
+	{\rmfamily Roman family}\\
+	Roman family\\
+	Let $f(x)$ be defined by formula\\ \\
+	%字体 粗细宽度
+	\textmd{Medium Series}		\textmd{Boldface Series}\\
+	{\mdseries Medium Series}	{\bfseries Boldface Series}\\ \\
+	%字体形状 直立 斜体 伪斜体 小型大写
+	\textup{Upright Shape}  \textit{Italic Shape}\\
+	\textsl{Slanted Shape}  \textsc{Small Shape}\\
+	{\upshape Upright Shape} {\itshape Italic Shape}\\
+	{\slshape Slanted Shape} {\scshape Small Shape}\\ \\
+	%中文字体设置
+	{\songti 宋体} \quad {\heiti 黑体} \quad {\fangsong 仿宋} \quad {\kaishu 楷书}\\
+	中文字体的\textbf{粗体 是用黑体表示} \textit{斜体 是用楷书表示}\\ \\
+	%字体大小
+	{\tiny		 	hello}\\
+	{\scriptsize 	hello}\\
+	{\footnotesize  hello}\\
+	{\small			hello}\\
+	{\normalsize	hello}\\
+	{\large			hello}\\
+	{\LARGE			hello}\\
+	{\huge			hello}\\
+	{\Huge			hello}\\ \\
+	%中文字号设置命令
+	{\zihao{2} 你好！}
+	\begin{eqnarray}
+	f(x)&=x_1^2+x_2^3+5\\
+	C_{ij}&=\{0,1,-1\}_{n\times n}
+	\end{eqnarray}
+	\begin{eqnarray}\setcounter{equation}{7}
+	f(x)&=x_1^2+x_2^3+5\\
+	C_{ij}&=\{0,1,-1\}_{n\times n}
+	\end{eqnarray}
+	\begin{equation}\setcounter{equation}{7}
+		f(x)=x_1^2+x_2^3+5\\
+	\end{equation}
+	\begin{equation}
+	C_{ij}=\{0,1,-1\}_{n\times n}
+	\end{equation}\\
+	$\angle C=90\degree$
+\end{document}

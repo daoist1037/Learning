@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>第二章</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+        <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+    </head>
+    <body class="vscode-light">
+        <h1 id="第二章">第二章</h1>
+<h2 id="80888086cpu特点相对于它之前">8088/8086CPU特点（相对于它之前</h2>
+<ul>
+<li>采用并行流水线工作方式
+<ul>
+<li>通过设置指令预取队列实现</li>
+</ul>
+</li>
+<li>对内存空间实行分段管理
+<ul>
+<li>将内存分为4个段并设置地址段寄存器，以实现对1MB空间的寻址</li>
+</ul>
+</li>
+<li>支持协处理器
+<ul>
+<li>早期是一个独立的芯片</li>
+<li>主要用作浮点运算</li>
+</ul>
+</li>
+<li>两者工作模式
+<ul>
+<li>最小模式
+<ul>
+<li>单处理器模式，所有的控制信号由微处理器产生</li>
+</ul>
+</li>
+<li>最大模式
+<ul>
+<li>多处理器模式，部分控制信号由外部总线控制产生</li>
+<li>用于包含协处理器情况下</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>8088是工作在最小/最大模式由<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mi>N</mi><mi mathvariant="normal">/</mi><mover accent="true"><mrow><mi>M</mi><mi>X</mi></mrow><mo stretchy="true">‾</mo></mover></mrow><annotation encoding="application/x-tex">MN/\overline{MX}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.13333em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mord">/</span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8833300000000001em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mord mathdefault" style="margin-right:0.07847em;">X</span></span></span><span style="top:-3.80333em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line" style="border-bottom-width:0.04em;"></span></span></span></span></span></span></span></span></span>引线的状态决定的
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mi>N</mi><mi mathvariant="normal">/</mi><mover accent="true"><mrow><mi>M</mi><msub><mi>X</mi><mrow><mo>=</mo><mn>0</mn></mrow></msub></mrow><mo stretchy="true">‾</mo></mover></mrow><annotation encoding="application/x-tex">MN/\overline{MX_{=0}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.13333em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mord">/</span><span class="mord overline"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8833300000000001em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mrel mtight">=</span><span class="mord mtight">0</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.80333em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line" style="border-bottom-width:0.04em;"></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span>————工作于最大模式</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mi>N</mi><mi mathvariant="normal">/</mi><mover accent="true"><mrow><mi>M</mi><msub><mi>X</mi><mrow><mo>=</mo><mn>1</mn></mrow></msub></mrow><mo stretchy="true">‾</mo></mover></mrow><annotation encoding="application/x-tex">MN/\overline{MX_{=1}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.13333em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mord">/</span><span class="mord overline"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8833300000000001em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.80333em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line" style="border-bottom-width:0.04em;"></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span>————工作于最小模式</li>
+</ul>
+</li>
+</ul>
+<h2 id="主要引线和内部结构">主要引线和内部结构</h2>
+<h3 id="8088cpu最小模式下的主要引脚信号">8088CPU最小模式下的主要引脚信号</h3>
+<p>分为四组：</p>
+<ul>
+<li>完成一次访问内存或接口所需要的主要信号</li>
+<li>与外部同步控制信号</li>
+<li>中断请求和响应信号</li>
+<li>总线保持和响应信号</li>
+</ul>
+<p>地址线和数据线：</p>
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><msub><mi>D</mi><mn>0</mn></msub><mtext>——</mtext><mi>A</mi><msub><mi>D</mi><mn>7</mn></msub></mrow><annotation encoding="application/x-tex">AD_0——AD_7</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord mathdefault">A</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord">—</span><span class="mord">—</span><span class="mord mathdefault">A</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">7</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>：低8位地址和低8位数据信号分时复用。在传送地址信号时为单向，传送数据信号时为双向</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>A</mi><mn>1</mn></msub><mn>6</mn><mtext>——</mtext><msub><mi>A</mi><mn>1</mn></msub><mn>9</mn></mrow><annotation encoding="application/x-tex">A_16——A_19</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord">6</span><span class="mord">—</span><span class="mord">—</span><span class="mord"><span class="mord mathdefault">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord">9</span></span></span></span>：高4位地址信号，与状态信号分时复用</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>A</mi><mn>8</mn></msub><mtext>——</mtext><msub><mi>A</mi><mn>15</mn></msub></mrow><annotation encoding="application/x-tex">A_8——A_{15}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">8</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord">—</span><span class="mord">—</span><span class="mord"><span class="mord mathdefault">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight">5</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>：8位地址信号</li>
+</ul>
+<p>主要控制信号：</p>
+<ul>
+<li><code>#WR</code> 写信号</li>
+<li><code>#RD</code> 读信号</li>
+<li><code>#</code>代表上横线 低电平有效</li>
+<li><code>IO/#M</code>：为&quot;0&quot;表示访问内存，为“1”表示访问接口</li>
+<li><code>#DEN</code> 低电平有效时，允许进行读/写操作 数据收发器的选中信号</li>
+<li><code>DT/#R</code> 数据收发器的传送方向控制</li>
+</ul>
+<p>READY信号：
+CPU访问一次内存/接口的周期，标准为4个时钟周期
+实现CPU与内存或接口的同步信号</p>
+<p>中断请求和响应信号：</p>
+<ul>
+<li><code>INTR</code>  可屏蔽中断请求输入端</li>
+<li><code>NMI</code>   非屏蔽中断请求输入端</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mrow><mi>I</mi><mi>N</mi><mi>T</mi><mi>A</mi></mrow><mo stretchy="true">‾</mo></mover></mrow><annotation encoding="application/x-tex">\overline{INTA}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8833300000000001em;vertical-align:0em;"></span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8833300000000001em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord mathdefault">A</span></span></span><span style="top:-3.80333em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line" style="border-bottom-width:0.04em;"></span></span></span></span></span></span></span></span></span>   中断响应输出端</li>
+</ul>
+<p>总线保持信号：</p>
+<h2 id="8088内部结构">8088内部结构</h2>
+<h3 id="微处理器">微处理器</h3>
+<ul>
+<li>
+<p>运算器</p>
+</li>
+<li>
+<p>控制器</p>
+</li>
+<li>
+<p>寄存器</p>
+</li>
+<li>
+<p>执行单元EU</p>
+<ul>
+<li>构成：
+<ul>
+<li>运算器ALU</li>
+<li>8个通用寄存器</li>
+<li>1个标志寄存器</li>
+<li>EU部分控制电路</li>
+</ul>
+</li>
+<li>功能：
+<ul>
+<li>指令译码</li>
+<li>指令执行</li>
+<li>暂存中间运算结果</li>
+<li>保存运算结果特征</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>总线接口单元BIU</p>
+<ul>
+<li>功能：
+<ul>
+<li>从内存中取指令到指令预取队列</li>
+<li>指令预取队列是并行流水线工作的基础</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="8088内部寄存器">8088内部寄存器</h3>
+<ul>
+<li>
+<p>14个16位寄存器</p>
+<ul>
+<li>8个通用寄存器</li>
+<li>4个段寄存器</li>
+<li>2个控制寄存器</li>
+</ul>
+</li>
+<li>
+<p>通用寄存器</p>
+<ul>
+<li>数据寄存器（<code>AX BX CX DX</code>）</li>
+<li>地址指针寄存器(<code>SP BP</code>)</li>
+<li>变址寄存器 <code>SI DI</code></li>
+</ul>
+</li>
+<li>
+<p>数据寄存器</p>
+<ul>
+<li>
+<p>4个数据寄存器 又可以分为8个8位寄存器</p>
+<ul>
+<li>AX————AH  AL</li>
+</ul>
+</li>
+<li>
+<p>AX :累加器</p>
+<ul>
+<li>所有 I/O 指令都通过AX与接口传送信息，中间运算结果也多放于AX中</li>
+</ul>
+</li>
+<li>
+<p>BX：基址寄存器</p>
+<ul>
+<li>在间接寻址中存放基地址</li>
+</ul>
+</li>
+<li>
+<p>CX: 计数寄存器</p>
+<ul>
+<li>用于在循环或串操作指令中存放计数值</li>
+</ul>
+</li>
+<li>
+<p>DX：数据寄存器</p>
+<ul>
+<li>在间接寻址的 I/O 指令中存放 I/O 端口地址；在32位乘除法运算时，存放高16位数据</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>地址指针寄存器</p>
+<ul>
+<li>SP
+<ul>
+<li>堆栈指针寄存器，其内容位栈顶的偏移地址</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="实地址模式下的存储器寻址">实地址模式下的存储器寻址</h2>
+
+    </body>
+    </html>

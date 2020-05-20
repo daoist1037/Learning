@@ -1,0 +1,38 @@
+{
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "g++.exe build active file",
+            "command": "C:\\mingw64\\bin\\g++.exe",
+            "args": [
+                "-std=c++14",//指定c++编译版本
+                "-g",
+                "${file}",
+                "-o",
+                "${workspaceFolder}\\..\\bin\\${fileBasenameNoExtension}.exe",
+                "-Wall",
+                "-static-libgcc",
+                "-fexec-charset=GBK",
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher":[
+                "$gcc" //使用gcc捕获错误
+            ],
+            "presentation": {
+                "echo": false,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": false
+            }
+        }
+    ],
+    "version": "2.0.0"
+}

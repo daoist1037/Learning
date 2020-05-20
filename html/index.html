@@ -1,0 +1,86 @@
+<html>
+
+<head>
+    <script type="text/javascript">
+        function show_confirm() {
+            var r = confirm("Press a button!");
+            if (r == true)
+                alert("You pressed OK!");
+            else
+                alert("You pressed Cancel!");
+        }
+
+        function disp_prompt() {
+            var name = prompt("请输入您的名字", "Bill Gates")
+            if (name != null && name != "") {
+                document.write("你好！" + name + " 今天过得怎么样？")
+            }
+        }
+        var txt = ""
+
+        function message() {
+            try {
+                adddlert("Welcome guest!")
+            } catch (err) {
+                txt = "此页面存在一个错误。\n\n"
+                txt += "错误描述: " + err.description + "\n\n"
+                txt += "点击OK继续。\n\n"
+                if (!confirm(txt)) {
+                    document.location.href = "./my/index.html"
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <script type="text/javascript">
+        document.write("hello")
+        document.write("<h1>This is a header</h1>")
+        document.write("<p>This is a pragraph</p>")
+        var d = new Date();
+        var time = d.getHours();
+        if (time < 10)
+            document.write("Good morning")
+        else if (time >= 10 && time < 16)
+            document.write("<b>Good day</b>")
+        else
+            document.write("<b>Hello World!</b>")
+        alert("我是警告窗")
+        document.write("<br/>")
+        var i = -8
+        do {
+            document.write("The number is " + i)
+            document.write("<br />")
+            i = i + 1
+        }
+        while (i < 0)
+        var str = "Hello world!"
+        document.write(str.toUpperCase())
+        document.write("<br />")
+        document.write("<p>浏览器：")
+        document.write(navigator.appName + "</p>")
+
+        document.write("<p>浏览器版本：")
+        document.write(navigator.appVersion + "</p>")
+
+        document.write("<p>代码：")
+        document.write(navigator.appCodeName + "</p>")
+
+        document.write("<p>平台：")
+        document.write(navigator.platform + "</p>")
+
+        document.write("<p>Cookies 启用：")
+        document.write(navigator.cookieEnabled + "</p>")
+
+        document.write("<p>浏览器的用户代理报头：")
+        document.write(navigator.userAgent + "</p>")
+    </script>
+
+    <input type="button" onclick="show_confirm()" value="Show a confirm box" /><br>
+    <input type="button" onclick="disp_prompt()" value="显示提示框" />
+    <input type="button" value="View message" onclick="message()" />
+
+</body>
+
+</html>

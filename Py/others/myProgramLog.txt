@@ -1,0 +1,20 @@
+ 2020-02-26 15:59:28,176 - DEBUG - Start of program
+ 2020-02-26 15:59:28,177 - DEBUG - Start of program(5%
+ 2020-02-26 15:59:28,177 - DEBUG - i is 0, total is 0
+ 2020-02-26 15:59:28,178 - DEBUG - i is 1, total is 0
+ 2020-02-26 15:59:28,178 - DEBUG - i is 2, total is 0
+ 2020-02-26 15:59:28,178 - DEBUG - i is 3, total is 0
+ 2020-02-26 15:59:28,178 - DEBUG - i is 4, total is 0
+ 2020-02-26 15:59:28,178 - DEBUG - i is 5, total is 0
+ 2020-02-26 15:59:28,178 - DEBUG - End of fac(5%)
+ 2020-02-26 15:59:28,180 - DEBUG - End  of program
+ 2020-02-26 16:01:06,944 - DEBUG - Start of program
+ 2020-02-26 16:01:06,956 - DEBUG - Start of program(5)
+ 2020-02-26 16:01:06,956 - DEBUG - i is 0, total is 0
+ 2020-02-26 16:01:06,956 - DEBUG - i is 1, total is 0
+ 2020-02-26 16:01:06,957 - DEBUG - i is 2, total is 0
+ 2020-02-26 16:01:06,957 - DEBUG - i is 3, total is 0
+ 2020-02-26 16:01:06,957 - DEBUG - i is 4, total is 0
+ 2020-02-26 16:01:06,957 - DEBUG - i is 5, total is 0
+ 2020-02-26 16:01:06,958 - DEBUG - End of fac(5)
+ 2020-02-26 16:01:06,959 - DEBUG - End  of program

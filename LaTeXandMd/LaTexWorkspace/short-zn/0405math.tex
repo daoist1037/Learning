@@ -1,0 +1,351 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+% 其中带星号的命令定义带上下限的算符
+\DeclareMathOperator{\argh}{argh}
+\DeclareMathOperator*{\nut}{Nut}
+\begin{document}
+	Add $a$ squared and $b$ squared
+	to get $c$ squared. Or, using
+	a more mathematical approach:
+	$a^2 + b^2 = c^2$
+	
+	
+	Add $a$ squared and $b$ squared
+	to get $c$ squared
+	\begin{equation}
+	a^2 + b^2 = c^2
+	\end{equation}
+	Einstein says
+	\begin{equation}
+	E = mc^2 \label{clever}
+	\end{equation}
+	This is a reference to
+	\eqref{clever}.
+	
+	
+	It’s wrong to say
+	\begin{equation}
+	1 + 1 = 3 \tag{dumb}
+	\end{equation}
+	or
+	\begin{equation}
+	1 + 1 = 4 \notag
+	\end{equation}
+	
+	
+	Again\ldots
+	\begin{equation*}
+	a^2 + b^2 = c^2
+	\end{equation*}
+	or you can type less for the
+	same effect:
+	\[ a^2 + b^2 = c^2 \]
+	or if you like the long one:
+	\begin{displaymath}
+	a^2 + b^2 = c^2
+	\end{displaymath}
+	
+	
+	In text:
+	$\lim_{n \to \infty}
+	\sum_{k=1}^n \frac{1}{k^2}
+	= \frac{\pi^2}{6}$.\\
+	In display:
+	\[
+	\lim_{n \to \infty}
+	\sum_{k=1}^n \frac{1}{k^2}
+	= \frac{\pi^2}{6}
+	\]
+	
+	
+	$f''(x)$
+	
+	% 分式使用\frac{分子}{分母} 来书写。分式的大小在行间公式中是正常大小，而在行内被极度压缩。amsmath 提供了方便的命令\dfrac 和\tfrac，令用户能够在行内使用正常大小的行间公式，或是反过来
+	In display style:
+	\[
+	3/8 \qquad \frac{3}{8}
+	\qquad \tfrac{3}{8}
+	\]
+	In text style:
+	$1\frac{1}{2}$~hours \qquad
+	$1\dfrac{1}{2}$~hours
+	
+	
+	% 特殊的分式形式，如二项式结构，由amsmath 宏包的\binom 命令生成：
+	Pascal’s rule is
+	\[
+	\binom{n}{k} =\binom{n-1}{k}
+	+ \binom{n-1}{k-1}
+	\]
+	
+	% 关系符
+	$\ne  \le \ge \approx$
+	$\neq \leq \geq$
+	
+	\[
+	f_n(x) \stackrel{*}{\approx} 1
+	\]
+	
+	$\times \div \cdot \pm \mp \nabla \partial$
+	
+	$\ker \dim \hom \deg$
+	$\limsup \liminf \sup \det \Pr \gcd$
+	
+	$a\bmod b\\
+	x\equiv a\pmod{b}$
+	
+
+	\[\argh 3 = \nut_{x=1} 4x\]%自定义的算符
+	
+	In text:
+	$\sum_{i=1}^n \quad
+	\int_0^{\frac{\pi}{2}} \quad
+	\oint_0^{\frac{\pi}{2}} \quad
+	\prod_\epsilon $ \\
+	In display:
+	\[\sum_{i=1}^n \quad
+	\int_0^{\frac{\pi}{2}} \quad
+	\oint_0^{\frac{\pi}{2}} \quad
+	\prod_\epsilon \]
+	% 可以在巨算符后使用\limits 手动令上下限显示在上下方，\nolimits 则相反
+	In text:
+	$\sum\limits_{i=1}^n \quad
+	\int\limits_0^{\frac{\pi}{2}} \quad
+	\prod\limits_\epsilon $ \\
+	In display:
+	\[\sum\nolimits_{i=1}^n \quad
+	\int\limits_0^{\frac{\pi}{2}} \quad
+	\prod\nolimits_\epsilon \]
+	
+	% amsmath 宏包还提供了\substack，能够在下限位置书写多行表达式；subarray 环境更进一步，令多行表达式可选择居中(c) 或左对齐(l)：
+	\[
+	\sum_{\substack{0\le i\le n \\
+	j\in \mathbb{R}}}
+	P(i,j) = Q(n)
+	\]
+	\[
+	\sum_{\begin{subarray}{l}
+	0\le i\le n \\
+	j\in \mathbb{R}
+	\end{subarray}}
+	P(i,j) = Q(n)
+	\]
+	
+	
+	% 数学重音和上下括号
+	$\bar{x}_0 \quad \vec{x}_1 \quad \hat{x}_2$\\
+	$\underline{\underline{1/3}} = 0.\overline{3}$\\
+	$\hat{XY} \quad \widehat{XY} \quad \overrightarrow{AB}$\\
+	% \overbrace 和\underbrace 命令用来生成上/下括号，各自可带一个上/下标公式
+	$\underbrace{\overbrace{a+b+c}^6 \cdot \overbrace{d+e+f}^7}_\text{meaning of life} =42$
+	
+	% 为箭头增加上下标
+	\[ a\xleftarrow{x+y+z} b \]
+	\[ c\xrightarrow[x<y]{a*b*c}d \]
+	
+	
+	% 使用\left 和\right 命令可令括号（定界符）的大小可变，
+	% \left 和\right 必须成对使用。需要使用单个定界符时，另一个定界符写成\left. 或\right.
+	\[1 + \left(\frac{1}{1-x^{2}}
+	\right)^3 \qquad
+	\left.\frac{\partial f}{\partial t}
+	\right|_{t=0}\]
+	
+	% 用\big、\bigg等命令生成固定大小的定界符 （\bigl 和\bigr 不必成对出现）
+	% \left 和\right 分界符包裹的公式块是不允许断行的 而\big 和\bigg 等命令不受限制
+	$\Bigl((x+1)(x-1)\Bigr)^{2}$\\
+	$\bigl( \Bigl( \biggl( \Biggl( \quad
+	\bigr\} \Bigr\} \biggr\} \Biggr\} \quad
+	\big\| \Big\| \bigg\| \Bigg\| \quad
+	\big\Downarrow \Big\Downarrow
+	\bigg\Downarrow \Bigg\Downarrow$
+	
+	
+	% 多行公式的首行左对齐，末行右对齐，其余行居中
+	\begin{multline}
+	a + b + c + d + e + f
+	+ g + h + i \\
+	= j + k + l + m + n\\
+	= o + p + q + r + s\\
+	= t + u + v + x + z
+	\end{multline}
+	
+	
+	% 给等号后添加一对括号{} 以产生正常的间距
+	% 多个公式多个编号
+	\begin{align}
+	a ={} & b + c \\
+	={} & d + e + f + g + h + i
+	+ j + k + l \notag \\
+	& + m + n + o \\
+	={} & p + q + r + s
+	\end{align}
+	% 下面没有对齐
+	\begin{gather}
+	a = b + c \\
+	d = e + f + g \\
+	h + i = j + k \notag \\
+	l + m = n
+	\end{gather}
+	% 以上带星号的命令均表示没有编号
+	
+	
+	% 多个公式一个编号 与equation 环境套用。
+	% aligned 等环境也可以用定界符包裹。
+	\begin{equation}
+	\begin{aligned}
+	a &= b + c \\
+	d &= e + f + g \\
+	h + i &= j + k \\
+	l + m &= n
+	\end{aligned}
+	\end{equation}
+	
+	
+	% 数组可作为一个公式块，在外套用\left、\right 等定界符
+	\[ \mathbf{X} = \left(
+	\begin{array}{cccc}
+	x_{11} & x_{12} & \ldots & x_{1n}\\
+	x_{21} & x_{22} & \ldots & x_{2n}\\
+	\vdots & \vdots & \ddots & \vdots\\
+	x_{n1} & x_{n2} & \ldots & x_{nn}\\
+	\end{array} \right) \]
+	
+	\begin{equation}
+	\begin{aligned}
+	|x| = \left\{
+		\begin{array}{rl}
+		-x & \text{if } x < 0,\\
+		0 & \text{if } x = 0,\\
+		x & \text{if } x > 0.
+		\end{array} \right. 
+	\end{aligned}
+	\end{equation}
+	
+		\begin{equation}
+		\begin{aligned}
+|x| =
+\begin{cases}
+-x & \text{if } x < 0,\\
+0 & \text{if } x = 0,\\
+x & \text{if } x > 0.
+\end{cases} 
+		\end{aligned}
+		\end{equation}
+	
+	% 不带定界符的matrix，以及带各种定界符的矩阵pmatrix（(）、bmatrix（[）、Bmatrix（{）、vmatrix（|）、VmVmatrix（||）用这些环境时，无需给定列格式
+	\[
+	\begin{matrix}
+	1 & 2 \\ 3 & 4
+	\end{matrix} \qquad
+	\begin{bmatrix}
+	x_{11} & x_{12} & \ldots & x_{1n}\\
+	x_{21} & x_{22} & \ldots & x_{2n}\\
+	\vdots & \vdots & \ddots & \vdots\\
+	x_{n1} & x_{n2} & \ldots & x_{nn}\\
+	\end{bmatrix}
+	\]
+	% 在矩阵中的元素里排版分式时，一来要用到\dfrac 等命令，二来行与行之间有可能紧贴着，这时要用到3.6.6 小节的方法来调节间距：
+	\[
+	\mathbf{H}=
+	\begin{bmatrix}
+	\dfrac{\partial^2 f}{\partial x^2} &
+	\dfrac{\partial^2 f}
+	{\partial x \partial y} \\[8pt]
+	\dfrac{\partial^2 f}
+	{\partial x \partial y} &
+	\dfrac{\partial^2 f}{\partial y^2}
+	\end{bmatrix}
+	\]
+	
+	\newpage
+	%间距
+	\begin{equation}
+		\begin{aligned}
+			&aa
+			&a\ a\\
+			&a\quad a\\
+			&a\qquad a\\
+			&a\,a\\
+			&a\:a\\
+			&a\;a\\
+			&a\!a\\
+		\end{aligned}
+	\end{equation}
+	$$\int \iint \iiint \iiiint$$
+	
+	
+	
+	% 字体
+	$\mathcal{R} \quad \mathfrak{R}
+	\quad \mathbb{R}$
+	\[\mathcal{L}
+	= -\frac{1}{4}F_{\mu\nu}F^{\mu\nu}\]
+	$\mathfrak{su}(2)$ and
+	$\mathfrak{so}(3)$ Lie algebra
+	
+	
+	% \displaystyle 行间公式尺寸	\textstyle 行内公式尺寸		\scriptstyle 上下标尺寸	\scriptscriptstyle 次级上下标尺
+	\[
+	P = \frac
+	{\sum_{i=1}^n (x_i- x)(y_i- y)}
+	{\displaystyle \left[
+	\sum_{i=1}^n (x_i-x)^2
+	\sum_{i=1}^n (y_i-y)^2
+	\right]^{1/2} }
+	\]
+	
+	% 公式粗体
+	$\mu, M \qquad
+	\boldsymbol{\mu}, \boldsymbol{M}$
+	
+	% 定理环境
+	\newtheorem{mythm}{My Theorem}[section]
+	\begin{mythm}\label{thm:light}
+	The light speed in vaccum
+	is $299,792,458\,\mathrm{m/s}$.
+	\end{mythm}
+	\begin{mythm}[Energy]
+	The relationship of energy,
+	momentum and mass is
+	\[E^2 = m_0^2 c^4 + p^2 c^2\]
+	where $c$ is the light speed
+	described in theorem \ref{thm:light}.
+	\end{mythm}
+	
+	% amsthm包
+	\theoremstyle{definition} \newtheorem{law}{Law}
+	\theoremstyle{plain} \newtheorem{jury}[law]{Jury}
+	\theoremstyle{remark} \newtheorem*{mar}{Margaret}
+	\begin{law}\label{law:box}
+	Don’t hide in the witness box.
+	\end{law}
+	\begin{jury}[The Twelve]
+	It could be you! So beware and
+	see law~\ref{law:box}.\end{jury}
+	\begin{jury}
+	You will disregard the last
+	statement.\end{jury}
+	\begin{mar}No, No, No\end{mar}
+	\begin{mar}Denis!\end{mar}
+	% 证毕
+	\begin{proof}
+	For simplicity, we use
+	\[
+	E=mc^2
+	\]
+	That’s it.
+	\end{proof}
+	% 如果行末是一个不带编号的公式， 符号会另起一行，这时可使用\qedhere 命令将符号放在公式末尾：
+	\begin{proof}
+	For simplicity, we use
+	\[
+	E=mc^2 \qedhere
+	\]
+	\end{proof}
+	% 在使用带编号的公式时，建议最好不要使用\qedhere 命令，而是让proof 环境自动生成
+	
+\end{document}

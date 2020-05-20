@@ -1,0 +1,36 @@
+
+        <style>
+            div#TOC {
+              /* float: left; */
+              position: fixed;
+              left: 3%;
+            }
+            div#context {
+              margin-left: 30%;
+              margin-right: 12%;
+            }
+            div#TOC ul li ul {
+                display:none;
+            }
+            a:visited {
+              color: blue;
+            }
+        </style>
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+<script>
+    $(document).ready(function(e) {
+        $("ul li").click(function(e) {
+            $(this).children("ul").toggle();
+            e.stopPropagation(); //阻止冒泡事件
+        });
+    });
+</script>
+
+<div id="TOC">
+
+
+</div>
+
+<div id="context">
+    
+</div>

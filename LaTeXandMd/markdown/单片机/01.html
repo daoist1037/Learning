@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>硬件组成</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+        <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+    </head>
+    <body class="vscode-light">
+        <h2 id="硬件组成">硬件组成</h2>
+<ul>
+<li>8位微处理器（CPD）；</li>
+<li>数据存储器（128B RAM）；</li>
+<li>程序存储器（4KB Flash ROM）；</li>
+<li>4个8位并行I/O口；</li>
+<li>1个全双工异步串口；
+<ul>
+<li>全双工：两端各有两个端口相互连接，两个通道可同时传输</li>
+<li>半双工：两端各有两个端口相互连接，两个通道不能同时传输</li>
+<li>单工：单向</li>
+</ul>
+</li>
+<li>2个16位定时器/计数器；</li>
+<li>1个看门狗定时器；</li>
+<li>中断系统：5个中断系、5个中新向至；</li>
+<li>特球功线穿存器（SFR）26个；</li>
+<li>低功耗的空闲模式和护电模式；</li>
+<li>3个程序加密位；
+相比AT89C51，AT89S51有更突出的优点：</li>
+<li>增加在线可编程功能ISP（In Systen Program），现场程序调试和修改更加方便灵活：</li>
+<li>数据指针2个，方便对片外RAM的访问过程：</li>
+<li>看门狗定时器，提高系统抗干抗能力；</li>
+<li>增加断电标志；</li>
+<li>增加掉电状态下的中断恢复模式；</li>
+</ul>
+<p>CPU对各功能部件控制采用特殊功能寄存器（SFR，Special Function Register）的集中控制方式。</p>
+<ul>
+<li>CPU（微处理器）
+<ul>
+<li>8位，包括运算器和控制器两部分，还有位处理功能。</li>
+</ul>
+</li>
+<li>数据存储器（RAM）
+<ul>
+<li>128B（52系为256B），最可扩64KB，片内RAM为高速RAM可加快速度和降低功耗。</li>
+</ul>
+</li>
+<li>程序存储器（Flash ROM）
+<ul>
+<li>4KB Flash（AT89S52位8кB；AT89C55片内20KB），如不够片外可外扩至64KB.</li>
+</ul>
+</li>
+<li>中断系统
+<ul>
+<li>5个中断源，2级中断优先权。</li>
+</ul>
+</li>
+<li>定时器/计数器
+<ul>
+<li>2个16位定时器/计数器（52子系列有3个），4种工作方式。</li>
+</ul>
+</li>
+<li>1个看门狗定时器WDT
+<ul>
+<li>当CPU由于干扰使程序陷入死循环或跑飞时，WDT可使程序恢复正常运行。</li>
+</ul>
+</li>
+<li>串行口
+<ul>
+<li>全双工异步串行口，4种工作方式。可进行串行通信，扩展并行I/O口，可与多个单片机构成多机系统</li>
+</ul>
+</li>
+<li>P1口、P2口、P3口、P0口：4个8位并行I/O口</li>
+<li>特殊功能寄存器（<strong>SFR</strong>）
+<ul>
+<li>26个，对片内各功能部件管理、控制和监视。是各功能部件的控制寄存器和状态寄存器，映射在片内RAM区80H~FFH内</li>
+</ul>
+</li>
+</ul>
+<h2 id="引脚功能">引脚功能</h2>
+<p>多采用40只引脚双列直插</p>
+<p>按功能可分为如下3类：</p>
+<ul>
+<li>电源及时钟引脚-<strong>Vcc、Vss：XTAL1，XTAL2</strong></li>
+<li>控制引脚-<em><em>PSEN&quot;、ALE/PROG&quot;、EA</em>/Vpp，RST（RESET）</em>*</li>
+<li>I/O引脚-<strong>PO，P1，P2、P3</strong>，为4个8位I/O口。</li>
+</ul>
+<h3 id="电源及时钟引脚">电源及时钟引脚</h3>
+<ul>
+<li>电源引脚
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mi>c</mi><mi>c</mi></mrow><annotation encoding="application/x-tex">Vcc</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="mord mathdefault">c</span><span class="mord mathdefault">c</span></span></span></span>（40脚）：+5V电源。</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mi>s</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">Vss</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="mord mathdefault">s</span><span class="mord mathdefault">s</span></span></span></span>（20脚）：数字地。</li>
+</ul>
+</li>
+<li>时钟引脚
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mi>T</mi><mi>A</mi><mi>L</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">XTAL1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord mathdefault">A</span><span class="mord mathdefault">L</span><span class="mord">1</span></span></span></span>（19脚）：输入端。
+<ul>
+<li>使用片内振荡器时，应接外部石英晶体和微调电容。外接时钟源时，该脚接外部时钟振荡器的信号。</li>
+</ul>
+</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mi>T</mi><mi>A</mi><mi>L</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">XTAL2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord mathdefault">A</span><span class="mord mathdefault">L</span><span class="mord">2</span></span></span></span>（18脚）：片内振荡器反相放大器的输出端。
+<ul>
+<li>使用片内振荡器，该脚连接外部石英晶体和微调电容。</li>
+<li>当使用外部时钟源时，脚悬空。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>控制引脚
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mi>S</mi><mi>T</mi><mtext>（</mtext><mi>R</mi><mi>E</mi><mi>S</mi><mi>E</mi><mi>T</mi><mtext>，</mtext><mn>9</mn><mtext>脚）</mtext></mrow><annotation encoding="application/x-tex">RST（RESET，9脚）</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord cjk_fallback">（</span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord cjk_fallback">，</span><span class="mord">9</span><span class="mord cjk_fallback">脚</span><span class="mord cjk_fallback">）</span></span></span></span>
+<ul>
+<li>复位信号输入，加持续时间大于2个机器周期的高电平，可使单片机复位。正常工作应<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≤</mo></mrow><annotation encoding="application/x-tex">\leq</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mrel">≤</span></span></span></span> 0.5V</li>
+<li>当看门狗定时器溢田输出时，该脚将输出长达96个时钟振荡周期的高电平。</li>
+</ul>
+</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mi>A</mi><mo>∗</mo><mi mathvariant="normal">/</mi><mi>V</mi><mi>P</mi><mi>P</mi></mrow><annotation encoding="application/x-tex">EA*/VPP</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mord mathdefault">A</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">/</span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span></span>（Enable Address/Voltage Pulse of Programing 31脚）
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mi>A</mi><mo>∗</mo></mrow><annotation encoding="application/x-tex">EA*</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mord mathdefault">A</span><span class="mord">∗</span></span></span></span>：第一功能：允许访问外部程序存储器控制。(*代表反，也即为低电平有效)
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mi>A</mi><mo>∗</mo><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">EA*=1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mord mathdefault">A</span><span class="mord">∗</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>
+<ul>
+<li>PC值<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≤</mo></mrow><annotation encoding="application/x-tex">\leq</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mrel">≤</span></span></span></span> <code>0FFFH</code>时，单片机读片内4KB Flash中的程序</li>
+<li>PC值&gt;0FFFH（超出片内4KB Flash地址范围）时，转向读取片外60KB（<code>1000H-FFFFH</code>）程序存储器空间中的程序。</li>
+</ul>
+</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mi>A</mi><mo>∗</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">EA*=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mord mathdefault">A</span><span class="mord">∗</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>
+<ul>
+<li>只读取外部的程序存储器中的内容，读取地址范围0000H~FFFH，片内4KB Flash无效。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mi>p</mi><mi>p</mi></mrow><annotation encoding="application/x-tex">Vpp</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="mord mathdefault">p</span><span class="mord mathdefault">p</span></span></span></span>：第二功能，对片内Flash编程，接编程电压。</li>
+</ul>
+</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>L</mi><mi>E</mi><mi mathvariant="normal">/</mi><mi>P</mi><mi>R</mi><mi>O</mi><mi>G</mi><mo>∗</mo></mrow><annotation encoding="application/x-tex">ALE/PROG*</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">A</span><span class="mord mathdefault">L</span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mord">/</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mord mathdefault">G</span><span class="mord">∗</span></span></span></span>（Address Latch Enable/PROGramming，30脚）
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>L</mi><mi>E</mi></mrow><annotation encoding="application/x-tex">ALE</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">A</span><span class="mord mathdefault">L</span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span></span></span></span>：第一功能，为访问外部存储器提供低8位地址锁存信号，将低8位地址锁存在片外地址锁存器中。
+<ul>
+<li>此外，单片机运行时，AE端一直有正k冲信号输出，频率为时钟的<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mrow><mi>o</mi><mi>s</mi><mi>c</mi></mrow></msub></mrow><annotation encoding="application/x-tex">f_{osc}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">o</span><span class="mord mathdefault mtight">s</span><span class="mord mathdefault mtight">c</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>的1/6.</li>
+<li>注意，每当AT89551访问外部RAM时（执行MOVX类指令），要是失一个ALE冲.</li>
+</ul>
+</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mi>R</mi><mi>O</mi><mi>G</mi><mo>∗</mo></mrow><annotation encoding="application/x-tex">PROG*</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mord mathdefault">G</span><span class="mord">∗</span></span></span></span>：第二功能，对片内Flash编程的编程脉冲输入</li>
+</ul>
+</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mi>S</mi><mi>E</mi><mi>N</mi></mrow><annotation encoding="application/x-tex">PSEN</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span></span></span></span>（Program Strobe ENable，29脚）
+<ul>
+<li>片外程序存储器读选通信号，低有效。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>并行I/O引脚
+<ul>
+<li>PO口：8位，漏极开路的双向I/O口
+<ul>
+<li>可作为系统总线低8位地址总线及数据总线分时复用端口。</li>
+<li>也可作通用I/O口，需加上拉电阻，这时为准双向口。</li>
+<li>如作通用I/O输入，应先向端口写入1，可驱动8个LS型TTL负载</li>
+<li>(漏极，有三态，即有高阻态；准双向没有高阻态)</li>
+</ul>
+</li>
+<li>P1口：8位，准双向I/O口，具有内部上拉电阻。
+<ul>
+<li><strong>准双向I/O口，作为I/O输入时，应先向端口锁存器写1</strong></li>
+<li>P1口可驱动4个LS型TTL负载。</li>
+<li>P1.5/MOSI，P1.6/MISO 和P1.7/SCK可对片内Flash存储器串行编程和校验，它们分别是串行数据输入、输出和移位脉冲引脚。</li>
+</ul>
+</li>
+<li>P2口：8位，准双向I/O口，具有内部上拉电阻当外扩存储器及I/O口时，P2口输出高8位地址。
+<ul>
+<li>P2口也可作为通用I/O使用。当作输入时，应先向端口输出锁存器写1</li>
+<li>可驱动4个LS型TTL负载</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="cpu">CPU</h2>
+<h3 id="运算器">运算器</h3>
+<ul>
+<li>功能：对操作数进行算术、逻辑和位操作运算。</li>
+<li>组成：算术逻辑运算单元ALU、累加器A、位处理器、程序状态字寄存器PSW及两个暂存器等。
+<ul>
+<li><strong>算术逻辑运算单元ALU</strong>
+<ul>
+<li>可对8位变量逻辑运算（与、或、异或、循环、求补和清零），还可算术运算（加、减、乘、除）</li>
+<li>ALU还有位操作功能，对位变量进行位处理，如置&quot;1&quot;、清“0&quot;、求补、测试转移及逻辑“与”、“或”等。</li>
+</ul>
+</li>
+<li><strong>累加器A</strong>
+<ul>
+<li>使用最频繁的寄存器，可写为Acc.&quot;A&quot;与&quot;Acc&quot;书写的差别，将在第3章介绍。</li>
+<li>ALU单元的输入数据源之一，又是运算结果存放单元</li>
+<li>数据传送多通过A，数据中转站。为解决“瓶颈堵塞”问题，AT89S51增加了一部分可不经过累加器的传送指令。</li>
+<li>A进位标志Cy同时又是位处理机的位累加器</li>
+</ul>
+</li>
+<li><strong>程序状态字寄存器PSW</strong> PSW（Program Status Word）
+<ul>
+<li>位于片内特殊功能寄存器区，字节地址为<code>DOH</code>。
+<ul>
+<li>特殊功能寄存器区地址 <code>80H~FFH</code></li>
+</ul>
+</li>
+<li>包含<strong>程序运行的状态信息</strong>，其中4位保存当前指令执行后的状态，供查询和判断。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>D7</th>
+<th>D6</th>
+<th>D5</th>
+<th>D4</th>
+<th>D3</th>
+<th>D2</th>
+<th>D1</th>
+<th>D0</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PSW</td>
+<td>Cy</td>
+<td>Ac</td>
+<td>F0</td>
+<td>RS1</td>
+<td>RS0</td>
+<td>OV</td>
+<td>——</td>
+<td>P</td>
+<td>D0H</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>PSW各位功能</strong>：
+<ol>
+<li><strong>Cy(PSW.7)</strong> 进标志位</li>
+</ol>
+<ul>
+<li>可写为C。在算术和逻辑运算时，若有进位/借位，Cy=1；否则，Cy=0。在位处理器中，它是位累加器。</li>
+</ul>
+<ol start="2">
+<li><strong>Ac(PSw.6)</strong> 辅助进位标志
+<ul>
+<li>在BCD码运算时，用作十进位调整。即当D3位向D4位产生进位借位时，Ac=1；否则，Ac=0.</li>
+</ul>
+</li>
+<li><strong>FO（PSW.5）</strong> 用户设定标志位
+<ul>
+<li>由用户使用的一个状态标志位，用指令使它置&quot;1&quot;或清&quot;0&quot;，控制程序流向，应充分利用。</li>
+</ul>
+</li>
+<li><strong>RS1，RS0（PSW.4，PSW.3）</strong> 4组I作寄存器区
+<ul>
+<li>择选择片内RAM区中的4组工作寄存器区中的某一组为当前工作寄存区</li>
+</ul>
+</li>
+<li><strong>ov（PSW.2）</strong> 溢出标志位
+<ul>
+<li>当执行算术指令时，用来指示运算结果是否产生溢出。如溢出，0V-1；否则，OV=0.</li>
+</ul>
+</li>
+<li><strong>PSW.1</strong>位：保留位</li>
+<li><strong>P（PSw.0）</strong> 奇偶标志位
+<ul>
+<li>指令执行完，A中&quot;1&quot;的个数是奇数还是偶</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="控制器">控制器</h3>
+<ul>
+<li>任务：识别指令，控制单片机各功能部件，保证各部分自动协调工作。</li>
+<li>控制器包括：PC、指令寄存器、指令译码器、定时及控制逻辑电路等。
+<ul>
+<li>功能：控制指令的读入、译码和执行，对各功能部件进行定时和逻辑控制。</li>
+<li>程序计数器PC是一个独立的16位计数器，不可访问。单片机复位时，PC内容为0000H，从程序存储器0000H单元取指令，执行程序。</li>
+<li>PC工作过程：CPU取指令时，PC内容为所取指令的地址，程序存储器按此地址输出指令字节，同时PC自动加1。</li>
+<li>PC中内容变化轨迹决定程序流程。
+<ul>
+<li>当顺序执行程序，PC自动加1；</li>
+<li>执行转移程序或子程序、中断子程序调用时，自动将其内容更改成所要转移的目的地址。</li>
+</ul>
+</li>
+<li>PC计数宽度决定程序存储器地址范围。PC为16位，可对64KB（=<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>15</mn></msup></mrow><annotation encoding="application/x-tex">2^{15}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight">5</span></span></span></span></span></span></span></span></span></span></span></span>B）寻址。</li>
+</ul>
+</li>
+<li>AT89S51存储器的结构结构特点之一
+<ul>
+<li>是<strong>哈佛结构</strong>，有各自的访问指令。
+<ul>
+<li>哈弗结构，程序空间和数据空间分开</li>
+<li>（与普林斯顿结构也叫冯诺伊曼结构，是一种将程序指令存储器和数据存储器合并在一起的存储器结构</li>
+</ul>
+</li>
+<li>存储器空间分<strong>4类</strong>
+<ol>
+<li><strong>程序存储器空间</strong>
+<ol>
+<li>片内和片外两部分。</li>
+<li>片内4KB Flash，编程和擦除完全是电气实现。可用通用编程器对其编程，也可在线编程。</li>
+<li>当片内4KB Flash存储器不够用时，可外扩，最多可扩展至64KB程序存储器。</li>
+</ol>
+</li>
+<li><strong>数据存储器空间</strong>
+<ol>
+<li>片内与片外两部分。</li>
+<li>片内有128B RAM（52子系列为256B）。</li>
+<li>片内RAM不够用时，在片外可扩展至64KB RAM</li>
+</ol>
+</li>
+<li>特殊功能寄存器SFR（Special Function Register）
+<ol>
+<li>各功能部件的控制寄存器及状态寄存器。SFR综合反映了整个单片机基本系统内部实际的工作状态及工作方式。</li>
+</ol>
+</li>
+<li>位地址空间
+<ol>
+<li>211个可寻址位。片内RAM（共128位）+SFR区（共83位）。</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="程序存储器空间">程序存储器空间</h4>
+<p>存程序和表格的固定常数。片内为4KB的Flash，地址为0000~0FFFH，16位地址线。外扩的程序存储器空间最大为64KB，地址为0000H~FFFFH，使用应注意</p>
+<ul>
+<li>片内和片外两部分，访问片内还是片外程序存储器，
+<ul>
+<li>由EA*脚电平确定。
+<ul>
+<li>EA*=1，CPU从片内0000H开始取指令，当PC值没有超出0FFFE时，只访问片内Flash，当PC值超出0FFFH自动转向读片外程序存储器1000H~FFFFH内的程序。</li>
+<li>EA*=0，不理会片内4KB Flash存储器，只执行片外程序存储器（0000H~FFFFH）中的程序。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>程序存储器5个固定单元为各中断源中断入口。
+<strong>5个中断源的中断入口地址</strong>
+| 中断源    | 入口地址 |
+| --------- | -------- |
+| 外部中断0 | 0003H    |
+| 定时器T0  | 000BH    |
+| 外部中断1 | 0013H    |
+| 定时器T1  | 001BH    |
+| 串行口    | 0023H    |</li>
+</ul>
+<h4 id="数据存储器空间">数据存储器空间</h4>
+<ul>
+<li>
+<p>片内与片外</p>
+</li>
+<li>
+<p>片内RAM</p>
+<ul>
+<li>共128个单元 字节地址为 00H~7FH
+<ul>
+<li>00H-1FH 4组通用工作寄存器区，每区包含8B，为R7~RO，可用指令改变RS1，RSO两位来选择。</li>
+<li>20H~2FH的16个单元的128位可位寻址，也可字节寻址。</li>
+<li>30H~7FH的单元只能字节寻址，用作存数据以及作为堆栈区。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>片外数据存储器</p>
+<ul>
+<li>当片内RAM不够用时，需扩，最多可外扩64KB的RAM.</li>
+<li>注意，片内RAM与片外RAM两个空间是相互独立的，片内RAM与片外RAM的低128B的地址是相同的，但由于使用的是不同的访问指令，所以不会发生冲突。</li>
+</ul>
+</li>
+<li>
+<p>特殊功能寄存器（SFR）</p>
+<ul>
+<li>映射在片内RAM的 80H-FFH区域中，共26个。SFR的名称及分布见表2-4。有些可位寻址</li>
+<li>与AT89051相比，新增5个SFR：DP1L，DP1H，AUXR，AUXR1和WDTRST，已在表2-4中标出。</li>
+<li>凡是可位寻址的SFR，字节地址末位只能是0H或8H.</li>
+<li>若读/写未定义单元，将得到一个随机数。</li>
+</ul>
+</li>
+<li>
+<p>堆栈指针SP——指示栈顶在内部RAM中的位置。</p>
+<ul>
+<li>堆栈向上生长。单片机复位后，SP为07H，堆栈从08H单元开始，由于08H~1FH单元分别是属于1~3组的工作寄存器区，最好在复位后把SP值改置为60H或更大的值，避免堆栈与工作寄存器冲突。</li>
+<li>堆栈主要为子程序调用和中断操作而设。保护断点和现场</li>
+<li>保护断点。无论子程序调用还是中断服务子程序调用，最终都要返回主程序。应预先把主程序断点在堆栈中保护起来，为程序正确返回做准备。</li>
+<li>现场保护。执行子程序或中断服务子程序时，要用到一些寄存器单元，会破坏原有内容。要把有关寄存器单元的内容保存起来，送入堆栈，这就是所谓的“现场保护”
+<ul>
+<li>两种操作：数据压入（PUSH）堆栈，数据弹出（POP）堆栈。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>寄存器B</p>
+<ul>
+<li>为执行乘和除而设。不执行乘、除的情况下，可把它当作一个普通寄存器来使用。</li>
+<li>乘法，两乘数分别在A、B中，执行乘法指令后，乘积在BA中</li>
+<li>除法，被除数取自A，除数取自B，商存放在A中，余数存B中。（A/B）</li>
+</ul>
+</li>
+<li>
+<p>AUXR寄存器</p>
+<ul>
+<li>辅助寄存器</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>D7</th>
+<th>D6</th>
+<th>D5</th>
+<th>D4</th>
+<th>D3</th>
+<th>D2</th>
+<th>D1</th>
+<th>D0</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AUXR</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>WDIDLE</td>
+<td>DISRTO</td>
+<td>-</td>
+<td>-</td>
+<td>DISALE</td>
+<td>8EH</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>DISALE：ALE的禁止/允许位。</p>
+<ul>
+<li>0：ALE有效，发出脉冲；</li>
+<li>1：ALE仅在执行MOVC和MOVX类指令时有效，不访问外部存储器时，ALE不输出脉冲信号；</li>
+</ul>
+</li>
+<li>
+<p>DISRTO：禁止/允许WDT溢出时的复位输出。</p>
+<ul>
+<li>0：WDT溢出时，在RST引脚输出一个高电平脉冲；</li>
+<li>1：RST引脚仅为输入脚。</li>
+</ul>
+</li>
+<li>
+<p>WDIDLE：WDT在空闲模式下的禁止/允许位。</p>
+<ul>
+<li>0：WDT在空闲模式下继续计数；</li>
+<li>1：WDT在空闲模式下暂停计数。</li>
+</ul>
+</li>
+<li>
+<p>数据指针DPTRO和DPTRI</p>
+<ul>
+<li>双数据指针寄存器，便于访问数据存储器。</li>
+<li>DPTRO：AT89C51单片机原有的数据指针，</li>
+<li>DPTR1：新增加的数据指针。</li>
+<li>AUXR1的DPS位用于选择两个数据指针。
+<ul>
+<li>当DPS=0时，选用DPTRO；</li>
+<li>当DPS=1时，选用DPTR1.</li>
+</ul>
+</li>
+<li>数据指针可作为一个16位寄存器来用，也可作为两个独立的8位寄存器DPOH（或DP1H）和DPOL（或DPIL）来用。</li>
+</ul>
+</li>
+</ul>
+
+    </body>
+    </html>
