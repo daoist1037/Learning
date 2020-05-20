@@ -24,11 +24,11 @@
     "profiles": {
         "defaults": {
             // Put settings here that you want to apply to all profiles.
-            "colorScheme": "Atom",
-            // "fontFace": "Source Code Pro for Powerline",  11de8ce2-352a-4874-ae17-747c0d867c75
-            "fontFace": "Space Mono for Powerline",
+            "colorScheme": "Solarized Darcula",
+            "fontFace": "consolas",
+            //"fontFace": "Space Mono for Powerline",
             "cursorShape": "emptyBox",
-            "fontSize": 10,
+            "fontSize": 11,
             "backgroundImage": "D:\\下载\\好图\\电脑高清壁纸\\壁纸 (160).png",
             "backgroundImageOpacity": 0.3,
             "padding": "10 10 10 10"
@@ -59,11 +59,29 @@
                 "guid": "{11de8ce2-352a-4874-ae17-747c0d867c75}",
                 "hidden": false,
                 "name": "Git bash",
-                "tabTitle": "啦啦啦",
-                "commandline": "D:\\Program Files (x86)\\Git\\bin\\bash.exe",
+                "commandline": "D:\\Program Files (x86)\\Git\\bin\\bash.exe ",
                 // "startingDirectory": "~/../../../../d/study/repository/",
                 "startingDirectory": "~/../../../",
                 "icon": "D:\\portable program\\decoration\\logo@2x.png"
+            },
+            {
+                "guid": "{58ad8b0c-3ef8-5f4d-bc6f-13e4c00f2530}",
+                "hidden": true,
+                "name": "Debian",
+                "commandline": "Wsl ~",
+                "tabTitle": "Debian",
+                "source": "Windows.Terminal.Wsl"
+            },
+            {
+                "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
+                "hidden": false,
+                "name": "Ubuntu",
+                "tabTitle": "Ubuntu",
+                "commandline": "Wsl ~",
+                "fontSize": 10,
+                "fontFace": "DejaVu Sans Mono for Powerline",
+                //"startingDirectory": "%USERPROFILE%",
+                "source": "Windows.Terminal.Wsl"
             }
         ]
     },
