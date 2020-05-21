@@ -48,7 +48,7 @@ set fenc=utf-8
 set fileencodings=utf-8,gbk,cp936,latin-1
 set fileformat=unix
 set fileformats=unix,mac,dos
-set completeopt=preview   
+set completeopt=preview
 "set omnifunc=syntaxcomplete#Complete
 set backupdir=~/.local/.vim/.backup//	"设置备份文件、交换文件、操作历史文件的保存位置
 "set directory=~/.local/.vim/.swp//
@@ -155,8 +155,8 @@ noremap <leader>fp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
 set termguicolors
 let g:onedark_termcolors=256
 let g:onedark_hide_endofbuffer=1
-"colorscheme solarized 
-colorscheme onedark 
+"colorscheme solarized
+colorscheme onedark
 "colorscheme space-vim-dark
 hi Normal     ctermbg=NONE guibg=NONE
 hi LineNr     ctermbg=NONE guibg=NONE
@@ -184,7 +184,7 @@ function! LightlineFilename()
     let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
     "let modified = &modified ? ' +' : ''
     "return filename . modified
-    return filename 
+    return filename
 endfunction
 "--------------------------------------------------------------
 "--------------------------F5 一键编译运行
@@ -197,7 +197,7 @@ func! CompileRunGcc()
     elseif &filetype =='cpp'
         exec":!g++ % -o %<"
         exec":call OpenFloatingWin()"
-        exec":term time ./#<" 
+        exec":term time ./#<"
     elseif &filetype =='java'
         exec"!javac %"
         exec"!time java %<"
@@ -230,11 +230,10 @@ func SetTitle()
         call append(line(".")+1, "      > Author: daoist")
         call append(line(".")+2, "      > Mail: @qq.com")
         call append(line(".")+3, "      > Created Time: ".strftime("%c"))
-        call append(line(".")+4, "      > Last changed: TIMESTAMP")
-        call append(line(".")+5, " ************************************************************************/")
-        call append(line(".")+6, "#include<iostream>")
-        call append(line(".")+7, "using namespace std;")
-        call append(line(".")+8, "")
+        call append(line(".")+4, " ************************************************************************/")
+        call append(line(".")+5, "#include<iostream>")
+        call append(line(".")+6, "using namespace std;")
+        call append(line(".")+7, "")
     endif
     if &filetype=='c'
         call setline(1, "/*************************************************************************")
@@ -242,10 +241,9 @@ func SetTitle()
         call append(line(".")+1, "      > Author: daoist")
         call append(line(".")+2, "      > Mail: @qq.com")
         call append(line(".")+3, "      > Created Time: ".strftime("%c"))
-        call append(line(".")+4, "      > Last changed: TIMESTAMP")
-        call append(line(".")+5, " ************************************************************************/")
-        call append(line(".")+6, "#include<stdio.h>")
-        call append(line(".")+7, "")
+        call append(line(".")+4, " ************************************************************************/")
+        call append(line(".")+5, "#include<stdio.h>")
+        call append(line(".")+6, "")
     endif
 endfunc
 autocmd BufNewFile * normal G "新建文件后，自动定位到文件末尾"
@@ -268,7 +266,7 @@ function! OpenFloatingWin()
     let win = nvim_open_win(buf, v:true, opts)
     " 设置浮动窗口高亮
     call setwinvar(win, '&winhl', 'Normal:Pmenu')
-    setlocal 
+    setlocal
         \ buftype=nofile
         \ nobuflisted
         \ bufhidden=hide
@@ -290,7 +288,7 @@ function! OpenFloatWin2()
         \ 'height': height / 2,
         \ 'anchor': 'NW'
         \ }
-    "hi def NvimFloatingWindow guibg=NONE ctermbg=NONE 
+    "hi def NvimFloatingWindow guibg=NONE ctermbg=NONE
     let win = nvim_open_win(buf, v:true, opts)
     " optional: change highlight, otherwise Pmenu is used
     call nvim_win_set_option(win, 'winhl','Normal:Pmenu' )
@@ -450,7 +448,7 @@ autocmd Filetype markdown inoremap <buffer> ,s ~~~~ <++><Esc>F~hi
 autocmd Filetype markdown inoremap <buffer> ,i ** <++><Esc>F*i
 autocmd Filetype markdown inoremap <buffer> ,d `` <++><Esc>F`i
 autocmd Filetype markdown inoremap <buffer> ,c ```<Enter><++><Enter>```<Enter><Enter><++><Esc>4kA
-autocmd Filetype markdown inoremap <buffer> ,m - [ ] 
+autocmd Filetype markdown inoremap <buffer> ,m - [ ]
 autocmd Filetype markdown inoremap <buffer> ,p ![](<++>) <++><Esc>F[a
 autocmd Filetype markdown inoremap <buffer> ,a [](<++>) <++><Esc>F[a
 autocmd Filetype markdown inoremap <buffer> ,1 #<Space><Enter><++><Esc>kA
