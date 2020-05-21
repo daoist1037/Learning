@@ -38,7 +38,6 @@ set showmatch					"光标遇到圆括号、方括号、大括号时，自动高�
 set showtabline=2			"总是显示标签栏"
 set hlsearch					"搜索时，高亮显示匹配结果
 set ignorecase				"搜索忽略大小写
-"set spell spelllang=en_us		"打开英语单词的拼写检查
 set nobackup				"不创建备份文件。默认情况下，文件保存时，会额外创建一个备份文件，它的文件名是在原文件名的末尾，再添加一个波浪号（〜）
 set noswapfile
 set helplang=cn                " 中文文档"
@@ -49,10 +48,7 @@ set fileencodings=utf-8,gbk,cp936,latin-1
 set fileformat=unix
 set fileformats=unix,mac,dos
 set completeopt=preview
-"set omnifunc=syntaxcomplete#Complete
 set backupdir=~/.local/.vim/.backup//	"设置备份文件、交换文件、操作历史文件的保存位置
-"set directory=~/.local/.vim/.swp//
-"set undodir=~/.local/.vim/.undo//
 set autochdir		"自动切换工作目录。这主要用在一个 Vim 会话之中打开多个文件的情况，默认的工作目录是打开的第一个文件的目录。该配置可以将工作目录自动切换到，正在编辑的文件的目录。
 set autoread		"打开文件监视。如果在编辑过程中文件发生外部改变（比如被别的编辑器编辑了），就会发出提示。
 set wildmenu		"命令模式下，底部操作指令按下 Tab 键自动补全。第一次按下 Tab，会显示所有匹配的操作指令的清单；第二次按下 Tab，会依次选择各个指令。
@@ -74,59 +70,35 @@ let g:python3_host_prog="/usr/bin/python3"
 "--------------------------插件管理
 "--------------------------------------------------------------
 call plug#begin('/home/dd/.local/vim/plugged')
-"文件管理
-"Plug 'preservim/nerdtree'
 Plug 'itchyny/lightline.vim'
 Plug 'bling/vim-bufferline'
-"snippets
-Plug 'honza/vim-snippets'
-"Plug 'SirVer/ultisnips'
-"彩虹括号
-Plug 'kien/rainbow_parentheses.vim'
-"成对括号
-Plug 'tpope/vim-surround'
-"快速移动
-Plug 'easymotion/vim-easymotion'
-"启动界面
-Plug 'mhinz/vim-startify'
-"大纲浏览
-"Plug 'majutsushi/tagbar'
-"快速查找
-Plug 'Yggdroot/LeaderF', { 'do': './install.sh'  }
-"快速注释
-Plug 'scrooloose/nerdcommenter'
-"缩进条
-Plug 'yggdroot/indentline'
-"solarized主题
-Plug 'altercation/vim-colors-solarized'
-"One主题
+Plug 'honza/vim-snippets'   "snippets
+Plug 'kien/rainbow_parentheses.vim'     "彩虹括号
+Plug 'tpope/vim-surround'   "成对括号
+Plug 'easymotion/vim-easymotion'    "快速移动
+Plug 'mhinz/vim-startify'   "启动界面
+Plug 'Yggdroot/LeaderF', { 'do': './install.sh'  }  "快速查找
+Plug 'scrooloose/nerdcommenter' "快速注释
+Plug 'yggdroot/indentline'  "缩进条
+Plug 'altercation/vim-colors-solarized' "主题
 Plug 'joshdick/onedark.vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'liuchengxu/space-vim-dark'
 Plug 'tomasr/molokai'
-"括号补全
-Plug 'jiangmiao/auto-pairs'
-"高亮复制区域
-Plug 'machakann/vim-highlightedyank'
-"markdown预览
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()  }, 'for':['markdown','vim-plug']  }
-Plug 'godlygeek/tabular',{'for':['markdown','vim-plug']}
-"Plug 'plasticboy/vim-markdown', {'for':['markdown','vim-plug']}
+Plug 'jiangmiao/auto-pairs' "括号补全
+Plug 'machakann/vim-highlightedyank'    "高亮复制区域
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()  }, 'for':['markdown','vim-plug']  }  "markdown
 Plug 'dhruvasagar/vim-table-mode',{'for':['markdown','vim-plug']}
 Plug 'dkarter/bullets.vim',{'for':['markdown','vim-plug']}
-"代码补全
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+Plug 'neoclide/coc.nvim', {'branch': 'release'} "代码补全
 call plug#end()
 "--------------------------------------------------------------
 "--------------------------Leaderf 设置
 "--------------------------------------------------------------
-" don't show the help in normal mode
 let g:Lf_HideHelp = 1
 let g:Lf_UseCache = 0
 let g:Lf_UseVersionControlTool = 0
 let g:Lf_IgnoreCurrentBufferName = 1
-" popup mode
 let g:Lf_WindowPosition = 'popup'
 let g:Lf_PreviewInPopup = 1
 let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2" }
@@ -138,10 +110,8 @@ noremap <leader>ft :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
 noremap <leader>fl :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
 noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR>
 noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
-" search visually selected text literally
 xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
 noremap go :<C-U>Leaderf! rg --recall<CR>
-" should use `Leaderf gtags --update` first
 let g:Lf_GtagsAutoGenerate = 0
 let g:Lf_Gtagslabel = 'native-pygments'
 noremap <leader>fr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
@@ -155,14 +125,11 @@ noremap <leader>fp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
 set termguicolors
 let g:onedark_termcolors=256
 let g:onedark_hide_endofbuffer=1
-"colorscheme solarized
 colorscheme onedark
-"colorscheme space-vim-dark
 hi Normal     ctermbg=NONE guibg=NONE
 hi LineNr     ctermbg=NONE guibg=NONE
 hi SignColumn ctermbg=NONE guibg=NONE
 hi Comment guifg=#5C6370 ctermfg=59 cterm=italic
-"set background=dark
 let g:lightline = {
     \ 'colorscheme': 'one',
     \ 'active': {
@@ -290,7 +257,6 @@ function! OpenFloatWin2()
         \ }
     "hi def NvimFloatingWindow guibg=NONE ctermbg=NONE
     let win = nvim_open_win(buf, v:true, opts)
-    " optional: change highlight, otherwise Pmenu is used
     call nvim_win_set_option(win, 'winhl','Normal:Pmenu' )
     exec"term"
     exec"startinsert"
@@ -298,25 +264,13 @@ endfunction
 "--------------------------------------------------------------
 "--------------------------cocnvim配置
 "--------------------------------------------------------------
-" TextEdit might fail if hidden is not set.
 set hidden
-" Some servers have issues with backup files, see #649.
 set nobackup
 set nowritebackup
-" Give more space for displaying messages.
 set cmdheight=2
-" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
-" delays and poor user experience.
 set updatetime=300
-" Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
-" Always show the signcolumn, otherwise it would shift the text each time
-" diagnostics appear/become resolved.
 set signcolumn=yes
-" Use tab for trigger completion with characters ahead and navigate.
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config.
-inoremap <silent><expr> <TAB>
     \ pumvisible() ? "\<C-n>" :
     \ <SID>check_back_space() ? "\<TAB>" :
     \ coc#refresh()
@@ -325,25 +279,18 @@ function! s:check_back_space() abort
     let col = col('.') - 1
     return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-" Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
-" position. Coc only does snippet and additional edit on confirm.
-" <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
 if exists('*complete_info')
     inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 else
     inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
-" Use `[g` and `]g` to navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
-" GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-" Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 function! s:show_documentation()
     if (index(['vim','help'], &filetype) >= 0)
@@ -352,30 +299,19 @@ function! s:show_documentation()
         call CocAction('doHover')
     endif
 endfunction
-" Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
-" Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
-" Formatting selected code.
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 augroup mygroup
     autocmd!
-    " Setup formatexpr specified filetype(s).
     autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-    " Update signature help on jump placeholder.
     autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
-" Applying codeAction to the selected region.
-" Example: `<leader>aap` for current paragraph
 xmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>a  <Plug>(coc-codeaction-selected)
-" Remap keys for applying codeAction to the current line.
 nmap <leader>ac  <Plug>(coc-codeaction)
-" Apply AutoFix to problem on the current line.
 nmap <leader>qf  <Plug>(coc-fix-current)
-" Map function and class text objects
-" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
 xmap if <Plug>(coc-funcobj-i)
 omap if <Plug>(coc-funcobj-i)
 xmap af <Plug>(coc-funcobj-a)
@@ -384,36 +320,19 @@ xmap ic <Plug>(coc-classobj-i)
 omap ic <Plug>(coc-classobj-i)
 xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
-" Use CTRL-S for selections ranges.
-" Requires 'textDocument/selectionRange' support of LS, ex: coc-tsserver
 nmap <silent> <C-s> <Plug>(coc-range-select)
 xmap <silent> <C-s> <Plug>(coc-range-select)
-" Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
-" Add `:Fold` command to fold current buffer.
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-" Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-" Add (Neo)Vim's native statusline support.
-" NOTE: Please see `:h coc-status` for integrations with external plugins that
-" provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-" Mappings using CoCList:
-" Show all diagnostics.
 nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
-" Manage extensions.
 nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
-" Show commands.
 nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
-" Find symbol of current document.
 nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
-" Search workspace symbols.
 nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
-" Do default action for next item.
 nnoremap <silent> <space>j  :<C-u>CocNext<CR>
-" Do default action for previous item.
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
-" Resume latest coc list.
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 "--------------------------------------------------------------
 "--------------------------MarkdownPreview
