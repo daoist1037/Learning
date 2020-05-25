@@ -12,13 +12,11 @@
 		{
 			"path": "D:/下载/课件/python/pytudes-master/"
 		}
-/* 		{
-			"path": "D:/下载/课件/python/Python-master/"
-		} */
 	],
 	"settings": {
-		
-		"python.pythonPath": "D:\\Anaconda3\\python.exe",
+
+        "python.pythonPath": "D:\\Anaconda3\\python.exe",
+        "python.analysis.cacheFolderPath": "D:/Users/vip/Documents/IntelliCode/jedi",
 		"python.jediEnabled": true,
 		"python.autoComplete.addBrackets": true,
 		"python.autoComplete.extraPaths": [
@@ -30,78 +28,78 @@
 		// "window.menuBarVisibility": "toggle"
 		"workbench.colorCustomizations": {
 			"titleBar.activeBackground": "#08423d",
-			"titleBar.activeForeground": "#aaa7a7"	
+			"titleBar.activeForeground": "#aaa7a7"
 		},
 		//     "titleBar.activeBackground": "#08423d",
-		
+
         //     "titleBar.activeForeground": "#aaa7a7",
         //     "statusBar.background": "#08423d",
         //     "statusBar.foreground": "#aaa7a7"
 		// },
 		// "terminal.integrated.shell.windows": "D:\\portable program\\cmder\\vendor\\git-for-windows\\bin\\bash.exe",
 		// 设置终端为cmder
-		"terminal.integrated.shell.windows": "cmd.exe",
+		// "terminal.integrated.shell.windows": "cmd.exe",
 		// "terminal.integrated.shell.windows": "C:\\WINDOWS\\Sysnative\\bash.exe",
-			
-		"vim.easymotion": true,
-		"vim.showcmd": true,
-		"vim.hlsearch": true,
 
-		"vim.searchHighlightColor": "#C6F9C3",
-		"vim.statusBarColorControl": true,
-		"vim.statusBarColors.normal": [
-			"#98C379",
-			"#282C34"
-		],
-		"vim.statusBarColors.insert":[
-			"#61AFEF",
-			"#282C34"
-		], 
-		"vim.statusBarColors.visual": [
-			"#C678DD",
-			"#282C34"
-		],
-		"vim.statusBarColors.visualline":[
-			"#C678DD",
-			"#282C34"
-		],
-		"vim.statusBarColors.visualblock": [
-			"#C678DD",
-			"#282C34"
-		],
-		"vim.statusBarColors.replace": [
-			"#E06C75",
-			"#282C34"
-		],
-		"vim.statusBarColors.commandlineinprogress": [
-			"#98C379",
-			"#282C34"
-		],
-		"vim.statusBarColors.searchinprogressmode": "#007ACC",
-		"vim.statusBarColors.easymotionmode": "#007ACC",
-		"vim.statusBarColors.easymotioninputmode": "#007ACC",
-		"vim.statusBarColors.surroundinputmode": "#007ACC",
-		"vim.normalModeKeyBindingsNonRecursive": [
-			{
-				"before":[
-					"f",
-					"q"
-				],
-				"commands":[
-				":q!"
-				]
-				},
-			{
-				"before":[
-					"f",
-					"w"
-				],
-				"commands":[
-					":w!"
-				]
-			}
-		],
-		"vim.useCtrlKeys": true,
-		"editor.lineNumbers": "relative"
+		// "vim.easymotion": true,
+		// "vim.showcmd": true,
+		// "vim.hlsearch": true,
+
+		// "vim.searchHighlightColor": "#C6F9C3",
+		// "vim.statusBarColorControl": true,
+		// "vim.statusBarColors.normal": [
+		// 	"#98C379",
+		// 	"#282C34"
+		// ],
+		// "vim.statusBarColors.insert":[
+		// 	"#61AFEF",
+		// 	"#282C34"
+		// ],
+		// "vim.statusBarColors.visual": [
+		// 	"#C678DD",
+		// 	"#282C34"
+		// ],
+		// "vim.statusBarColors.visualline":[
+		// 	"#C678DD",
+		// 	"#282C34"
+		// ],
+		// "vim.statusBarColors.visualblock": [
+		// 	"#C678DD",
+		// 	"#282C34"
+		// ],
+		// "vim.statusBarColors.replace": [
+		// 	"#E06C75",
+		// 	"#282C34"
+		// ],
+		// "vim.statusBarColors.commandlineinprogress": [
+		// 	"#98C379",
+		// 	"#282C34"
+		// ],
+		// "vim.statusBarColors.searchinprogressmode": "#007ACC",
+		// "vim.statusBarColors.easymotionmode": "#007ACC",
+		// "vim.statusBarColors.easymotioninputmode": "#007ACC",
+		// "vim.statusBarColors.surroundinputmode": "#007ACC",
+		// "vim.normalModeKeyBindingsNonRecursive": [
+		// 	{
+		// 		"before":[
+		// 			"f",
+		// 			"q"
+		// 		],
+		// 		"commands":[
+		// 		":q!"
+		// 		]
+		// 		},
+		// 	{
+		// 		"before":[
+		// 			"f",
+		// 			"w"
+		// 		],
+		// 		"commands":[
+		// 			":w!"
+		// 		]
+		// 	}
+		// ],
+		// "vim.useCtrlKeys": true,
+		// "editor.lineNumbers": "relative"
 	}
 }
