@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>vim解决问题的方式</title>
+        <style>
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+        
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        
+        
+        
+    </head>
+    <body class="vscode-light">
+        <h1 id="vim解决问题的方式">vim解决问题的方式</h1>
+<h2 id="技巧1-结识-命令">技巧1 结识 <code>.</code>命令</h2>
+<ul>
+<li><code>.</code>命令可以重复上次的修改
+<ul>
+<li><code>&gt;g</code>会增加从当前行到文档末尾处的缩进层级</li>
+<li>每次进入插入模式也会形成一次修改。从进入插入模式的那一刻起，直到返回普通模式为止，vim会记录每一个按键操作。</li>
+<li><code>.</code>命令是一个微型的宏</li>
+</ul>
+</li>
+</ul>
+<h2 id="技巧2-不要自我重复">技巧2 不要自我重复</h2>
+<ul>
+<li><code>a</code>命令在当前光标之后添加内容</li>
+<li><code>a</code>命令在当前行的结尾添加内容</li>
+</ul>
+<h2 id="技巧3-以退为进">技巧3 以退为进</h2>
+<ul>
+<li><code>f{char}</code>命令让vim查找下一处指定字符出现的位置，如果找到了，就直接把光标移动到那里</li>
+<li><code>;</code>命令会重复上次<code>f</code>命令所查找的字符</li>
+<li><code>s</code>命令先删除光标下的字符，然后进入插入模式</li>
+</ul>
+<h2 id="技巧4-执行重复回退">技巧4 执行、重复、回退</h2>
+<ul>
+<li><code>@:</code>可以重复任意<code>ex</code>命令</li>
+<li><code>&amp;</code>重复上次的<code>:substitute</code>命令</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>目的</th>
+<th>操作</th>
+<th>重复</th>
+<th>回退</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>做出一个修改</td>
+<td><code>{edit}</code></td>
+<td><code>.</code></td>
+<td><code>u</code></td>
+</tr>
+<tr>
+<td>在行内查找下一指定字符</td>
+<td><code>f{char}/t{char}</code></td>
+<td><code>;</code></td>
+<td><code>,</code></td>
+</tr>
+<tr>
+<td>在行内查找上一指定字符</td>
+<td><code>f{char}/t{char}</code></td>
+<td><code>;</code></td>
+<td><code>,</code></td>
+</tr>
+<tr>
+<td>在文档中查找下一处匹配项</td>
+<td><code>/pattern&lt;cr&gt;</code></td>
+<td><code>n</code></td>
+<td><code>n</code></td>
+</tr>
+<tr>
+<td>在文档中查找上一处匹配项</td>
+<td><code>?pattern&lt;cr&gt;</code></td>
+<td><code>n</code></td>
+<td><code>n</code></td>
+</tr>
+<tr>
+<td>执行替换</td>
+<td><code>:s/target/replacement</code></td>
+<td><code>&amp;</code></td>
+<td><code>u</code></td>
+</tr>
+<tr>
+<td>执行一系列修改</td>
+<td><code>qx{changes}q</code></td>
+<td><code>@x</code></td>
+<td><code>u</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="技巧五-查找并手动替换">技巧五 查找并手动替换</h2>
+<ul>
+<li><code>*</code>命令可以查找当前光标下的单词</li>
+</ul>
+<h2 id="技巧六-结识范式">技巧六 结识<code>.</code>范式</h2>
+<h1 id="普通模式">普通模式</h1>
+<h2 id="技巧7-停顿时请移开画笔">技巧7 停顿时请移开画笔</h2>
+<h2 id="技巧8-把撤销单元切成块">技巧8 把撤销单元切成块</h2>
+<h2 id="技巧9-构造可重复的修改">技巧9 构造可重复的修改</h2>
+<ul>
+<li>如果在插入模式中使用了<up>、<down>、<left>、<right>这些光标键，将会产生一个新的撤销块。会对<code>.</code>命令的操作产生影响</li>
+<li>使用更为精准的<code>aw</code>文本对象</li>
+</ul>
+<h2 id="技巧10-用次数做简单的算术运算">技巧10 用次数做简单的算术运算</h2>
+<ul>
+<li><code>&lt;c-a&gt;</code>和<code>&lt;c-x&gt;</code>命令对数字执行加和减操作。在不带数字执行时，它们会逐个加减，但如果带一个次数前缀，那么就可以用它们加减任意整数。
+<ul>
+<li>如果光标不在数字上，会把当前光标之上或之后的数值加上<code>[count]</code></li>
+<li>vim会把0开头的数字解释为八进制值，可以加入<code>set nrformats=</code>将所有数字设为十进制</li>
+</ul>
+</li>
+</ul>
+<h2 id="技巧11-能够重复就别用次数">技巧11 能够重复，就别用次数</h2>
+<h2 id="技巧12-双剑合璧天下无敌">技巧12 双剑合璧，天下无敌</h2>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>c</code></td>
+<td>修改</td>
+</tr>
+<tr>
+<td><code>d</code></td>
+<td>删除</td>
+</tr>
+<tr>
+<td><code>y</code></td>
+<td>复制到寄存器</td>
+</tr>
+<tr>
+<td><code>g~</code></td>
+<td>反转大小写 （可视化模式下）</td>
+</tr>
+<tr>
+<td><code>gu</code></td>
+<td>转为小写</td>
+</tr>
+<tr>
+<td><code>gu</code></td>
+<td>转为大写</td>
+</tr>
+<tr>
+<td><code>&gt;</code></td>
+<td>增加缩进</td>
+</tr>
+<tr>
+<td><code>&lt;</code></td>
+<td>减小缩进</td>
+</tr>
+<tr>
+<td><code>=</code></td>
+<td>自动缩进</td>
+</tr>
+<tr>
+<td><code>!</code></td>
+<td>使用外部程序过滤{motion}所跨越的行</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>&gt;&gt;</code>缩进当前行</li>
+<li><code>guap</code>把整段文字转换为大写</li>
+<li>vim的语法只有一条额外的规则，即当一个操作符命令被连续调用两次时，它会作用于当前行
+<ul>
+<li><code>gUgU</code>或<code>gUU</code>可以作用于当前行</li>
+</ul>
+</li>
+</ul>
+<h1 id="插入模式">插入模式</h1>
+<h2 id="技巧13-在插入模式中可即时更正错误">技巧13 在插入模式中可即时更正错误</h2>
+<ul>
+<li><code>&lt;C-h&gt;</code>删除前一个字符（同退格键）</li>
+<li><code>&lt;C-w&gt;</code>删除前一个单词</li>
+<li><code>&lt;C-u&gt;</code>删至行首</li>
+</ul>
+<h2 id="技巧14-返回普通模式">技巧14 返回普通模式</h2>
+<p>dh 51 days
+SKHJF copy asdkjh
+dsa copy ashdjkkad
+asdkjsakjd copy ajkshd
+fdbnkjfhd;;dadssad
+afsdjh;;
+kjhasd;
+adsasddddd;
+asdjkhhhasdas;
+&quot;ajhs&quot; + &quot;kjsha&quot; + &quot;akshj&quot;</p>
+
+    </body>
+    </html>
