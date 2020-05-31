@@ -1,9 +1,8 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2020.1.18)  18 MAY 2020 12:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.1.18)  30 MAY 2020 12:31
 entering extended mode
  restricted \write18 enabled.
- file:line:error style messages enabled.
  %&-line parsing enabled.
-**0405math
+**0405math.tex
 (./0405math.tex
 LaTeX2e <2018-12-01>
 (d:/Program Files (x86)/texlive/2019/texmf-dist/tex/latex/base/article.cls
@@ -22,21 +21,25 @@ File: size10.clo 2018/09/03 v1.4i Standard LaTeX file (size option)
 \abovecaptionskip=\skip41
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
-) (d:/Program Files (x86)/texlive/2019/texmf-dist/tex/latex/amsmath/amsmath.sty
+)
+(d:/Program Files (x86)/texlive/2019/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2018/12/01 v2.17b AMS math features
 \@mathmargin=\skip43
 
 For additional information on amsmath, use the `?' option.
 (d:/Program Files (x86)/texlive/2019/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2000/06/29 v2.01 AMS text
- (d:/Program Files (x86)/texlive/2019/texmf-dist/tex/latex/amsmath/amsgen.sty
+
+(d:/Program Files (x86)/texlive/2019/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks14
 \ex@=\dimen103
-)) (d:/Program Files (x86)/texlive/2019/texmf-dist/tex/latex/amsmath/amsbsy.sty
+))
+(d:/Program Files (x86)/texlive/2019/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen104
-) (d:/Program Files (x86)/texlive/2019/texmf-dist/tex/latex/amsmath/amsopn.sty
+)
+(d:/Program Files (x86)/texlive/2019/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
 \inf@bad=\count88
@@ -76,9 +79,11 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 730.
 \mathdisplay@stack=\toks18
 LaTeX Info: Redefining \[ on input line 2844.
 LaTeX Info: Redefining \] on input line 2845.
-) (d:/Program Files (x86)/texlive/2019/texmf-dist/tex/latex/amsfonts/amssymb.sty
+)
+(d:/Program Files (x86)/texlive/2019/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
- (d:/Program Files (x86)/texlive/2019/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+
+(d:/Program Files (x86)/texlive/2019/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
@@ -106,36 +111,63 @@ LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 9.
 LaTeX Font Info:    ... okay on input line 9.
 LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 9.
 LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
 LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 9.
 LaTeX Font Info:    ... okay on input line 9.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
 LaTeX Font Info:    ... okay on input line 9.
 LaTeX Font Info:    Try loading font information for U+msa on input line 10.
- (d:/Program Files (x86)/texlive/2019/texmf-dist/tex/latex/amsfonts/umsa.fd
+
+(d:/Program Files (x86)/texlive/2019/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 10.
- (d:/Program Files (x86)/texlive/2019/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
 
-] [2] [3]
-LaTeX Font Info:    Try loading font information for U+euf on input line 283.
- (d:/Program Files (x86)/texlive/2019/texmf-dist/tex/latex/amsfonts/ueuf.fd
+(d:/Program Files (x86)/texlive/2019/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+[1
+
+{d:/Program Files (x86)/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.m
+ap}] [2] [3]
+LaTeX Font Info:    Try loading font information for U+euf on input line 282.
+
+(d:/Program Files (x86)/texlive/2019/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 )
 \c@mythm=\count100
 \c@law=\count101
- [4] (./0405math.aux) ) 
-Here is how much of TeX's memory you used:
- 1241 strings out of 492922
- 14537 string characters out of 6128391
- 83085 words of memory out of 5000000
- 5311 multiletter control sequences out of 15000+600000
- 8844 words of font info for 39 fonts, out of 8000000 for 9000
- 1348 hyphenation exceptions out of 8191
- 27i,16n,27p,220b,202s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on 0405math.pdf (4 pages).
+[4] (./0405math.aux) ) 
+Here is how much of TeX's memory you used:
+ 1230 strings out of 492623
+ 14241 string characters out of 6123862
+ 80710 words of memory out of 5000000
+ 5172 multiletter control sequences out of 15000+600000
+ 9150 words of font info for 35 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 27i,16n,27p,271b,202s stack positions out of 5000i,500n,10000p,200000b,80000s
+<d:/Program Files (x86)/texlive/2019/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmbx10.pfb><d:/Program Files (x86)/texlive/2019/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmex10.pfb><d:/Program Files (x86)/texlive/201
+9/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><d:/Program Files (x86)/
+texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><d:/Program Fi
+les (x86)/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><d:/
+Program Files (x86)/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
+b10.pfb><d:/Program Files (x86)/texlive/2019/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmr10.pfb><d:/Program Files (x86)/texlive/2019/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr5.pfb><d:/Program Files (x86)/texlive/2019/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr7.pfb><d:/Program Files (x86)/texlive/2019/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/Program Files (x86)/texlive/
+2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><d:/Program Files (x86
+)/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><d:/Program
+ Files (x86)/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.p
+fb><d:/Program Files (x86)/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/
+symbols/msbm10.pfb><d:/Program Files (x86)/texlive/2019/texmf-dist/fonts/type1/
+public/amsfonts/symbols/msbm7.pfb>
+Output written on 0405math.pdf (4 pages, 154574 bytes).
+PDF statistics:
+ 77 PDF objects out of 1000 (max. 8388607)
+ 55 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

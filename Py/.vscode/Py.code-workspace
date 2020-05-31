@@ -16,7 +16,6 @@
 	"settings": {
 
         "python.pythonPath": "D:\\Anaconda3\\python.exe",
-        "python.analysis.cacheFolderPath": "D:/Users/vip/Documents/IntelliCode/jedi",
 		"python.jediEnabled": true,
 		"python.autoComplete.addBrackets": true,
 		"python.autoComplete.extraPaths": [
@@ -29,7 +28,10 @@
 		"workbench.colorCustomizations": {
 			"titleBar.activeBackground": "#08423d",
 			"titleBar.activeForeground": "#aaa7a7"
-		},
+        },
+        "vsintellicode.java.completionsEnabled": false,
+        "vsintellicode.sql.completionsEnabled": false,
+        "vsintellicode.typescript.completionsEnabled": false,
 		//     "titleBar.activeBackground": "#08423d",
 
         //     "titleBar.activeForeground": "#aaa7a7",
