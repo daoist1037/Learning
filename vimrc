@@ -5,9 +5,9 @@ endif
 if filereadable("/etc/vim/vimrc.local")
     source /etc/vim/vimrc.local
 endif
-"--------------------------------------------------------------
-"--------------------------基本配置
-"--------------------------------------------------------------
+"----------------------------------------------------------------
+"----------------------------基本配置----------------------------
+"----------------------------------------------------------------
 set number	"显示行号
 set relativenumber	"显示相对行号·
 set cursorline	"高亮当前行
@@ -47,81 +47,86 @@ set fenc=utf-8
 set fileencodings=utf-8,gbk,cp936,latin-1
 set fileformat=unix
 set fileformats=unix,mac,dos
-set completeopt=preview
+set completeopt=preview,menuone
+set listchars=tab:>-,space:▯        "Tab和Space的显示
+set list
 set backupdir=~/.local/.vim/.backup//	"设置备份文件、交换文件、操作历史文件的保存位置
 set autochdir		"自动切换工作目录。这主要用在一个 Vim 会话之中打开多个文件的情况，默认的工作目录是打开的第一个文件的目录。该配置可以将工作目录自动切换到，正在编辑的文件的目录。
 set autoread		"打开文件监视。如果在编辑过程中文件发生外部改变（比如被别的编辑器编辑了），就会发出提示。
 set wildmenu		"命令模式下，底部操作指令按下 Tab 键自动补全。第一次按下 Tab，会显示所有匹配的操作指令的清单；第二次按下 Tab，会依次选择各个指令。
-"--------------------------------------------------------------
-"--------------------------vim 三种模式下光标样式
-"--------------------------------------------------------------
+"----------------------------------------------------------------
+"----------------------------vim三种模式下光标样式---------------
+"----------------------------------------------------------------
 set gcr=n-v-c:ver25-Cursor/lCursor,ve:ver35-Cursor,o:hor50-Cursor,i-ci:ver25-Cursor/lCursor,r:hor50-Cursor/lCursor
-"--------------------------------------------------------------
-"--------------------------重新打开一个文件时跳到上一次编辑的地方
-"--------------------------------------------------------------
+"----------------------------------------------------------------
+"----------------------------重新打开一个文件时跳到上一次编辑的地方
+"----------------------------------------------------------------
 if has("autocmd")
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
-"--------------------------------------------------------------
-"-------------------------python3路径
-"--------------------------------------------------------------
+"----------------------------------------------------------------
+"----------------------------python3路径-------------------------
+"----------------------------------------------------------------
 let g:python3_host_prog="/usr/bin/python3"
-"--------------------------------------------------------------
-"--------------------------插件管理
-"--------------------------------------------------------------
+"----------------------------------------------------------------
+"----------------------------插件管理----------------------------
+"----------------------------------------------------------------
 call plug#begin('/home/dd/.local/vim/plugged')
-Plug 'itchyny/lightline.vim'
+"Plug 'preservim/nerdtree'                    "文件管理
+Plug 'mbbill/undotree'
+Plug 'itchyny/lightline.vim'                  "statusline
 Plug 'bling/vim-bufferline'
-Plug 'honza/vim-snippets'   "snippets
-Plug 'kien/rainbow_parentheses.vim'     "彩虹括号
-Plug 'tpope/vim-surround'   "成对括号
-Plug 'easymotion/vim-easymotion'    "快速移动
-Plug 'mhinz/vim-startify'   "启动界面
-Plug 'Yggdroot/LeaderF', { 'do': './install.sh'  }  "快速查找
-Plug 'scrooloose/nerdcommenter' "快速注释
-Plug 'yggdroot/indentline'  "缩进条
-Plug 'altercation/vim-colors-solarized' "主题
-Plug 'joshdick/onedark.vim'
-Plug 'arcticicestudio/nord-vim'
+Plug 'honza/vim-snippets'                     "snippets
+Plug 'SirVer/ultisnips'
+Plug 'kien/rainbow_parentheses.vim'           "彩虹括号
+Plug 'tpope/vim-surround'                     "成对括号
+Plug 'easymotion/vim-easymotion'              "快速移动
+Plug 'mhinz/vim-startify'                     "启动界面
+Plug 'junegunn/fzf', {'do':{->fzf#install()}} "快速查找
+Plug 'junegunn/fzf.vim'
+Plug 'scrooloose/nerdcommenter'               "快速注释
+"Plug 'yggdroot/indentline'                    "缩进条
+Plug 'joshdick/onedark.vim'                   "主题
 Plug 'liuchengxu/space-vim-dark'
-Plug 'tomasr/molokai'
-Plug 'jiangmiao/auto-pairs' "括号补全
-Plug 'machakann/vim-highlightedyank'    "高亮复制区域
+"plug 'jiangmiao/auto-pairs'                  "括号补全
+Plug 'machakann/vim-highlightedyank'          "高亮复制区域
+"Plug 'Yggdroot/LeaderF', { 'do': './install.sh'  }  "快速查找
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()  }, 'for':['markdown','vim-plug']  }  "markdown
 Plug 'dhruvasagar/vim-table-mode',{'for':['markdown','vim-plug']}
 Plug 'dkarter/bullets.vim',{'for':['markdown','vim-plug']}
-Plug 'neoclide/coc.nvim', {'branch': 'release'} "代码补全
+"Plug 'neoclide/coc.nvim', {'branch': 'release'} "代码补全
+Plug 'lervag/vimtex'                          "LaTeX
 call plug#end()
-"--------------------------------------------------------------
-"--------------------------Leaderf 设置
-"--------------------------------------------------------------
-let g:Lf_HideHelp = 1
-let g:Lf_UseCache = 0
-let g:Lf_UseVersionControlTool = 0
-let g:Lf_IgnoreCurrentBufferName = 1
-let g:Lf_WindowPosition = 'popup'
-let g:Lf_PreviewInPopup = 1
-let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2" }
-let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0 }
-let g:Lf_ShortcutF = "<leader>ff"
-noremap <leader>fb :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
-noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
-noremap <leader>ft :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
-noremap <leader>fl :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
-noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR>
-noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
-xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
-noremap go :<C-U>Leaderf! rg --recall<CR>
-let g:Lf_GtagsAutoGenerate = 0
-let g:Lf_Gtagslabel = 'native-pygments'
-noremap <leader>fr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
-noremap <leader>fd :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
-noremap <leader>fo :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
-noremap <leader>fn :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
-noremap <leader>fp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
-"--------------------------------------------------------------
-"--------------------------onedark设置
-"--------------------------------------------------------------
+"----------------------------------------------------------------
+"----------------------------Leaderf 设置------------------------
+"----------------------------------------------------------------
+"let g:Lf_HideHelp = 1
+"let g:Lf_UseCache = 0
+"let g:Lf_UseVersionControlTool = 0
+"let g:Lf_IgnoreCurrentBufferName = 1
+"let g:Lf_WindowPosition = 'popup'
+"let g:Lf_PreviewInPopup = 1
+"let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2" }
+"let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0 }
+"let g:Lf_ShortcutF = "<leader>ff"
+"noremap <leader>fb :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
+"noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
+"noremap <leader>ft :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
+"noremap <leader>fl :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
+"noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR>
+"noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
+"xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
+"noremap go :<C-U>Leaderf! rg --recall<CR>
+"let g:Lf_GtagsAutoGenerate = 0
+"let g:Lf_Gtagslabel = 'native-pygments'
+"noremap <leader>fr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
+"noremap <leader>fd :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
+"noremap <leader>fo :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
+"noremap <leader>fn :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
+"noremap <leader>fp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
+"----------------------------------------------------------------
+"----------------------------onedark设置-------------------------
+"----------------------------------------------------------------
 set termguicolors
 let g:onedark_termcolors=256
 let g:onedark_hide_endofbuffer=1
@@ -153,9 +158,17 @@ function! LightlineFilename()
     "return filename . modified
     return filename
 endfunction
-"--------------------------------------------------------------
-"--------------------------F5 一键编译运行
-"--------------------------------------------------------------
+"----------------------------------------------------------------
+"----------------------------snippets----------------------------
+"----------------------------------------------------------------
+let g:UltiSnipsExpandTrigger="<tab>"
+"let g:UltiSnipsListSnippets="<C-i>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsSnippetDirectories=["UltiSnips","mysnippets"]
+"----------------------------------------------------------------
+"----------------------------F5 一键编译运行---------------------
+"----------------------------------------------------------------
 func! CompileRunGcc()
     exec"w!"
     if &filetype =='c'
@@ -178,13 +191,13 @@ func! CompileRunGcc()
         exec "MarkdownPreview"
     endif
 endfunc
-"--------------------------------------------------------------
-"--------------------------markdown-preview设置
-"--------------------------------------------------------------
+"----------------------------------------------------------------
+"----------------------------markdown-preview设置----------------
+"----------------------------------------------------------------
 let g:mkdp_path_to_chrome = "/mnt/c/Program\ Files\ (x86)/Google/Chrome/Application"
-"--------------------------------------------------------------
-"--------------------------自动写入文件头
-"--------------------------------------------------------------
+"----------------------------------------------------------------
+"----------------------------自动写入文件头-----------------------
+"----------------------------------------------------------------
 autocmd BufNewFile *.cpp,*.[ch],*.sh,*.py,*.html,*.php,*java exec ":call SetTitle()"
 func SetTitle()
     if &filetype=='python'
@@ -214,9 +227,13 @@ func SetTitle()
     endif
 endfunc
 autocmd BufNewFile * normal G "新建文件后，自动定位到文件末尾"
-"--------------------------------------------------------------
-"--------------------------浮动窗口
-"--------------------------------------------------------------
+"----------------------------------------------------------------
+"----------------------------fzf配置-----------------------------
+"----------------------------------------------------------------
+"let g:fzf_layout = {'window':'call OpenFloatingWin()'}
+"----------------------------------------------------------------
+"----------------------------浮动窗口----------------------------
+"----------------------------------------------------------------
 function! OpenFloatingWin()
     let height = &lines - 3
     let width = float2nr(&columns - (&columns * 2 / 10))
@@ -261,82 +278,82 @@ function! OpenFloatWin2()
     exec"term"
     exec"startinsert"
 endfunction
-"--------------------------------------------------------------
-"--------------------------cocnvim配置
-"--------------------------------------------------------------
+"----------------------------------------------------------------
+"----------------------------cocnvim配置-------------------------
+"----------------------------------------------------------------
 set hidden
 set nobackup
 set nowritebackup
 set cmdheight=2
 set updatetime=300
 set shortmess+=c
-set signcolumn=yes
-    \ pumvisible() ? "\<C-n>" :
-    \ <SID>check_back_space() ? "\<TAB>" :
-    \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-inoremap <silent><expr> <c-space> coc#refresh()
-if exists('*complete_info')
-    inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-else
-    inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-endif
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-function! s:show_documentation()
-    if (index(['vim','help'], &filetype) >= 0)
-        execute 'h '.expand('<cword>')
-    else
-        call CocAction('doHover')
-    endif
-endfunction
-autocmd CursorHold * silent call CocActionAsync('highlight')
-nmap <leader>rn <Plug>(coc-rename)
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
-augroup mygroup
-    autocmd!
-    autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-    autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>ac  <Plug>(coc-codeaction)
-nmap <leader>qf  <Plug>(coc-fix-current)
-xmap if <Plug>(coc-funcobj-i)
-omap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-omap af <Plug>(coc-funcobj-a)
-xmap ic <Plug>(coc-classobj-i)
-omap ic <Plug>(coc-classobj-i)
-xmap ac <Plug>(coc-classobj-a)
-omap ac <Plug>(coc-classobj-a)
-nmap <silent> <C-s> <Plug>(coc-range-select)
-xmap <silent> <C-s> <Plug>(coc-range-select)
-command! -nargs=0 Format :call CocAction('format')
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
-nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
-nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
-nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
-nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
-nnoremap <silent> <space>j  :<C-u>CocNext<CR>
-nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
-nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
-"--------------------------------------------------------------
-"--------------------------MarkdownPreview
-"--------------------------------------------------------------
+"set signcolumn=yes
+    "\ pumvisible() ? "\<C-n>" :
+    "\ <SID>check_back_space() ? "\<TAB>" :
+    "\ coc#refresh()
+"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+"function! s:check_back_space() abort
+    "let col = col('.') - 1
+    "return !col || getline('.')[col - 1]  =~# '\s'
+"endfunction
+"inoremap <silent><expr> <c-space> coc#refresh()
+"if exists('*complete_info')
+    "inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+"else
+    "inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+"endif
+"nmap <silent> [g <Plug>(coc-diagnostic-prev)
+"nmap <silent> ]g <Plug>(coc-diagnostic-next)
+"nmap <silent> gd <Plug>(coc-definition)
+"nmap <silent> gy <Plug>(coc-type-definition)
+"nmap <silent> gi <Plug>(coc-implementation)
+"nmap <silent> gr <Plug>(coc-references)
+"nnoremap <silent> K :call <SID>show_documentation()<CR>
+"function! s:show_documentation()
+    "if (index(['vim','help'], &filetype) >= 0)
+        "execute 'h '.expand('<cword>')
+    "else
+        "call CocAction('doHover')
+    "endif
+"endfunction
+"autocmd CursorHold * silent call CocActionAsync('highlight')
+"nmap <leader>rn <Plug>(coc-rename)
+"xmap <leader>f  <Plug>(coc-format-selected)
+"nmap <leader>f  <Plug>(coc-format-selected)
+"augroup mygroup
+    "autocmd!
+    "autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+    "autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+"augroup end
+"xmap <leader>a  <Plug>(coc-codeaction-selected)
+"nmap <leader>a  <Plug>(coc-codeaction-selected)
+"nmap <leader>ac  <Plug>(coc-codeaction)
+"nmap <leader>qf  <Plug>(coc-fix-current)
+"xmap if <Plug>(coc-funcobj-i)
+"omap if <Plug>(coc-funcobj-i)
+"xmap af <Plug>(coc-funcobj-a)
+"omap af <Plug>(coc-funcobj-a)
+"xmap ic <Plug>(coc-classobj-i)
+"omap ic <Plug>(coc-classobj-i)
+"xmap ac <Plug>(coc-classobj-a)
+"omap ac <Plug>(coc-classobj-a)
+"nmap <silent> <C-s> <Plug>(coc-range-select)
+"xmap <silent> <C-s> <Plug>(coc-range-select)
+"command! -nargs=0 Format :call CocAction('format')
+"command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+"command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+"set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+"nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+"nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+"nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+"nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+"nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+"nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+"nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+"nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+"----------------------------------------------------------------
+"----------------------------MarkdownPreview---------------------
+"----------------------------------------------------------------
 let g:mkdp_auto_start = 0
 let g:mkdp_auto_close = 1
 let g:mkdp_refresh_slow = 0
@@ -387,15 +404,23 @@ inoreabbrev <expr> <bar><bar>
 inoreabbrev <expr> __
     \ <SID>isAtStartOfLine('__') ?
     \ '<c-o>:silent! TableModeDisable<cr>' : '__'
-"--------------------------------------------------------------
-"--------------------------快捷键映射
-"--------------------------------------------------------------
+"----------------------------------------------------------------
+"----------------------------快捷键映射--------------------------
+"----------------------------------------------------------------
 map <F5> :call CompileRunGcc()<CR>
 nnoremap fw :w!<CR>
 nnoremap fq :q!<CR>
 nnoremap fwq :wq!<CR>
 nnoremap fe :NERDTree<CR>
 nnoremap fs :source ~/.config/nvim/init.vim<CR>
+nnoremap fu :UndotreeToggle<CR>
+nnoremap <silent> <Leader>f :Files<CR>
+nnoremap <silent> <Leader>b :Buffers<CR>
+nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
+nnoremap <silent> <Leader>l :BLines<CR>
+nnoremap <silent> <Leader>h :History<CR>
+nnoremap <BackSpace> :nohl<CR>
+"nnoremap <silent> <Leader>rg :Rg <CR>
 "				\ci				注释
 "				\\w				easymotion
 "
