@@ -1,34 +1,34 @@
 {
     "tasks": [
         {
-            "type": "shell",
+            "type": "shell",// process是vsc把预定义变量和转义解析后直接全部传给command；shell相当于先打开shell再输入命令，所以args还会经过shell再解析一遍
             "label": "g++.exe build active file",
             "command": "C:\\mingw64\\bin\\g++.exe",
             "args": [
                 "-std=c++14",//指定c++编译版本
-                "-g",
+                "-g",// 生成和调试有关的信息
                 "${file}",
                 "-o",
                 "${workspaceFolder}\\..\\..\\bin\\${fileBasenameNoExtension}.exe",
-                "-Wall",
-                "-static-libgcc",
-                "-fexec-charset=GBK",
+                "-Wall",// 开启额外警告
+                "-static-libgcc",// 静态链接libgcc，一般都会加上
+                "-fexec-charset=GBK",// 生成的程序使用GBK编码，不加这一条会导致Win下输出中文乱码
             ],
             "options": {
                 "cwd": "${workspaceFolder}"
             },
             "group": {
                 "kind": "build",
-                "isDefault": true
+                "isDefault": true// 不为true时ctrl shift B就要手动选择了
             },
             "problemMatcher":[
                 "$gcc" //使用gcc捕获错误
             ],
             "presentation": {
                 "echo": false,
-                "reveal": "always",
+                "reveal": "always",// 执行任务时是否跳转到终端面板，可以为always，silent，never。具体参见VSC的文档
                 "focus": true,
-                "panel": "shared",
+                "panel": "shared",// 不同的文件的编译信息共享一个终端面板
                 "showReuseMessage": false,
                 "clear": false
             }

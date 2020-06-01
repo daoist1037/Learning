@@ -68,6 +68,8 @@ endif
 "----------------------------------------------------------------
 "----------------------------python3路径-------------------------
 "----------------------------------------------------------------
+let g:python3_host_skip_check=1
+let g:python_host_skip_check=1
 let g:python3_host_prog="/usr/bin/python3"
 "----------------------------------------------------------------
 "----------------------------插件管理----------------------------
@@ -96,14 +98,47 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()  }, 'for':
 Plug 'dhruvasagar/vim-table-mode',{'for':['markdown','vim-plug']}
 Plug 'dkarter/bullets.vim',{'for':['markdown','vim-plug']}
 "Plug 'neoclide/coc.nvim', {'branch': 'release'} "代码补全
-Plug 'lervag/vimtex'                          "LaTeX
+Plug 'lervag/vimtex',{'for':['tex','vim-plug']}                          "LaTeX
 call plug#end()
 "----------------------------------------------------------------
 "----------------------------onedark设置-------------------------
 "----------------------------------------------------------------
-if filereadable("/home/dd/.local/vim/myconfig/self_theme.vim")
-    source /home/dd/.local/vim/myconfig/self_theme.vim
-endif
+"if filereadable("/home/dd/.local/vim/myconfig/self_theme.vim")
+    "source /home/dd/.local/vim/myconfig/self_theme.vim
+"endif
+set termguicolors
+let g:onedark_termcolors=256
+let g:onedark_hide_endofbuffer=1
+colorscheme onedark 
+"colorscheme space-vim-dark
+"hi Normal     ctermbg=NONE guibg=NONE
+"hi LineNr     ctermbg=NONE guibg=NONE
+"hi SignColumn ctermbg=NONE guibg=NONE
+"hi Comment guifg=#5C6370 ctermfg=59 cterm=italic
+"set background=dark
+let g:lightline = {
+    \ 'colorscheme': 'one',
+    \ 'active': {
+    \   'left': [ [ 'mode', 'paste' ],
+    \             [ 'gitbranch', 'readonly', 'filename', 'modified', 'helloworld' ] ],
+    \   'right': [ [ 'lineinfo' ],
+    \              [ 'percent' ],
+    \              [ 'fileformat', 'fileencoding', 'filetype' ] ]
+    \ },
+    \ 'component': {
+    \   'helloworld': 'Hello, daoist!'
+    \ },
+    \ 'component_function': {
+    \   'gitbranch': 'fugitive#head',
+    \   'filename': 'LightlineFilename'
+    \ },
+    \ }
+function! LightlineFilename()
+    let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
+    "let modified = &modified ? ' +' : ''
+    "return filename . modified
+    return filename 
+endfunction
 "----------------------------------------------------------------
 "----------------------------snippets----------------------------
 "----------------------------------------------------------------
