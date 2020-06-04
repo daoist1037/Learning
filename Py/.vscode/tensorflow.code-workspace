@@ -1,0 +1,12 @@
+{
+    "folders": [
+        {
+            "path": "../"
+        }
+    ],
+    "settings": {
+        "python.venvPath": "D:/Anaconda3/envs/tensorflow/",
+        "python.pythonPath": "D:/Anaconda3//envs/tensorflow/python.exe",
+        "python.terminal.activateEnvironment": true
+    }
+}

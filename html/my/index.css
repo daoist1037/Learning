@@ -15,10 +15,10 @@ body {
     background-attachment:fixed;
 }
 p {
-    color: maroon;
+    color: #03ac95;
     /* background-color:red; */
     padding: 2% 5% 2% 5%;
-    
+
 }
 em {
     color: blue;
@@ -84,7 +84,7 @@ a:link {
 
 #imgF {
     float: left;
-    
+
 }
 #imgG {
     position: absolute;

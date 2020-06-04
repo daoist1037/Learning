@@ -2,38 +2,49 @@
 // It should still be usable in newer versions, but newer versions might have additional
 // settings, help text, or changes that you will not see unless you clear this file
 // and let us generate a new one for you.
+
 // To view the default settings, hold "alt" while clicking on the "Settings" button.
 // For documentation on these settings, see: https://aka.ms/terminal-documentation
 {
     "$schema": "https://aka.ms/terminal-profiles-schema",
-    "defaultProfile": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+
+    "defaultProfile": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+
     // You can add more global application settings here.
     // To learn more about global settings, visit https://aka.ms/terminal-global-settings
+
     // If enabled, selections are automatically copied to your clipboard.
     "copyOnSelect": false,
+
     // If enabled, formatted data is also copied to your clipboard
     "copyFormatting": false,
+
     // A profile specifies a command to execute paired with information about how it should look and feel.
     // Each one of them will appear in the 'New Tab' dropdown,
     //   and can be invoked from the commandline with `wt.exe -p xxx`
     // To learn more about profiles, visit https://aka.ms/terminal-profile-settings
-    "alwaysShowTabs": false,
+    "alwaysShowTabs": true,
+    //"launchMode":"maximized",
     "showTabsInTitlebar": true,
-    "suppressApplicationTitle": true,
-    "showTerminalTitleInTitlebar": false,
-    "profiles": {
-        "defaults": {
+    "snapToGridOnResize":false,
+    //"suppressApplicationTitle": true,
+    //"showTerminalTitleInTitlebar": true,
+    "profiles":
+    {
+        "defaults":
+        {
             // Put settings here that you want to apply to all profiles.
-            "colorScheme": "Solarized Darcula",
-            "fontFace": "consolas",
-            //"fontFace": "Space Mono for Powerline",
+            "colorScheme": "JetBrains Darcula",
+            "fontFace": "Consolas",  
             "cursorShape": "emptyBox",
-            "fontSize": 11,
-            "backgroundImage": "D:\\下载\\好图\\电脑高清壁纸\\壁纸 (160).png",
+            "fontSize": 11,//SauceCodePro NF
+            //"backgroundImage": "D:\\下载\\好图\\firewatch\\1218731127.jpg",
+			"backgroundImage":"D:\\下载\\好图\\电脑高清壁纸\\壁纸 (327).png",
             "backgroundImageOpacity": 0.3,
             "padding": "10 10 10 10"
         },
-        "list": [
+        "list":
+        [
             {
                 // Make changes here to the powershell.exe profile.
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
@@ -65,50 +76,21 @@
                 "icon": "D:\\portable program\\decoration\\logo@2x.png"
             },
             {
-                "guid": "{58ad8b0c-3ef8-5f4d-bc6f-13e4c00f2530}",
-                "hidden": true,
-                "name": "Debian",
-                "commandline": "Wsl ~",
-                "tabTitle": "Debian",
-                "source": "Windows.Terminal.Wsl"
-            },
-            {
                 "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
-                "hidden": false,
+                "hidden": true,
                 "name": "Ubuntu",
-                "tabTitle": "Ubuntu",
-                "commandline": "Wsl ~",
-                "fontSize": 10,
-                "fontFace": "DejaVu Sans Mono for Powerline",
-                //"startingDirectory": "%USERPROFILE%",
+				"tabTitle": "Ubuntu",
+				"commandline": "Wsl ~",
+				"tabTitle": "啦啦啦",
+				//"startingDirectory": "%USERPROFILE%",
                 "source": "Windows.Terminal.Wsl"
             }
         ]
     },
+
     // Add custom color schemes to this array.
     // To learn more about color schemes, visit https://aka.ms/terminal-color-schemes
     "schemes": [
-        {
-            "name": "ayu",
-            "black": "#000000",
-            "red": "#ff3333",
-            "green": "#b8cc52",
-            "yellow": "#e7c547",
-            "blue": "#36a3d9",
-            "purple": "#f07178",
-            "cyan": "#95e6cb",
-            "white": "#ffffff",
-            "brightBlack": "#323232",
-            "brightRed": "#ff6565",
-            "brightGreen": "#eafe84",
-            "brightYellow": "#fff779",
-            "brightBlue": "#68d5ff",
-            "brightPurple": "#ffa3aa",
-            "brightCyan": "#c7fffd",
-            "brightWhite": "#ffffff",
-            "background": "#0f1419",
-            "foreground": "#e6e1cf"
-        },
         {
             "name": "Solarized Darcula",
             "black": "#25292a",
@@ -152,61 +134,68 @@
             "foreground": "#dcdfe4"
         },
         {
-            "name": "Atom",
-            "black": "#000000",
-            "red": "#fd5ff1",
-            "green": "#87c38a",
-            "yellow": "#ffd7b1",
-            "blue": "#85befd",
-            "purple": "#b9b6fc",
-            "cyan": "#85befd",
-            "white": "#e0e0e0",
-            "brightBlack": "#000000",
-            "brightRed": "#fd5ff1",
-            "brightGreen": "#94fa36",
-            "brightYellow": "#f5ffa8",
-            "brightBlue": "#96cbfe",
-            "brightPurple": "#b9b6fc",
-            "brightCyan": "#85befd",
-            "brightWhite": "#e0e0e0",
-            "background": "#161719",
-            "foreground": "#c5c8c6"
-        }
+			"name": "Vaughn",
+			"black": "#25234f",
+			"red": "#705050",
+			"green": "#60b48a",
+			"yellow": "#dfaf8f",
+			"blue": "#5555ff",
+			"purple": "#f08cc3",
+			"cyan": "#8cd0d3",
+			"white": "#709080",
+			"brightBlack": "#709080",
+			"brightRed": "#dca3a3",
+			"brightGreen": "#60b48a",
+			"brightYellow": "#f0dfaf",
+			"brightBlue": "#5555ff",
+			"brightPurple": "#ec93d3",
+			"brightCyan": "#93e0e3",
+			"brightWhite": "#ffffff",
+			"background": "#25234f",
+			"foreground": "#dcdccc"
+		},
+		{
+			"name": "JetBrains Darcula",
+			"black": "#000000",
+			"red": "#fa5355",
+			"green": "#126e00",
+			"yellow": "#c2c300",
+			"blue": "#4581eb",
+			"purple": "#fa54ff",
+			"cyan": "#33c2c1",
+			"white": "#adadad",
+			"brightBlack": "#555555",
+			"brightRed": "#fb7172",
+			"brightGreen": "#67ff4f",
+			"brightYellow": "#ffff00",
+			"brightBlue": "#6d9df1",
+			"brightPurple": "#fb82ff",
+			"brightCyan": "#60d3d1",
+			"brightWhite": "#eeeeee",
+			"background": "#202020",
+			"foreground": "#adadad"
+		}
     ],
+
     // Add custom keybindings to this array.
     // To unbind a key combination from your defaults.json, set the command to "unbound".
     // To learn more about keybindings, visit https://aka.ms/terminal-keybindings
-    "keybindings": [
+    "keybindings":
+    [
         // Copy and paste are bound to Ctrl+Shift+C and Ctrl+Shift+V in your defaults.json.
         // These two lines additionally bind them to Ctrl+C and Ctrl+V.
         // To learn more about selection, visit https://aka.ms/terminal-selection
-        {
-            "command": {
-                "action": "copy",
-                "singleLine": false
-            },
-            "keys": "ctrl+c"
-        },
-        {
-            "command": "paste",
-            "keys": "ctrl+v"
-        },
+        //{ "command": {"action": "copy", "singleLine": false }, "keys": "ctrl+c" },
+        //{ "command": "paste", "keys": "ctrl+v" },
+
         // Press Ctrl+Shift+F to open the search box
-        {
-            "command": "find",
-            "keys": "ctrl+shift+f"
-        },
+        { "command": "find", "keys": "ctrl+shift+f" },
+
         // Press Alt+Shift+D to open a new pane.
         // - "split": "auto" makes this pane open in the direction that provides the most surface area.
         // - "splitMode": "duplicate" makes the new pane use the focused pane's profile.
         // To learn more about panes, visit https://aka.ms/terminal-panes
-        {
-            "command": {
-                "action": "splitPane",
-                "split": "auto",
-                "splitMode": "duplicate"
-            },
-            "keys": "alt+shift+d"
-        }
+        { "command": { "action": "splitPane", "split": "auto", "splitMode": "duplicate" }, "keys": "alt+shift+d" }
     ]
 }
+

@@ -82,6 +82,17 @@
 				]
 			}
 		],
-		"latex-workshop.view.pdf.viewer": "tab"
+        "latex-workshop.view.pdf.viewer": "external",
+        "latex-workshop.view.pdf.external.viewer.command": "D:\\portable\\tools\\SumatraPDF-2-4\\SumatraPDF.exe",
+        "latex-workshop.view.pdf.external.synctex.command": "D:\\portable\\tools\\SumatraPDF-2-4\\SumatraPDF.exe",
+        "latex-workshop.view.pdf.external.synctex.args": [
+            "-forward-search",
+            "%TEX%",
+            "%LINE%",
+            "-reuse-instance",
+            "-inverse-search",
+            "code \"D:/portable/VSCode-win32-x64-1.45.1/resources/app/out/cli.js\" -r -g \"%f:%l\"",
+            "%PDF%",
+        ],
 	},
 }

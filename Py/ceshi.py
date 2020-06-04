@@ -7,4 +7,4 @@ text = requests.get(url=urls).text
 print(text[:250])
 import matplotlib.pyplot as plt
 plt.plot(y)
-import this
+plt.show()

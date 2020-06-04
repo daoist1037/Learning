@@ -196,16 +196,80 @@
 <li><code>&lt;C-u&gt;</code>删至行首</li>
 </ul>
 <h2 id="技巧14-返回普通模式">技巧14 返回普通模式</h2>
-<p>dh 51 days
-SKHJF copy asdkjh
-dsa copy ashdjkkad
-asdkjsakjd copy ajkshd
-fdbnkjfhd;;dadssad
-afsdjh;;
-kjhasd;
-adsasddddd;
-asdjkhhhasdas;
-&quot;ajhs&quot; + &quot;kjsha&quot; + &quot;akshj&quot;</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">按键操作</th>
+<th style="text-align:left">用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>Esc&gt;</code></td>
+<td style="text-align:left">切换普通模式</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>&lt;C-[</code></td>
+<td style="text-align:left">切换到普通模式</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>&lt;C-o&gt;</code></td>
+<td style="text-align:left">切换到插入-普通模式</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>插入-普通模式
+在此模式中，可以先执行一个普通模式，执行完后，马上回到插入模式</li>
+<li><code>zz</code>让当前行显示在窗口正中；<code>&lt;C-o&gt;zz</code>在插入-普通模式中触发这条命名让正中显示后直接j回到插入模式</li>
+</ul>
+<h2 id="技巧15-不离开插入模式粘贴寄存器中的文本">技巧15 不离开插入模式，粘贴寄存器中的文本</h2>
+<ul>
+<li><code>&lt;C-r&gt;{register}</code>插入寄存器中的内容，但是当<code>textwidth</code>或<code>autoindent</code>选项被激活了的话，那么最终会出现不必要的换行或额外的缩进</li>
+<li><code>&lt;C-r&gt;&lt;C-p&gt;{register}</code>会更智能些，它会按照原意插入寄存器中的文本，并修正任何不必要的缩进</li>
+</ul>
+<h2 id="技巧16-随时随地做运算">技巧16 随时随地做运算</h2>
+<ul>
+<li>表达式寄存器允许我们做一些运算，并把运算结果直接插入到文档中</li>
+<li>在插入模式中，输入
+<code>&lt;C-r&gt;=</code>就可以访问这一寄存器。这条命令会在屏幕的下方显示一个提示符，我们可以在其后输入要执行的表达式。输入表达式后敲一下<code>&lt;CR&gt;</code>，Vim就会把执行的结果插入到文档的当前位置了。</li>
+</ul>
+<h2 id="技巧17-用字符编码插入非常用字符">技巧17 用字符编码插入非常用字符</h2>
+<ul>
+<li>在插入模式下输入<code>&lt;C-v&gt;{code}</code>其中{code}是要插入字符的编码</li>
+<li>把光标移动到字符上面并按<code>ga</code>命令，下方就会列出编码信息（十进制和十六进制）</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">按键操作</th>
+<th style="text-align:left">用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>&lt;C-v&gt;{123}</code></td>
+<td style="text-align:left">以十进制字符编码插入字符</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>&lt;C-v&gt;u{1234}</code></td>
+<td style="text-align:left">以十六进制字符c编码插入字符</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>&lt;C-v&gt;{nondigit}</code></td>
+<td style="text-align:left">按原义插入非数字字符</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>&lt;C-j&gt;{char1}{char2}</code></td>
+<td style="text-align:left">插入以二合字母<code>{char1}{char2}</code>表示的字符</td>
+</tr>
+</tbody>
+</table>
+<h2 id="技巧18-用二合字母插入非常用字符">技巧18 用二合字母插入非常用字符</h2>
+<h2 id="技巧19-用替换模式替换已有文本">技巧19 用替换模式替换已有文本</h2>
+<ul>
+<li>虚拟替换模式<code>gR</code></li>
+</ul>
 
     </body>
     </html>
