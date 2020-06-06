@@ -76,7 +76,7 @@ let g:python3_host_prog="/usr/bin/python3"
 "----------------------------------------------------------------
 call plug#begin('/home/dd/.local/vim/plugged')
 "Plug 'preservim/nerdtree'                    "文件管理
-Plug 'mbbill/undotree'
+"Plug 'mbbill/undotree'
 Plug 'itchyny/lightline.vim'                  "statusline
 Plug 'bling/vim-bufferline'
 Plug 'honza/vim-snippets'                     "snippets
@@ -88,13 +88,10 @@ Plug 'mhinz/vim-startify'                     "启动界面
 Plug 'junegunn/fzf', {'do':{->fzf#install()}} "快速查找
 Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdcommenter'               "快速注释
-"Plug 'yggdroot/indentline'                    "缩进条
 Plug 'joshdick/onedark.vim'                   "主题
 Plug 'liuchengxu/space-vim-dark'
-"plug 'jiangmiao/auto-pairs'                  "括号补全
 Plug 'machakann/vim-highlightedyank'          "高亮复制区域
-"Plug 'Yggdroot/LeaderF', { 'do': './install.sh'  }  "快速查找
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()  }, 'for':['markdown','vim-plug']  }  "markdown
+"Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()  }, 'for':['markdown','vim-plug']  }  "markdown
 Plug 'dhruvasagar/vim-table-mode',{'for':['markdown','vim-plug']}
 Plug 'dkarter/bullets.vim',{'for':['markdown','vim-plug']}
 "Plug 'neoclide/coc.nvim', {'branch': 'release'} "代码补全
@@ -134,7 +131,7 @@ let g:lightline = {
     \ },
     \ }
 function! LightlineFilename()
-    let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
+    let filename = expand('%:t') !=# '' ? expand('%:p') : '[No Name]'
     "let modified = &modified ? ' +' : ''
     "return filename . modified
     return filename 
@@ -171,21 +168,28 @@ source ~/.local/vim/myconfig/self_markdown.vim
 "----------------------------------------------------------------
 "----------------------------快捷键映射--------------------------
 "----------------------------------------------------------------
-let mapleader=" "
+let mapleader="\<space>"
 map <F5> :call CompileRunGcc()<CR>
-nnoremap fw :w!<CR>
-nnoremap fq :q!<CR>
-nnoremap fwq :wq!<CR>
-"nnoremap fe :NERDTree<CR>
-nnoremap fs :source ~/.config/nvim/init.vim<CR>
-nnoremap fu :UndotreeToggle<CR>
-nnoremap <silent> <Leader>f :Files<CR>
+nnoremap <Leader>fw :w!<CR>
+nnoremap <Leader>fq :q!<CR>
+"nnoremap <Leader>fs :source ~/.local/vim/vimrc<CR>
+nnoremap <Leader>fs :source $MYVIMRC<CR>     
+nnoremap <Leader>ww <C-w><C-w>
+nnoremap <Leader>wh <C-w><C-h>
+nnoremap <Leader>wj <C-w><C-j>
+nnoremap <Leader>wk <C-w><C-k>
+nnoremap <Leader>wl <C-w><C-l>
+"nnoremap <silent> <Leader>f :Files<CR>
+nnoremap <C-p> :Files<CR>
 nnoremap <silent> <Leader>b :Buffers<CR>
-nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
+nnoremap <silent> <Leader>ag :Ag <CR>
 nnoremap <silent> <Leader>l :BLines<CR>
 nnoremap <silent> <Leader>h :History<CR>
 nnoremap <BackSpace> :nohl<CR>
+nnoremap <Leader>\ :vsp<CR><C-w><C-l>
+nnoremap <Leader>- :sp<CR><C-w><C-j>
 "nnoremap <silent> <Leader>rg :Rg <CR>
 "				\ci				注释
 "				\\w				easymotion
-"
+"               i<C-t>          列表降级
+"               i<C-d>          列表升级
