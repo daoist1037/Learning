@@ -55,6 +55,7 @@ set backupdir=~/.local/.vim/.backup//	"设置备份文件、交换文件、操�
 set autochdir		"自动切换工作目录。这主要用在一个 Vim 会话之中打开多个文件的情况，默认的工作目录是打开的第一个文件的目录。该配置可以将工作目录自动切换到，正在编辑的文件的目录。
 set autoread		"打开文件监视。如果在编辑过程中文件发生外部改变（比如被别的编辑器编辑了），就会发出提示。
 set wildmenu		"命令模式下，底部操作指令按下 Tab 键自动补全。第一次按下 Tab，会显示所有匹配的操作指令的清单；第二次按下 Tab，会依次选择各个指令。
+set wildmode=longest:list,full
 "----------------------------------------------------------------
 "----------------------------vim三种模式下光标样式---------------
 "----------------------------------------------------------------
@@ -88,14 +89,13 @@ Plug 'mhinz/vim-startify'                     "启动界面
 Plug 'junegunn/fzf', {'do':{->fzf#install()}} "快速查找
 Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdcommenter'               "快速注释
-Plug 'joshdick/onedark.vim'                   "主题
-Plug 'liuchengxu/space-vim-dark'
+Plug 'rakr/vim-one'
+Plug 'drewtempelmeyer/palenight.vim'
 Plug 'machakann/vim-highlightedyank'          "高亮复制区域
 "Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()  }, 'for':['markdown','vim-plug']  }  "markdown
 Plug 'dhruvasagar/vim-table-mode',{'for':['markdown','vim-plug']}
 Plug 'dkarter/bullets.vim',{'for':['markdown','vim-plug']}
 "Plug 'neoclide/coc.nvim', {'branch': 'release'} "代码补全
-Plug 'lervag/vimtex',{'for':['tex','vim-plug']}                          "LaTeX
 call plug#end()
 "----------------------------------------------------------------
 "----------------------------onedark设置-------------------------
@@ -104,9 +104,9 @@ call plug#end()
     "source /home/dd/.local/vim/myconfig/self_theme.vim
 "endif
 set termguicolors
-let g:onedark_termcolors=256
-let g:onedark_hide_endofbuffer=1
-colorscheme onedark 
+"let g:onedark_termcolors=256
+"let g:onedark_hide_endofbuffer=1
+"colorscheme onedark 
 "colorscheme space-vim-dark
 "hi Normal     ctermbg=NONE guibg=NONE
 "hi LineNr     ctermbg=NONE guibg=NONE
@@ -114,7 +114,7 @@ colorscheme onedark
 "hi Comment guifg=#5C6370 ctermfg=59 cterm=italic
 "set background=dark
 let g:lightline = {
-    \ 'colorscheme': 'one',
+    \ 'colorscheme': 'palenight',
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
     \             [ 'gitbranch', 'readonly', 'filename', 'modified', 'helloworld' ] ],
@@ -152,6 +152,7 @@ source ~/.local/vim/myconfig/self_run.vim
 "----------------------------fzf配置-----------------------------
 "----------------------------------------------------------------
 "let g:fzf_layout = {'window':'call OpenFloatingWin()'}
+let $FZF_DEFAULT_OPTS = '--layout=reverse'
 "----------------------------------------------------------------
 "----------------------------cocnvim配置-------------------------
 "----------------------------------------------------------------
