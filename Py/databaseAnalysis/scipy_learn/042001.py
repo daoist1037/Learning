@@ -1,6 +1,6 @@
 # %%[markdown]
 # # scipy.io 文件读取
-#%%
+# %%
 from scipy.integrate import quad
 from scipy.interpolate import interp1d
 from scipy import io as spio
@@ -13,7 +13,7 @@ data['a']
 
 # %%[markdown]
 # # misc图片读取，这里使用imageio模块，misc没有imread模块
-#%%
+# %%
 from PIL import Image
 from scipy import misc
 import imageio
@@ -25,7 +25,7 @@ b_image = plt.imread('../../1569054836920.jpg')
 print(b_image)
 # %%[markdown]
 # # 矩阵运算函数，与numpy类似 linalg
-#%%
+# %%
 from scipy import linalg
 arr = np.array([[1, 2], [3, 4]])
 brr = linalg.det(arr)
@@ -35,7 +35,7 @@ brr_inv = linalg.inv(arr)
 crr_inv=np.linalg.inv(arr)
 # %%[markdown]
 # # 傅里叶变换 scipy.fftpack
-#%%
+# %%
 from scipy import fftpack
 time_step = 0.02
 period = 5.
@@ -49,7 +49,7 @@ pidxs = np.where(sample_freq > 0)
 freqs = sample_freq[pidxs]
 power = np.abs(sig_fft)[pidxs]
 
-import pylab as pl 
+import pylab as pl
 pl.figure()
 pl.plot(freqs, power)
 pl.xlabel('Frequency [Hz]')
@@ -66,7 +66,7 @@ sig_fft[np.abs(sample_freq) > freq] = 0
 # ifft逆变换
 main_sig=fftpack.ifft(sig_fft)
 
-# import pylab as plt 
+# import pylab as plt
 import matplotlib.pyplot as plt
 plt.figure()
 plt.plot(time_vec, sig)
@@ -100,10 +100,10 @@ guess = [2, 2]
 params, params_covariance = optimize.curve_fit(f2, xdata, ydata, guess)
 # %%[markddown]
 # ## 统计和随机数 scipy.stats
-#%%
+# %%
 from scipy import stats
 import numpy as np
-import matplotlib.pyplot  as plt 
+import matplotlib.pyplot  as plt
 a = np.random.normal(size=1000)
 bins = np.arange(-4, 5)
 bins
@@ -120,7 +120,7 @@ plt.show()
 
 # %%[markdown]
 # ## 插值：scipy.interpolate
-#%%
+# %%
 from scipy.interpolate import interp1d
 import numpy as np
 measured_time = np.linspace(0, 1, 10)
@@ -144,7 +144,7 @@ np.allclose(err, 1 - res)
 
 # %%[markdown]
 # ## sympy数学符号
-#%%
+# %%
 import sympy
 a = sympy.Rational(1, 2)
 x =sympy.Symbol('x')

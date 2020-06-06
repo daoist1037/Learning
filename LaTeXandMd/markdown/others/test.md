@@ -157,3 +157,8 @@ $$
 力矩方程：K\frac{L}{2}\frac{\sin\theta}{\cos\theta}\times \frac{L}{2}+M\ddot{\theta}L \times L+M\ddot{y}\times(L-x)+M\ddot{x}\times y=0
 $$
 
+$\oiint x^{-3}$
+
+|asd|asd|
+|-|-|
+|sfd
