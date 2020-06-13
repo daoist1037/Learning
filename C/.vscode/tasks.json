@@ -29,7 +29,7 @@
                 "reveal": "always",// 执行任务时是否跳转到终端面板，可以为always，silent，never。具体参见VSC的文档
                 "focus": true,
                 "panel": "shared",// 不同的文件的编译信息共享一个终端面板
-                "showReuseMessage": false,
+                "showReuseMessage": true,
                 "clear": false
             }
         }

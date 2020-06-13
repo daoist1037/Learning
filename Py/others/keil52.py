@@ -8,7 +8,6 @@
 import os
 import time
 from multiprocessing.dummy import Pool
-from threading import Thread
 
 import bs4
 import lxml.html

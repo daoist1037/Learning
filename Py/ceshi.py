@@ -22,7 +22,7 @@ import timeit
 
 def cpu_run():
     with tf.device('/cpu:0'):
-        cpu_a = tf.random.normal([10000, 1000])
+        cpu_a = tf.random.normal([1000, 1000])
         cpu_b = tf.random.normal([1000, 2000])
         c = tf.matmul(cpu_a, cpu_b)
     return c
@@ -30,16 +30,17 @@ def cpu_run():
 
 def gpu_run():
     with tf.device('/gpu:0'):
-        gpu_a = tf.random.normal([10000, 1000])
-        gpu_b = tf.random.normal([1000, 2000])
+        gpu_a = tf.random.normal([10000, 10000])
+        gpu_b = tf.random.normal([10000, 20000])
         c = tf.matmul(gpu_a, gpu_b)
     return c
 
 
-cpu_time = timeit.timeit(cpu_run, number=10)
+# cpu_time = timeit.timeit(cpu_run, number=10)
 gpu_time = timeit.timeit(gpu_run, number=10)
-print('warmup:', cpu_time, gpu_time)
+# print('warmup:', cpu_time, gpu_time)
+print('warmup:', gpu_time)
 
-cpu_time = timeit.timeit(cpu_run, number=10)
-gpu_time = timeit.timeit(gpu_run, number=10)
-print('run time:', cpu_time, gpu_time)
+# cpu_time = timeit.timeit(cpu_run, number=10)
+# gpu_time = timeit.timeit(gpu_run, number=10)
+# print('run time:', cpu_time, gpu_time)

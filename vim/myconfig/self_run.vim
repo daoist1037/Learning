@@ -28,7 +28,7 @@ endfunc
 "----------------------------自动写入文件头----------------------
 "----------------------------------------------------------------
 autocmd BufNewFile *.cpp,*.[ch],*.sh,*.py,*.html,*.php,*java exec ":call SetTitle()"
-func SetTitle()
+func! SetTitle()
     if &filetype=='python'
         call setline(1, "#!/usr/bin/python3")
         call append(line("."), "#-*- encoding: UTF-8 -*-")

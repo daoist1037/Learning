@@ -1,39 +1,12 @@
-<!DOCTYPE html>
-    <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>vim解决问题的方式</title>
-        <style>
-</style>
-        
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
-        
-        <style>
-.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
-</style>
-        <style>
-            body {
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
-                font-size: 14px;
-                line-height: 1.6;
-            }
-        </style>
-        
-        
-        
-    </head>
-    <body class="vscode-light">
-        <h1 id="vim解决问题的方式">vim解决问题的方式</h1>
-<h2 id="技巧1-结识-命令">技巧1 结识 <code>.</code>命令</h2>
+<h1 id="vim解决问题的方式">vim解决问题的方式</h1>
+<h2 id="技巧1-结识-.命令">技巧1 结识 <code>.</code>命令</h2>
 <ul>
 <li><code>.</code>命令可以重复上次的修改
 <ul>
 <li><code>&gt;g</code>会增加从当前行到文档末尾处的缩进层级</li>
 <li>每次进入插入模式也会形成一次修改。从进入插入模式的那一刻起，直到返回普通模式为止，vim会记录每一个按键操作。</li>
 <li><code>.</code>命令是一个微型的宏</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <h2 id="技巧2-不要自我重复">技巧2 不要自我重复</h2>
 <ul>
@@ -53,7 +26,7 @@
 </ul>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>目的</th>
 <th>操作</th>
 <th>重复</th>
@@ -61,43 +34,43 @@
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>做出一个修改</td>
 <td><code>{edit}</code></td>
 <td><code>.</code></td>
 <td><code>u</code></td>
 </tr>
-<tr>
+<tr class="even">
 <td>在行内查找下一指定字符</td>
 <td><code>f{char}/t{char}</code></td>
 <td><code>;</code></td>
 <td><code>,</code></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>在行内查找上一指定字符</td>
 <td><code>f{char}/t{char}</code></td>
 <td><code>;</code></td>
 <td><code>,</code></td>
 </tr>
-<tr>
+<tr class="even">
 <td>在文档中查找下一处匹配项</td>
 <td><code>/pattern&lt;cr&gt;</code></td>
 <td><code>n</code></td>
 <td><code>n</code></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>在文档中查找上一处匹配项</td>
 <td><code>?pattern&lt;cr&gt;</code></td>
 <td><code>n</code></td>
 <td><code>n</code></td>
 </tr>
-<tr>
+<tr class="even">
 <td>执行替换</td>
 <td><code>:s/target/replacement</code></td>
 <td><code>&amp;</code></td>
 <td><code>u</code></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>执行一系列修改</td>
 <td><code>qx{changes}q</code></td>
 <td><code>@x</code></td>
@@ -109,7 +82,7 @@
 <ul>
 <li><code>*</code>命令可以查找当前光标下的单词</li>
 </ul>
-<h2 id="技巧六-结识范式">技巧六 结识<code>.</code>范式</h2>
+<h2 id="技巧六-结识.范式">技巧六 结识<code>.</code>范式</h2>
 <h1 id="普通模式">普通模式</h1>
 <h2 id="技巧7-停顿时请移开画笔">技巧7 停顿时请移开画笔</h2>
 <h2 id="技巧8-把撤销单元切成块">技巧8 把撤销单元切成块</h2>
@@ -124,56 +97,55 @@
 <ul>
 <li>如果光标不在数字上，会把当前光标之上或之后的数值加上<code>[count]</code></li>
 <li>vim会把0开头的数字解释为八进制值，可以加入<code>set nrformats=</code>将所有数字设为十进制</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <h2 id="技巧11-能够重复就别用次数">技巧11 能够重复，就别用次数</h2>
 <h2 id="技巧12-双剑合璧天下无敌">技巧12 双剑合璧，天下无敌</h2>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>命令</th>
 <th>用途</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>c</code></td>
 <td>修改</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>d</code></td>
 <td>删除</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>y</code></td>
 <td>复制到寄存器</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>g~</code></td>
 <td>反转大小写 （可视化模式下）</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>gu</code></td>
 <td>转为小写</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>gu</code></td>
 <td>转为大写</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>&gt;</code></td>
 <td>增加缩进</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>&lt;</code></td>
 <td>减小缩进</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>=</code></td>
 <td>自动缩进</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>!</code></td>
 <td>使用外部程序过滤{motion}所跨越的行</td>
 </tr>
@@ -185,8 +157,7 @@
 <li>vim的语法只有一条额外的规则，即当一个操作符命令被连续调用两次时，它会作用于当前行
 <ul>
 <li><code>gUgU</code>或<code>gUU</code>可以作用于当前行</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <h1 id="插入模式">插入模式</h1>
 <h2 id="技巧13-在插入模式中可即时更正错误">技巧13 在插入模式中可即时更正错误</h2>
@@ -198,29 +169,28 @@
 <h2 id="技巧14-返回普通模式">技巧14 返回普通模式</h2>
 <table>
 <thead>
-<tr>
-<th style="text-align:left">按键操作</th>
-<th style="text-align:left">用途</th>
+<tr class="header">
+<th style="text-align: left;">按键操作</th>
+<th style="text-align: left;">用途</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left"><code>Esc&gt;</code></td>
-<td style="text-align:left">切换普通模式</td>
+<tr class="odd">
+<td style="text-align: left;"><code>Esc&gt;</code></td>
+<td style="text-align: left;">切换普通模式</td>
 </tr>
-<tr>
-<td style="text-align:left"><code>&lt;C-[</code></td>
-<td style="text-align:left">切换到普通模式</td>
+<tr class="even">
+<td style="text-align: left;"><code>&lt;C-[</code></td>
+<td style="text-align: left;">切换到普通模式</td>
 </tr>
-<tr>
-<td style="text-align:left"><code>&lt;C-o&gt;</code></td>
-<td style="text-align:left">切换到插入-普通模式</td>
+<tr class="odd">
+<td style="text-align: left;"><code>&lt;C-o&gt;</code></td>
+<td style="text-align: left;">切换到插入-普通模式</td>
 </tr>
 </tbody>
 </table>
 <ul>
-<li>插入-普通模式
-在此模式中，可以先执行一个普通模式，执行完后，马上回到插入模式</li>
+<li>插入-普通模式 在此模式中，可以先执行一个普通模式，执行完后，马上回到插入模式</li>
 <li><code>zz</code>让当前行显示在窗口正中；<code>&lt;C-o&gt;zz</code>在插入-普通模式中触发这条命名让正中显示后直接j回到插入模式</li>
 </ul>
 <h2 id="技巧15-不离开插入模式粘贴寄存器中的文本">技巧15 不离开插入模式，粘贴寄存器中的文本</h2>
@@ -231,8 +201,7 @@
 <h2 id="技巧16-随时随地做运算">技巧16 随时随地做运算</h2>
 <ul>
 <li>表达式寄存器允许我们做一些运算，并把运算结果直接插入到文档中</li>
-<li>在插入模式中，输入
-<code>&lt;C-r&gt;=</code>就可以访问这一寄存器。这条命令会在屏幕的下方显示一个提示符，我们可以在其后输入要执行的表达式。输入表达式后敲一下<code>&lt;CR&gt;</code>，Vim就会把执行的结果插入到文档的当前位置了。</li>
+<li>在插入模式中，输入 <code>&lt;C-r&gt;=</code>就可以访问这一寄存器。这条命令会在屏幕的下方显示一个提示符，我们可以在其后输入要执行的表达式。输入表达式后敲一下<code>&lt;CR&gt;</code>，Vim就会把执行的结果插入到文档的当前位置了。</li>
 </ul>
 <h2 id="技巧17-用字符编码插入非常用字符">技巧17 用字符编码插入非常用字符</h2>
 <ul>
@@ -241,27 +210,27 @@
 </ul>
 <table>
 <thead>
-<tr>
-<th style="text-align:left">按键操作</th>
-<th style="text-align:left">用途</th>
+<tr class="header">
+<th style="text-align: left;">按键操作</th>
+<th style="text-align: left;">用途</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left"><code>&lt;C-v&gt;{123}</code></td>
-<td style="text-align:left">以十进制字符编码插入字符</td>
+<tr class="odd">
+<td style="text-align: left;"><code>&lt;C-v&gt;{123}</code></td>
+<td style="text-align: left;">以十进制字符编码插入字符</td>
 </tr>
-<tr>
-<td style="text-align:left"><code>&lt;C-v&gt;u{1234}</code></td>
-<td style="text-align:left">以十六进制字符c编码插入字符</td>
+<tr class="even">
+<td style="text-align: left;"><code>&lt;C-v&gt;u{1234}</code></td>
+<td style="text-align: left;">以十六进制字符c编码插入字符</td>
 </tr>
-<tr>
-<td style="text-align:left"><code>&lt;C-v&gt;{nondigit}</code></td>
-<td style="text-align:left">按原义插入非数字字符</td>
+<tr class="odd">
+<td style="text-align: left;"><code>&lt;C-v&gt;{nondigit}</code></td>
+<td style="text-align: left;">按原义插入非数字字符</td>
 </tr>
-<tr>
-<td style="text-align:left"><code>&lt;C-j&gt;{char1}{char2}</code></td>
-<td style="text-align:left">插入以二合字母<code>{char1}{char2}</code>表示的字符</td>
+<tr class="even">
+<td style="text-align: left;"><code>&lt;C-j&gt;{char1}{char2}</code></td>
+<td style="text-align: left;">插入以二合字母<code>{char1}{char2}</code>表示的字符</td>
 </tr>
 </tbody>
 </table>
@@ -270,6 +239,476 @@
 <ul>
 <li>虚拟替换模式<code>gR</code></li>
 </ul>
-
-    </body>
-    </html>
+<h1 id="可视化模式">可视化模式</h1>
+<h2 id="技巧20-深入理解可视化模式">技巧20 深入理解可视化模式</h2>
+<ul>
+<li><code>viw</code></li>
+<li><code>&lt;C-g&gt;</code>可以在可视化模式及选择模式间切换，在选择模式中输入任意可见字符，此字符会替换所选内容并切换到插入模式</li>
+</ul>
+<h2 id="技巧21-选择高亮选区">技巧21 选择高亮选区</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">命令</th>
+<th style="text-align: left;">用途</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>v</code></td>
+<td style="text-align: left;">激»面向字符的可视模式</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>V</code></td>
+<td style="text-align: left;">激»面向行的可视模式</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>&lt;C-v&gt;</code></td>
+<td style="text-align: left;">激»面向列块的可视模式</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>gv</code></td>
+<td style="text-align: left;">重选上次的高亮选区</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>o</code></td>
+<td style="text-align: left;">切换高亮选区的活动端</td>
+</tr>
+</tbody>
+</table>
+<h2 id="技巧22-重复执行面向行的可视命令">技巧22 重复执行面向行的可视命令</h2>
+<ul>
+<li>当使用 <code>.</code> 命令重复对高亮选区所做的修改时，此修改会重复作用于相同范围的文本(验证失败)</li>
+</ul>
+<h2 id="技巧23-只要可能最好用操作符命令而不是可视命令">技巧23 只要可能，最好用操作符命令，而不是可视命令</h2>
+<ul>
+<li>可视化模式下可以使用<code>U</code>命令来大写所选字符</li>
+<li><code>vit</code>选择标签内文本</li>
+<li>当一条可视模式命令被重复执行时，它会影响相同数量的文本</li>
+<li>在这个模式下 <code>.</code> 命令有时会有一些异常的表现。</li>
+</ul>
+<h2 id="技巧24-面向列块的可视模式编辑表格数据">技巧24 面向列块的可视模式编辑表格数据</h2>
+<h2 id="技巧25-修改列文本">技巧25 修改列文本</h2>
+<ul>
+<li>列块可视化模式中，删除操作会影响所有被选中的，但插入操作只影响顶行，而且<code>a i o</code>等命令无效
+<ul>
+<li>因为在可视化模式下，<code>a i</code>被当作一个文本对象的组成部分，而<code>o</code>有其他的作用</li>
+</ul></li>
+</ul>
+<h2 id="技巧26-在长短不一的高亮块后添加文本">技巧26 在长短不一的高亮块后添加文本</h2>
+<ul>
+<li><code>I A</code>命令</li>
+</ul>
+<h1 id="命令行模式">命令行模式</h1>
+<h2 id="技巧27-结识vim的命令行模式">技巧27 结识Vim的命令行模式</h2>
+<ul>
+<li>有些命令在插入模式和命令行模式中可以通用。例如，可以用 <code>&lt;C-w&gt;</code> 和 <code>&lt;C-u&gt;</code> 分别删除至上个单词的开头及行首，也可以用 <code>&lt;C-v&gt;</code> 或 <code>&lt;C-k&gt;</code> 来插入键盘上找不到的字符，还可以用 <code>&lt;C-r&gt;{register}</code> 命令把任意寄存器的内容插入到命令行</li>
+</ul>
+<h2 id="技巧28-在一行或多个连续行上执行命令">技巧28 在一行或多个连续行上执行命令</h2>
+<ul>
+<li>用行号作为地址
+<ul>
+<li>如果只输入一条只包含数字的<code>Ex</code>命令，那么Vim就把这个数字解析成一个地址，并把光标移动到该数字所指定的行上
+<ul>
+<li><code>:1</code>跳转到第一行，<code>:$</code>跳转到最后一行</li>
+</ul></li>
+<li><code>:p</code>或者<code>:print</code>在命令行输出当前行内容
+<ul>
+<li><code>:3p</code>光标移动到第三行，然后显示该行内容</li>
+<li><code>:3d</code>光标移动到第三行，并删除此行</li>
+</ul></li>
+</ul></li>
+<li>用地址指定一个范围
+<ul>
+<li><code>:2,5p</code>打印从第二行到第五行之间的每一行内容（包含第二和第五行），运行完后，光标停留在第五行</li>
+<li><code>.</code>代表当前行</li>
+<li><code>%</code>代表文件中所有的行</li>
+</ul></li>
+<li>用高亮选区指定范围
+<ul>
+<li>可视化模式下按下<code>:</code>键，命令行上会预先填充一个范围 <code>:'&lt;,'&gt;</code> ，然后输入一条Ex命令，使它作用在每个被选中的行上</li>
+<li><code>'&lt;</code>是代表高亮选区首行的位置标记</li>
+<li><code>'&gt;</code>是代表高亮选区的最后一行</li>
+</ul></li>
+<li>用模式指定范围
+<ul>
+<li><code>:/&lt;html&gt;/,/\/html&gt;/p</code> 也符合 <code>:{start},{end}</code>
+<ul>
+<li><code>{start}</code> 是 /
+<html>
+/ ，而<code>{end}</code> 地址是 /&lt;/html&gt;/</li>
+</ul></li>
+</ul></li>
+<li>用偏移对地址进行修正
+<ul>
+<li><code>:{address}+n</code> 如果 n 被省略，缺省值为 1
+<ul>
+<li><code>:.,.+3p</code> 等于 当前行到下三行</li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 id="技巧29-使用-t-和-m-命令复制和移动">技巧29 使用 <code>:t</code> 和 <code>:m</code> 命令复制和移动</h2>
+<ul>
+<li><code>:copy</code> 及其 <code>:t</code> 可以把一行或者多行从文档的一部分复制到另一部分
+<ul>
+<li><code>:{range}t{address}</code></li>
+</ul></li>
+<li><code>:move</code> 可以把一行或多行文档移到文档其他地方</li>
+</ul>
+<h2 id="技巧30-在指定范围上执行普通模式命令">技巧30 在指定范围上执行普通模式命令</h2>
+<ul>
+<li><code>:%normal A;</code> 会在全文每行末尾添加分号</li>
+</ul>
+<h2 id="技巧31-重复上次的ex命令">技巧31 重复上次的EX命令</h2>
+<ul>
+<li><code>.</code> 命令可以重复上次的普通模式命令。然而，如果想重复上次的 Ex命令的话，我们得使用 <code>@:</code> 才行。</li>
+<li><code>:</code> 寄存器总是保存着最后执行的命令行命令</li>
+</ul>
+<h2 id="技巧32-自动补全ex命令">技巧32 自动补全Ex命令</h2>
+<h2 id="技巧33-把当前单词插入命令行">技巧33 把当前单词插入命令行</h2>
+<ul>
+<li>在Vim的命令行下，<code>&lt;C-r&gt;&lt;C-w&gt;</code>映射项会复制光标下的单词并把它插入到命令行中。</li>
+<li><code>*</code>命令等效于输入 <code>/\&lt;&lt;C-r&gt;&lt;C-w&gt;\&gt;&lt;CR&gt;</code></li>
+</ul>
+<h2 id="技巧34-回溯历史命令">技巧34 回溯历史命令</h2>
+<ul>
+<li><code>&lt;UP&gt; &lt;Down&gt;</code></li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">命令</th>
+<th style="text-align: left;">动作</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>q/</code></td>
+<td style="text-align: left;">打开查找命令历史的命令行窗口</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>q:</code></td>
+<td style="text-align: left;">打开Ex命令历史的命令行窗口</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>&lt;C-f&gt;</code></td>
+<td style="text-align: left;">从命令行模式切换到命令行窗口</td>
+</tr>
+</tbody>
+</table>
+<h2 id="技巧35-运行shell命令">技巧35 运行shell命令</h2>
+<ul>
+<li><code>!</code>叹号前缀</li>
+<li><code>&lt;C-z&gt;</code>挂起Vim所属的进程，并把控制权交还给bash</li>
+<li><code>jobs</code>查看当前作业列表</li>
+<li><code>fg</code>命令唤醒一个被挂起的作业</li>
+</ul>
+<h1 id="管理多个文件">管理多个文件</h1>
+<h2 id="技巧36-用缓冲区列表管理打开的文件">技巧36 用缓冲区列表管理打开的文件</h2>
+<ul>
+<li><code>:ls</code> 列出所有被载入内存中的缓冲区的列表</li>
+<li><code>bnext</code></li>
+<li>% 符号指明哪个缓冲区在当前窗口中可见，而 # 符号则代表轮换文件。按<code>&lt;C-^&gt;</code>可以在当前文件和轮换文件间快速切换</li>
+<li><code>:bprev</code> 和 <code>:bnext</code> 在列表中反向或正向移动，每次移动一项；而 <code>:bfirst</code> 和 <code>:blast</code> 则分别跳到列表的开头和结尾</li>
+<li>用<code>:buffer N</code> 命令直接凭编号跳转到一个缓冲区</li>
+<li><code>:bufdo</code> 命令允许我们在 :ls 列出的所有缓冲区上执行Ex 命令
+<ul>
+<li><code>:argdo</code> 更加实用</li>
+</ul></li>
+<li>删除缓冲区，可以用 <code>:bdelete</code> 命令
+<ul>
+<li><code>:bdelete N1 N2 N3</code></li>
+<li><code>:N,M bdelete</code></li>
+</ul></li>
+</ul>
+<h2 id="技巧37-用参数列表将缓冲区分组">技巧37 用参数列表将缓冲区分组</h2>
+<ul>
+<li>用 <code>Glob</code> 模式指定文件</li>
+<li>:args <code>commnads</code> Vim会在shell中执行反撇号括起来的命令，然后将结果输出作为:args的参数</li>
+</ul>
+<h2 id="技巧38-管理缓冲区列表">技巧38 管理缓冲区列表</h2>
+<ul>
+<li>修改但未保存的文件会有 + 号</li>
+</ul>
+<h2 id="技巧39-将工作区切分成窗口">技巧39 将工作区切分成窗口</h2>
+<ul>
+<li>用 <C-w>s 命令可以水平切分此窗口，使之成为两个高度相同的窗口；或者可以用<C-w>v 命令对其进行垂直切分，这样会产生两个宽度相同的窗口。</li>
+<li><C-w>w <C-w>h <C-w>j <C-w>k <C-w>l</li>
+<li>close 关闭活动窗口</li>
+<li>on 只保留活动窗口，关闭其他所有窗口</li>
+</ul>
+<h2 id="技巧40-用标签页将窗口分组">技巧40 用标签页将窗口分组</h2>
+<ul>
+<li>:lcd {path} 命令让我们可以设置当前窗口的本地工作目录
+<ul>
+<li>:lcd 只影响当前窗口，而非当前标签页</li>
+</ul></li>
+<li>用 :windo lcd {path} 命令为所有这些窗口设置本地工作目录。</li>
+</ul>
+<h1 id="打开及保存文件">打开及保存文件</h1>
+<h2 id="技巧41-用-edit-命令打开文件">技巧41 用 :edit 命令打开文件</h2>
+<ul>
+<li><code>:pwd</code> 打印工作目录</li>
+<li><code>:edit %&lt;Tab&gt;</code> %符号代表缓冲区的完整文件路径
+<ul>
+<li><code>:edit %:h&lt;Tab&gt;</code> :h 修饰符会去除文件名</li>
+</ul></li>
+<li>cnoremap <expr> %% getcmdtype( ) == ‘:’ ? expand(‘%:h’).’/’ : ‘%%’
+<ul>
+<li>当你在 Vim 的命令行提示符后输入 %% 时，它就会被自动展开为活动缓冲区所在目录的路径</li>
+</ul></li>
+</ul>
+<h2 id="技巧42-使用-find-打开文件">技巧42 使用 :find 打开文件</h2>
+<ul>
+<li>需要预设 path
+<ul>
+<li>set path+=路径</li>
+<li>/** 匹配该目录下所有子目录</li>
+</ul></li>
+</ul>
+<h2 id="技巧43-使用-netrw-管理文件系统">技巧43 使用 netrw 管理文件系统</h2>
+<ul>
+<li><code>:edit .</code> 打开文件管理器，并显示当前工作目录</li>
+<li><code>:Explore</code> 打开文件管理器，并显示活动缓冲区所在目录</li>
+<li>除:Explore 外，netrw 还提供了:Sexplore 及 :Vexplore命令，这两条命令分别在一个水平切分窗口及垂直切分窗口里打开文件管理器。</li>
+</ul>
+<h2 id="技巧44-把文件保存到不存在的目录中">技巧44 把文件保存到不存在的目录中</h2>
+<ul>
+<li><code>:!mkdir -p %:h</code> -p 参数 创建任何不存在的中间目录</li>
+</ul>
+<h2 id="技巧45-以超级用户权限保存文件">技巧45 以超级用户权限保存文件</h2>
+<ul>
+<li><code>:w !sudo tee % &gt; /dev/null</code>
+<ul>
+<li><code>:write !{cmd}</code> 命令会把缓冲区的内容作为标准输入传给指定的{cmd}</li>
+</ul></li>
+</ul>
+<h1 id="用动作命令在文档中移动">用动作命令在文档中移动</h1>
+<h2 id="技巧46-让手指保持在本位行">技巧46 让手指保持在本位行</h2>
+<ul>
+<li>h j k l</li>
+</ul>
+<h2 id="技巧47-区分实际行与屏幕行">技巧47 区分实际行与屏幕行</h2>
+<ul>
+<li><code>gj gk</code> 是按照屏幕行向下及向上移动
+<ul>
+<li>当一行显示不下，会有多个屏幕行的时候，可以在屏幕行之间移动</li>
+</ul></li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">命令</th>
+<th style="text-align: left;">光标动作</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">j</td>
+<td style="text-align: left;">向下移动一个实际行</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gj</td>
+<td style="text-align: left;">向下移动一个屏幕行</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">k</td>
+<td style="text-align: left;">向上移动一个实际行</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gk</td>
+<td style="text-align: left;">向上移动一个屏幕行</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">移动到实际行的行首</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">g0</td>
+<td style="text-align: left;">移动到屏幕行的行首</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">^</td>
+<td style="text-align: left;">移动到实际行的第一个非空白字符</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">g^</td>
+<td style="text-align: left;">移动到屏幕行的第一个空白字符</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">$</td>
+<td style="text-align: left;">移动到实际行的行尾</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">g$</td>
+<td style="text-align: left;">移动到屏幕行的行尾</td>
+</tr>
+</tbody>
+</table>
+<h2 id="技巧48-基于单词的移动">技巧48 基于单词的移动</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">命令</th>
+<th style="text-align: left;">光标动作</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">w</td>
+<td style="text-align: left;">正向移动到下一单词的开头</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">g</td>
+<td style="text-align: left;">反向移动到当前单词/上一单词的开头</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">e</td>
+<td style="text-align: left;">正向移动到当前单词/下一单词的结尾</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ge</td>
+<td style="text-align: left;">反向移动到上一单词的结尾</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>一个单词由字母、下划线、数字，或其他非空白字符的序列组成，单词间以空白字符为间隔</li>
+<li>一个字串由空白字符序列组成，字串间以空白字符分隔</li>
+</ul>
+<h2 id="技巧49-对字符进行查找">技巧49 对字符进行查找</h2>
+<ul>
+<li><code>f{char}</code> 在光标位置与当前行尾政治家查找指定字符
+<ul>
+<li>Vim 会记录上次执行过的 f{char} 命令，随后用 ; 命令就可以重复该命令了</li>
+<li>用 , 命令就可以再跳回来</li>
+</ul></li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">命令</th>
+<th style="text-align: left;">用途</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">f{char}</td>
+<td style="text-align: left;">正向移动到下一个{char}所在之处</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">F{char}</td>
+<td style="text-align: left;">反向移动到上一个{char}所在之处</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">t{char}</td>
+<td style="text-align: left;">正向移动到下一个{char}所在之处的前一个字符上</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">T{char}</td>
+<td style="text-align: left;">反向移动到上一个{char}所在之处的前一个字符上</td>
+</tr>
+</tbody>
+</table>
+<h2 id="技巧50-通过查找进行移动">技巧50 通过查找进行移动</h2>
+<ul>
+<li>查找一个开动作</li>
+</ul>
+<h2 id="技巧51-用精确的文本对象选择区">技巧51 用精确的文本对象选择区</h2>
+<ul>
+<li>`a) 或 ab<code></code>i) ib`</li>
+<li><code>a} 或 aB</code> <code>i} iB</code></li>
+<li><code>a]</code> <code>i]</code></li>
+<li><code>a&gt;</code> <code>i&gt;</code></li>
+<li><code>a'</code> <code>i'</code></li>
+<li><code>a"</code> <code>i"</code></li>
+<li>a<code>i</code></li>
+<li>at it</li>
+</ul>
+<h2 id="技巧52-删除周边修改内部">技巧52 删除周边，修改内部</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">文本对象</th>
+<th style="text-align: left;">选择范围</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">iw</td>
+<td style="text-align: left;">当前单词</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">aw</td>
+<td style="text-align: left;">当前单词及一个空格</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">iW</td>
+<td style="text-align: left;">当前字串</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">aW</td>
+<td style="text-align: left;">当前字串 及一个空格</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">is</td>
+<td style="text-align: left;">当前句子</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">as</td>
+<td style="text-align: left;">当前句子 及一个空格</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ip</td>
+<td style="text-align: left;">当前段落</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ap</td>
+<td style="text-align: left;">当前段落 及一个空格</td>
+</tr>
+</tbody>
+</table>
+<h2 id="技巧53-设置位置标记以便快速跳回">技巧53 设置位置标记，以便快速跳回</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">位置标记</th>
+<th style="text-align: left;">跳转到</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">两个斜撇</td>
+<td style="text-align: left;">当前文件中上次跳转动作之前的位置</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">斜撇 .</td>
+<td style="text-align: left;">上次修改的地方</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">斜撇 ^</td>
+<td style="text-align: left;">上次插入的地方</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">斜撇 [</td>
+<td style="text-align: left;">上次修改或复制的起始位置</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">斜撇 ]</td>
+<td style="text-align: left;">上次修改或复制的结束位置</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">斜撇 &lt;</td>
+<td style="text-align: left;">上次高亮选区的起始位置</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">斜撇 &gt;</td>
+<td style="text-align: left;">上次高亮选区的结束位置</td>
+</tr>
+</tbody>
+</table>
+<h2 id="技巧54-在匹配括号间跳转">技巧54 在匹配括号间跳转</h2>
+<ul>
+<li>% 命令允许我们在一组开闭括号间跳转</li>
+</ul>
+<h1 id="在文件间跳转">在文件间跳转</h1>

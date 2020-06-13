@@ -79,7 +79,6 @@ call plug#begin('/home/dd/.local/vim/plugged')
 "Plug 'preservim/nerdtree'                    "文件管理
 "Plug 'mbbill/undotree'
 Plug 'itchyny/lightline.vim'                  "statusline
-Plug 'bling/vim-bufferline'
 Plug 'honza/vim-snippets'                     "snippets
 Plug 'SirVer/ultisnips'
 Plug 'kien/rainbow_parentheses.vim'           "彩虹括号
@@ -104,6 +103,7 @@ call plug#end()
     "source /home/dd/.local/vim/myconfig/self_theme.vim
 "endif
 set termguicolors
+colorscheme palenight
 "let g:onedark_termcolors=256
 "let g:onedark_hide_endofbuffer=1
 "colorscheme onedark 

@@ -95,7 +95,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()  }, 'for':
 Plug 'dhruvasagar/vim-table-mode',{'for':['markdown','vim-plug']}
 Plug 'dkarter/bullets.vim',{'for':['markdown','vim-plug']}
 "Plug 'neoclide/coc.nvim', {'branch': 'release'} "代码补全
-Plug 'lervag/vimtex'                          "LaTeX
+"Plug 'lervag/vimtex'                          "LaTeX
 call plug#end()
 "----------------------------------------------------------------
 "----------------------------Leaderf 设置------------------------

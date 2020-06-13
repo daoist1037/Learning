@@ -55,7 +55,7 @@
 		"C_Cpp.updateChannel": "Insiders",
 		"editor.renderWhitespace": "all",
 		"files.autoGuessEncoding": true,
-		"workbench.colorTheme": "Community Material Theme Palenight",
+		"workbench.colorTheme": "Palenight Italic",
 		"debug.internalConsoleOptions": "neverOpen",
 		"terminal.integrated.enableBell": true,
 	}
