@@ -1,5 +1,5 @@
         ORG 0000H
-		    AJMP MAIN
+        AJMP MAIN
         ORG 0100H
 MAIN:   MOV A, #11H
         MOV P1, A
@@ -14,7 +14,7 @@ MAIN:   MOV A, #11H
         MOV P1, A
         LCALL D3s
         MOV A, #0CH
-		MOV P1, A
+        MOV P1, A
         MOV R1, #04H
         MOV A, R1
         LCALL D30s
