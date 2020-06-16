@@ -1,0 +1,143 @@
+A51 MACRO ASSEMBLER  TEST                                                                 06/17/2020 00:02:08 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\test.obj
+ASSEMBLER INVOKED BY: D:\portable\keil\C51\BIN\A51.EXE test.asm SET(SMALL) DEBUG PRINT(.\Listings\test.lst) OBJECT(.\Obj
+                      ects\test.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+0000 2100              2                     AJMP MAIN
+0100                   3                     ORG 0100H
+0100 7411              4     MAIN:   MOV A, #11H
+0102 F590              5                     MOV P1, A
+0104 120200            6                     LCALL D3s
+0107 7421              7             MOV A, #21H
+0109 F590              8             MOV P1, A
+010B 7901              9             MOV R1, #01H;   R1是数码管选择位数
+010D E9               10             MOV A, R1
+010E 120300           11             LCALL D30s
+                      12     
+0111 740A             13             MOV A, #0AH
+0113 F590             14                     MOV P1, A
+0115 120200           15             LCALL D3s
+0118 740C             16             MOV A, #0CH
+011A F590             17                     MOV P1, A
+011C 7904             18             MOV R1, #04H
+011E E9               19             MOV A, R1
+011F 120300           20             LCALL D30s
+0122 2100             21             AJMP MAIN
+                      22     
+0200                  23             ORG 0200H
+0200 7D14             24     D3s:    MOV R5, #20
+0202 7E64             25     DEL30:  MOV R6, #100
+0204 7F64             26     DEL31:  MOV R7, #100
+0206 DFFE             27             DJNZ R7, $
+0208 DEFA             28             DJNZ R6, DEL31
+020A DDF6             29             DJNZ R5, DEL30
+020C 22               30             RET
+0300                  31             ORG 0300H
+0300 7820             32     D30s:   MOV R0, #020H;   TAB选择
+0302 7C64             33     NEXT:   MOV R4, #100
+0304 7580FF           34     INPUT:  MOV P0, #0FFH
+0307 E8               35             MOV A, R0
+0308 28               36             ADD A, R0
+0309 FB               37                     MOV R3, A
+030A E9               38             MOV A, R1
+030B F5A0             39             MOV P2, A
+030D 900341           40             MOV DPTR, #TAB
+0310 EB               41             MOV A, R3
+0311 1B               42             DEC R3
+0312 93               43             MOVC A, @A+DPTR
+0313 F580             44             MOV P0, A
+0315 7D0A             45     DELAY0: MOV R5, #10
+0317 7E14             46     DEL0:   MOV R6, #20
+0319 7F14             47     DEL1:   MOV R7, #20
+031B DFFE             48     DEL2:   DJNZ R7, DEL2
+031D DEFA             49             DJNZ R6, DEL1
+031F DDF6             50             DJNZ R5, DEL0
+0321 7580FF           51             MOV P0, #0FFH
+0324 E9               52             MOV A, R1
+0325 23               53             RL A
+0326 F5A0             54             MOV P2, A
+0328 900341           55             MOV DPTR, #TAB
+032B EB               56             MOV A, R3
+032C 1B               57             DEC R3
+A51 MACRO ASSEMBLER  TEST                                                                 06/17/2020 00:02:08 PAGE     2
+
+032D 93               58             MOVC A, @A+DPTR
+032E F580             59             MOV P0, A
+0330 7D0A             60     DELAY1: MOV R5, #10
+0332 7E14             61     DEL10:  MOV R6, #20
+0334 7F14             62     DEL11:  MOV R7, #20
+0336 DFFE             63     DEL12:  DJNZ R7, DEL12
+0338 DEFA             64             DJNZ R6, DEL11
+033A DDF6             65             DJNZ R5, DEL10
+                      66     
+033C DCC6             67             DJNZ R4, INPUT
+033E D8C2             68             DJNZ R0, NEXT
+0340 22               69             RET
+                      70     
+0341 C0C0C0F9         71     TAB:    DB       0C0H,0C0H,0C0H,0F9H,0C0H,0A4H,0C0H,0B0H,0C0H,099H,0C0H,092H,0C0H,082H,0C0H
+                             ,0F8H,0C0H,080H,0C0H,090H,0C0H,0C0H,0F9H,0F9H,0F9H,0A4H,0F9H,0B0H,0F9H,099H,0F9H,092H,0F9H,
+                             082H,0F9H,0F8H,0F9H,080H,0F9H,090H,0F9H,0C0H,0A4H,0F9H,0A4H,0A4H,0A4H,0B0H,0A4H,099H,0A4H,0
+                             92H,0A4H,082H,0A4H,0F8H,0A4H,080H,0A4H,090H,0A4H,0C0H,0B0H
+0345 C0A4C0B0                
+0349 C099C092                
+034D C082C0F8                
+0351 C080C090                
+0355 C0C0F9F9                
+0359 F9A4F9B0                
+035D F999F992                
+0361 F982F9F8                
+0365 F980F990                
+0369 F9C0A4F9                
+036D A4A4A4B0                
+0371 A499A492                
+0375 A482A4F8                
+0379 A480A490                
+037D A4C0B0                  
+                      72     
+                      73     
+                      74     ;0C0H, 0B0H,  090H, 0A4H,  080H, 0A4H,  0F8H, 0A4H,  082H, 0A4H,  092H, 0A4H,  099H, 0A4H, 
+                              0B0H, 0A4H,  0A4H, 0A4H,  0F9H, 0A4H,  0C0H, 0A4H,  0C0H, 0B0H,  090H, 0A4H,  080H, 0A4H, 
+                              0F8H, 0A4H,  082H, 0A4H,  092H, 0A4H,  099H, 0A4H,  0B0H, 0A4H,  0A4H, 0A4H,  0F9H, 0A4H, 
+                              0C0H, 0A4H,  0C0H, 0B0H,  090H, 0A4H,  080H, 0A4H,  0F8H, 0A4H,  082H, 0A4H,  092H, 0A4H, 
+                              099H, 0A4H,  0B0H, 0A4H,  0A4H, 0A4H,  0F9H, 0A4H,  0C0H, 0A4H
+                      75     
+                      76                     END
+A51 MACRO ASSEMBLER  TEST                                                                 06/17/2020 00:02:08 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+D30S . . . . . . .  C ADDR   0300H   A   
+D3S. . . . . . . .  C ADDR   0200H   A   
+DEL0 . . . . . . .  C ADDR   0317H   A   
+DEL1 . . . . . . .  C ADDR   0319H   A   
+DEL10. . . . . . .  C ADDR   0332H   A   
+DEL11. . . . . . .  C ADDR   0334H   A   
+DEL12. . . . . . .  C ADDR   0336H   A   
+DEL2 . . . . . . .  C ADDR   031BH   A   
+DEL30. . . . . . .  C ADDR   0202H   A   
+DEL31. . . . . . .  C ADDR   0204H   A   
+DELAY0 . . . . . .  C ADDR   0315H   A   
+DELAY1 . . . . . .  C ADDR   0330H   A   
+INPUT. . . . . . .  C ADDR   0304H   A   
+MAIN . . . . . . .  C ADDR   0100H   A   
+NEXT . . . . . . .  C ADDR   0302H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+TAB. . . . . . . .  C ADDR   0341H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

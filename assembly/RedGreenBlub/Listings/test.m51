@@ -1,0 +1,119 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    06/17/2020  00:02:09  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+D:\PORTABLE\KEIL\C51\BIN\BL51.EXE .\Objects\test.obj TO .\Objects\test PRINT (.\Listings\test.m51)
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\test.obj (TEST)
+
+
+LINK MAP OF MODULE:  .\Objects\test (TEST)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0380H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\test (TEST)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        TEST
+  C:0300H         SYMBOL        D30S
+  C:0200H         SYMBOL        D3S
+  C:0317H         SYMBOL        DEL0
+  C:0319H         SYMBOL        DEL1
+  C:0332H         SYMBOL        DEL10
+  C:0334H         SYMBOL        DEL11
+  C:0336H         SYMBOL        DEL12
+  C:031BH         SYMBOL        DEL2
+  C:0202H         SYMBOL        DEL30
+  C:0204H         SYMBOL        DEL31
+  C:0315H         SYMBOL        DELAY0
+  C:0330H         SYMBOL        DELAY1
+  C:0304H         SYMBOL        INPUT
+  C:0100H         SYMBOL        MAIN
+  C:0302H         SYMBOL        NEXT
+  D:0080H         SYMBOL        P0
+  D:0090H         SYMBOL        P1
+  D:00A0H         SYMBOL        P2
+  C:0341H         SYMBOL        TAB
+  C:0000H         LINE#         2
+  C:0100H         LINE#         4
+  C:0102H         LINE#         5
+  C:0104H         LINE#         6
+  C:0107H         LINE#         7
+  C:0109H         LINE#         8
+  C:010BH         LINE#         9
+  C:010DH         LINE#         10
+  C:010EH         LINE#         11
+  C:0111H         LINE#         13
+  C:0113H         LINE#         14
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  06/17/2020  00:02:09  PAGE 2
+
+
+  C:0115H         LINE#         15
+  C:0118H         LINE#         16
+  C:011AH         LINE#         17
+  C:011CH         LINE#         18
+  C:011EH         LINE#         19
+  C:011FH         LINE#         20
+  C:0122H         LINE#         21
+  C:0200H         LINE#         24
+  C:0202H         LINE#         25
+  C:0204H         LINE#         26
+  C:0206H         LINE#         27
+  C:0208H         LINE#         28
+  C:020AH         LINE#         29
+  C:020CH         LINE#         30
+  C:0300H         LINE#         32
+  C:0302H         LINE#         33
+  C:0304H         LINE#         34
+  C:0307H         LINE#         35
+  C:0308H         LINE#         36
+  C:0309H         LINE#         37
+  C:030AH         LINE#         38
+  C:030BH         LINE#         39
+  C:030DH         LINE#         40
+  C:0310H         LINE#         41
+  C:0311H         LINE#         42
+  C:0312H         LINE#         43
+  C:0313H         LINE#         44
+  C:0315H         LINE#         45
+  C:0317H         LINE#         46
+  C:0319H         LINE#         47
+  C:031BH         LINE#         48
+  C:031DH         LINE#         49
+  C:031FH         LINE#         50
+  C:0321H         LINE#         51
+  C:0324H         LINE#         52
+  C:0325H         LINE#         53
+  C:0326H         LINE#         54
+  C:0328H         LINE#         55
+  C:032BH         LINE#         56
+  C:032CH         LINE#         57
+  C:032DH         LINE#         58
+  C:032EH         LINE#         59
+  C:0330H         LINE#         60
+  C:0332H         LINE#         61
+  C:0334H         LINE#         62
+  C:0336H         LINE#         63
+  C:0338H         LINE#         64
+  C:033AH         LINE#         65
+  C:033CH         LINE#         67
+  C:033EH         LINE#         68
+  C:0340H         LINE#         69
+  -------         ENDMOD        TEST
+
+Program Size: data=8.0 xdata=0 code=896
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

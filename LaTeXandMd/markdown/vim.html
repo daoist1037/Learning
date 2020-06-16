@@ -712,3 +712,156 @@
 <li>% 命令允许我们在一组开闭括号间跳转</li>
 </ul>
 <h1 id="在文件间跳转">在文件间跳转</h1>
+<h2 id="技巧55-遍历跳转列表">技巧55 遍历跳转列表</h2>
+<ul>
+<li><C-o> <C-i> 命令允许对跳转列表进行遍历</li>
+<li>:jumps 查看跳转列表</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">命令</th>
+<th style="text-align: left;">用途</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">[count]G</td>
+<td style="text-align: left;">跳转到指定的行号</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">/patten<CR>/?pattern<CR>/n/N</td>
+<td style="text-align: left;">跳转到下一个/上一个模式出现之处</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">%</td>
+<td style="text-align: left;">跳转到匹配的括号所在之处</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">(/)</td>
+<td style="text-align: left;">跳转到上一句/下一句的开头</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">{/}</td>
+<td style="text-align: left;">跳转到上一段/下一段的开头</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">H/M/L</td>
+<td style="text-align: left;">跳转到屏幕最上方/正中间/最下方</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gf</td>
+<td style="text-align: left;">跳转到光标下的文件名</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">&lt;C-]&gt;</td>
+<td style="text-align: left;">跳转到光标下的关键字的定义之处</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">’<mark>/斜撇<mark></td>
+<td style="text-align: left;">跳转到一个位置标记</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>在插入模式中按一下 <C-i>，你会发现这和按 <Tab> 键的效果是一样的，因为Vim本来就把 <C-i> 和 <Tab> 当成同一个东西。</li>
+</ul>
+<h2 id="技巧56-遍历改变列表">技巧56 遍历改变列表</h2>
+<h2 id="技巧57-跳转到光标下的文件">技巧57 跳转到光标下的文件</h2>
+<h2 id="技巧58-用全局位置标记在文件间快速跳转">技巧58 用全局位置标记在文件间快速跳转</h2>
+<h1 id="复制与粘贴">复制与粘贴</h1>
+<h2 id="技巧59-用无名寄存器实现删除复制与粘贴操作">技巧59 用无名寄存器实现删除、复制与粘贴操作</h2>
+<h2 id="技巧60-深入理解vim寄存器">技巧60 深入理解Vim寄存器</h2>
+<ul>
+<li>"{register} 指定要使用的寄存器</li>
+<li>delete yank put</li>
+<li>我们怎样才能删除文本而不把其内容复制到任何寄存器？
+<ul>
+<li>使用名为“黑洞”的特殊寄存器</li>
+<li>"_d{motion} 会执行真正的删除操作</li>
+</ul></li>
+<li>无名寄存器
+<ul>
+<li>倘若我们没有指定要使用的寄存器，Vim将缺省使用无名寄存器</li>
+<li>" "使用两个双引号</li>
+<li>x、s、d{motion}、c{motion} 与y{motion}命令（以及它们对应的大写命令）都会覆盖无名寄存器中的内容。无论哪一种情况，都可以通过加"{register}前缀来指定另外一个寄存器，但无名寄存器总是缺省的</li>
+</ul></li>
+<li>复制专用寄存器（"0）
+<ul>
+<li>当我们使用 y{motion}命令时，要复制的文本不仅会被拷贝到无名寄存器中，而且也被拷贝到了复制专用寄存器中</li>
+</ul></li>
+<li>有名寄存器（“a –”z）</li>
+<li>系统剪贴板（“+）与选择专用寄存器（”*）</li>
+<li>表达式寄存器 ("=)
+<ul>
+<li>当我们从表达式寄存器获取内容时，Vim将跳到命令行模式，并显示提示符“=”。这时，我们可以输入一段Vim脚本表达式并按<CR>执行，如果返回的是字符串（或者可被强制转换成字符串的数据），Vim将会使用它。</li>
+</ul></li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">寄存器</th>
+<th style="text-align: left;">内容</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">"%</td>
+<td style="text-align: left;">当前文件名</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">"#</td>
+<td style="text-align: left;">轮换文件名</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">".</td>
+<td style="text-align: left;">上次插入的文本</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">":</td>
+<td style="text-align: left;">上次查找的Ex命令</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">"/</td>
+<td style="text-align: left;">上次查找的模式</td>
+</tr>
+</tbody>
+</table>
+<h2 id="技巧61-用寄存器中的内容替换高亮选区的文本">技巧61 用寄存器中的内容替换高亮选区的文本</h2>
+<h2 id="技巧62-把寄存器的内容粘贴出来">技巧62 把寄存器的内容粘贴出来</h2>
+<ul>
+<li>p命令把寄存器中的文本粘贴到光标之后</li>
+<li>P命令把寄存器中的文本粘贴到光标之前</li>
+</ul>
+<h2 id="技巧63-与系统剪贴板进行交互">技巧63 与系统剪贴板进行交互</h2>
+<h1 id="宏">宏</h1>
+<h2 id="技巧64-宏的读取与执行">技巧64 宏的读取与执行</h2>
+<ul>
+<li>q 键既是“录制”按钮，也是“停止”按钮
+<ul>
+<li>q {register} 开始录制，直到再次按下 q 键为止</li>
+</ul></li>
+<li>用@{register}命令执行指定寄存器的内容
+<ul>
+<li>我们在第一行用 <span class="citation" data-cites="a">@a</span> 回放宏，而在下一行用 @@ 来回放同样的宏。</li>
+</ul></li>
+</ul>
+<h2 id="技巧65-规范光标位置直达目标以及中止宏">技巧65 规范光标位置、直达目标以及中止宏</h2>
+<h2 id="技巧66-加次数回放宏">技巧66 加次数回放宏</h2>
+<h2 id="技巧67-在连续的文本行上重复修改">技巧67 在连续的文本行上重复修改</h2>
+<ul>
+<li>~ 将某单词第一个字母大写</li>
+</ul>
+<h2 id="技巧68-给宏追加命令">技巧68 给宏追加命令</h2>
+<ul>
+<li>在我们输入qa时，Vim将开始录制接下来的按键操作，并将它们保存到寄存器a中，这会覆盖该寄存器原有的内容。如果我们输入的是 qA 的话，Vim 也会录制按键操作，但会把它们附加到寄存器a原有的内容之后。</li>
+</ul>
+<h2 id="技巧69-在一组文件中执行宏">技巧69 在一组文件中执行宏</h2>
+<ul>
+<li>以并行方式执行此宏</li>
+<li>请仔细想一想，运行 :argdo normal <span class="citation" data-cites="a">@a</span> 将对参数列表内的所有缓冲区执行我们刚录制的宏，当然也包括那个在录制宏时被修改的文件。因此，第一个缓冲区的内容将被两次封装于同一个模块中。</li>
+<li>为了避免此类问题，我们将执行 :edit! ，放弃针对第一个缓冲区所做的所有修改</li>
+<li>以串行方式执行宏</li>
+</ul>
+<h2 id="技巧70-用迭代求值的方式给列表编号">技巧70 用迭代求值的方式给列表编号</h2>
+<h2 id="技巧71-编辑宏的内容">技巧71 编辑宏的内容</h2>
