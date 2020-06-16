@@ -6,7 +6,7 @@
 START:  MOV P0, #0FFH
         MOV P2, #00H
         MOV P1, #0FFH
-		MOV SP, #60H
+        MOV SP, #60H
         CLR IT0;   INT0低电平
         MOV IP, #01H;   INT0高优先级
         SETB EA;        总中断允许
