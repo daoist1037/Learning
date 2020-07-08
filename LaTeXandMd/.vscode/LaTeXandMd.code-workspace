@@ -11,7 +11,7 @@
 		}
 	],
 	"settings": {
-		"workbench.colorTheme": "Community Material Theme Palenight",
+		"workbench.colorTheme": "Palenight Italic",
 		"markdownExtended.imageOmitBackground": true,
 		"markdown.extension.toc.githubCompatibility": true,
 		"markdownExtended.puppeteerExecutable": "C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe",

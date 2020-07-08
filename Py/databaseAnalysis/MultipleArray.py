@@ -1,5 +1,5 @@
 #%%
-import numpy as np 
+import numpy as np
 a = np.array([1,2,3,4])
 print(a)
 print(a.ndim,a.shape,a.size,a.dtype,a.itemsize,sep=' ')
@@ -64,6 +64,11 @@ print(np.transpose(c))
 print(np.linalg.inv(c))
 # 求逆
 
+
+
+# %%
+
+# %%
 
 
 # %%

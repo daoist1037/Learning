@@ -44,3 +44,26 @@ print('warmup:', gpu_time)
 # cpu_time = timeit.timeit(cpu_run, number=10)
 # gpu_time = timeit.timeit(gpu_run, number=10)
 # print('run time:', cpu_time, gpu_time)
+# %%
+c = [-1, 4]
+A = [[-3, 1], [1, 2]]
+b = [6, 4]
+x0_bounds = (None, None)
+x1_bounds = (-3, None)
+from scipy.optimize import linprog
+res = linprog(c, A_ub=A, b_ub=b, bounds=[x0_bounds, x1_bounds])
+
+
+# %%
+c = [-2, -3, 5]
+a = [[-2, 5, -1], [1, 3, 1]]
+b = [-10, 12]
+aeq = [[1, 1, 1]]
+deq = 7
+import numpy as np
+# x = linprog(c, a, b, aeq, deq, np.zeros(3, 1))
+x = linprog(c ,A_ub=a, b_ub=b, A_eq=aeq, b_eq=deq, x0=np.zeros((3, 1)))
+
+# %%
+
+# %%

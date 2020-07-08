@@ -75,7 +75,7 @@ let g:python3_host_prog="/usr/bin/python3"
 "----------------------------------------------------------------
 "----------------------------插件管理----------------------------
 "----------------------------------------------------------------
-call plug#begin('/home/dd/.local/vim/plugged')
+call plug#begin('~/.local/vim/plugged')
 "Plug 'preservim/nerdtree'                    "文件管理
 "Plug 'mbbill/undotree'
 Plug 'itchyny/lightline.vim'                  "statusline
@@ -99,8 +99,8 @@ call plug#end()
 "----------------------------------------------------------------
 "----------------------------onedark设置-------------------------
 "----------------------------------------------------------------
-"if filereadable("/home/dd/.local/vim/myconfig/self_theme.vim")
-    "source /home/dd/.local/vim/myconfig/self_theme.vim
+"if filereadable("~/.local/vim/myconfig/self_theme.vim")
+    "source ~/.local/vim/myconfig/self_theme.vim
 "endif
 set termguicolors
 colorscheme palenight

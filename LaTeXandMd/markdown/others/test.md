@@ -150,6 +150,7 @@ M_1\ddot{x_1}-(K_1 x_1+K_2(x_1-x_2))=0\\
 M_2\ddot{x_2}-(K_3 x_2-K_2(x_1-x_2))=0\\
 $$
 $$
+\dot{x}\\
 对于杆子上的M\\
 杆子长度L\\
 竖直：K\frac{L}{2}\frac{\sin\theta}{\cos\theta}\times \cos\theta+M\ddot{\theta}\times L\cos\theta+M\dot{x}+2Mg=0\\
@@ -157,7 +158,9 @@ $$
 力矩方程：K\frac{L}{2}\frac{\sin\theta}{\cos\theta}\times \frac{L}{2}+M\ddot{\theta}L \times L+M\ddot{y}\times(L-x)+M\ddot{x}\times y=0
 $$
 
-$\oiint x^{-3}$
+$$
+\int \sec{x} \mathrm{d}x=\int\frac{1}{\sin{x}}\mathrm{d}x=\int\frac{\sin{x}}{1-(\cos{x})^2} \mathrm{d}x=\int \frac{-1}{1-(\cos{x})^2}\mathrm{d}\cos{x}
+$$
 
 |asd|asd|
 |-|-|
